@@ -19,8 +19,10 @@
 <meta property="og:image" content="https://blog.cvbox.org/assets/image-20191005214317956.png">
 <meta property="og:image" content="https://blog.cvbox.org/assets/image-20191005214733420.png">
 <meta property="og:image" content="https://blog.cvbox.org/assets/image-20191005215100601.png">
+<meta property="og:image" content="https://blog.cvbox.org/assets/image-20191005222540433.png">
+<meta property="og:image" content="https://blog.cvbox.org/assets/image-20191005221828045.png">
 <meta property="og:image" content="https://blog.cvbox.org/assets/image-20191004082014960.png">
-<meta property="og:updated_time" content="2019-10-05T14:14:44.522Z">
+<meta property="og:updated_time" content="2019-10-05T14:26:51.545Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始搭建个人博客">
 <meta name="twitter:description" content="0x1让你爱上码字的感觉，不需要任何技术，思想的火花就通过指尖的跃动显示出来。或分享大众，或自己雪藏。 0x2 准备材料123- 域名 `example.org` （可选）- GitHub 账号 `cvbox`  0x3 安装工具 mac下安装homebrew，如果已经安装，跳过此步  1ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com">
@@ -268,7 +270,14 @@ ga('send', 'pageview');
 <ol start="3">
 <li>生成本地公钥并添加到github，此步骤是为了能够实现无密码获取到对github仓库的操作权限，为后续的第4步骤提供基础条件</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"邮件地址@youremail.com"</span></span><br><span class="line"></span><br><span class="line"># 一路回车，执行完成后</span><br><span class="line">cd</span><br><span class="line">cat .ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p>复制下面这样一坨马赛克一样的东西</p>
+<img src="/assets/image-20191005222540433.png" alt="image-20191005222540433" style="zoom:50%;">
+
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 浏览器中打开页面 http<span class="variable">s:</span>//github.<span class="keyword">com</span>/settings/<span class="built_in">keys</span>，并把复制的公钥贴到sshkeys栏目中</span><br></pre></td></tr></table></figure>
+
+<img src="/assets/image-20191005221828045.png" alt="image-20191005221828045" style="zoom:30%;">
 
 <ol start="4">
 <li>修改cvbox下<code>_config.yml</code>,根据具体情况，更改为自己的对应仓库链接</li>
@@ -276,12 +285,10 @@ ga('send', 'pageview');
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">  <span class="attribute">type</span>: git </span><br><span class="line">  <span class="attribute">repo</span>: <span class="attribute">https</span>:<span class="comment">//github.com/cvbox/cvbox.github.io.git</span></span><br><span class="line">  <span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure>
 
 <ol start="5">
-<li>推送博客页面到github，此步骤可选</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ol start="6">
-<li>浏览器中访问 <code>cvbox.github.io</code></li>
+<li><p>浏览器中访问 <code>cvbox.github.io</code>，验证部署成功</p>
+</li>
+<li><p>推送博客页面到github，此步骤可选</p>
+</li>
 </ol>
 <h2 id="0x5"><a href="#0x5" class="headerlink" title="0x5"></a>0x5</h2><p>到了这里，简单的博客就搭建好了，恭喜</p>
 <p>那么如何体验顺滑书写的感觉呢，毕竟有图文，要插入图片，图床这些概念都不懂啊，而且以后想迁移我的这些数据，图床不服务了，这些成本也不小啊。</p>
@@ -452,8 +459,8 @@ ga('send', 'pageview');
     </a>
   
   
-    <a href="/2019/10/01/Template/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Template</div>
+    <a href="/2019/09/30/xlog/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">网站更新记录</div>
       <i class="icon-circle-right"></i>
     </a>
   
