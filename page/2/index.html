@@ -185,6 +185,167 @@ ga('send', 'pageview');
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-从零开始搭建个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/01/从零开始搭建个人博客/">零基础在互联网中打造属于个人的文字工具流</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/01/从零开始搭建个人博客/" class="archive-article-date">
+  	<time datetime="2019-09-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="0x1"><a href="#0x1" class="headerlink" title="0x1"></a>0x1</h2><p>让你爱上码字的感觉，不需要任何技术，思想的火花就通过指尖的跃动显示出来。或分享大众，或自己雪藏。</p>
+<h2 id="0x2-准备材料"><a href="#0x2-准备材料" class="headerlink" title="0x2 准备材料"></a>0x2 准备材料</h2><ul>
+<li>域名 <code>example.org</code> （可选）</li>
+<li>GitHub 账号 <code>abc</code></li>
+<li>git （mac不记得是否自带，brew install git 和简单，win用户可以想其他办法）</li>
+</ul>
+<h2 id="0x3"><a href="#0x3" class="headerlink" title="0x3"></a>0x3</h2><ul>
+<li><p>安装node</p>
+</li>
+<li><p>安装hexo</p>
+</li>
+<li><p>换上自己喜欢的主题</p>
+</li>
+<li><p>本地预览</p>
+</li>
+<li><p>静态博客生成器 hexo</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br><span class="line">npm install</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h2 id="0x4"><a href="#0x4" class="headerlink" title="0x4"></a>0x4</h2><p>当然，不止步于此。我们需要在网络中找个房子给这些机灵的文字精灵，github pages 或者coding的pages都是一个不错的选择。后者对国内用户相对友好。</p>
+<ul>
+<li>建立同名的仓库</li>
+<li>自动push</li>
+<li>hexo d</li>
+<li>访问 <code>abc.github.io</code></li>
+</ul>
+<h2 id="0x5"><a href="#0x5" class="headerlink" title="0x5"></a>0x5</h2><p>到了这里，简单的博客就搭建好了，恭喜</p>
+<p>那么如何体验顺滑书写的感觉呢，毕竟有图文，要插入图片，图床这些概念都不懂啊，而且以后想迁移我的这些数据，图床不服务了，这些成本也不小啊。</p>
+<p>不用担心，这里的方式，图片还是在自己的本地，不会再使用到第三方，全部跟网页一样都托管到了github</p>
+<ul>
+<li><p>插入图片的小技巧</p>
+</li>
+<li><p>在source下建立assets 文件夹，用来存放文章用到的图片</p>
+</li>
+<li><p>设置typora的文件复制路径，Typora-偏好设置-图像-复制到指定路径-<code>../assets</code></p>
+</li>
+</ul>
+<p><img src="/assets/image-20191004082014960.png" alt="image-20191004082014960"></p>
+<h2 id="0x7-保存你的源文件"><a href="#0x7-保存你的源文件" class="headerlink" title="0x7 保存你的源文件"></a>0x7 保存你的源文件</h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git commit</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>主题也进行了修改了如何保存</li>
+<li>git submodule add xxx</li>
+</ul>
+<h2 id="0x8"><a href="#0x8" class="headerlink" title="0x8"></a>0x8</h2><p>那个，我先添加cdn 没问题 cloudflare 帮你解决</p>
+<h2 id="0x9"><a href="#0x9" class="headerlink" title="0x9"></a>0x9</h2><p>那个 我还想加个小锁，https，自定义域名</p>
+<h2 id="0xa"><a href="#0xa" class="headerlink" title="0xa"></a>0xa</h2><p>文章只有自己看，加个小密码</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">切换到根目录</span><br><span class="line">npm <span class="keyword">install</span> hexo-blog-<span class="keyword">encrypt</span> <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>开启加密开关,在外层的_config.yml中添加</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">encrypt:</span></span><br><span class="line"><span class="attr">    enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在期望加密的文章头部添加配置</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">我是文章的标题</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2019</span><span class="bullet">-10</span><span class="bullet">-01</span></span><br><span class="line"><span class="attr">tags:</span> <span class="string">[life,tool]</span></span><br><span class="line"><span class="attr">password:</span> <span class="number">12345</span></span><br><span class="line"><span class="attr">abstract:</span> <span class="string">摘要</span></span><br><span class="line"><span class="attr">message:</span> <span class="string">土豆土豆，我是地瓜</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"></span><br><span class="line"><span class="attr">password:</span> <span class="string">博客加密使用的密码</span></span><br><span class="line"><span class="attr">abstract:</span> <span class="string">在博客的列表页显示的摘要信息</span></span><br><span class="line"><span class="attr">message:</span>  <span class="string">密码输入框的提示信息</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="0xb"><a href="#0xb" class="headerlink" title="0xb"></a>0xb</h2><p>搜索引擎看，google 分析，百度分析等站长工具</p>
+
+      
+
+
+    <!-- 增加版权声明 -->
+
+    
+    
+      <div class="declare" hidden="hidden"></div>
+    
+
+    <!-- 增加版权声明结束 -->
+
+
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">todo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">website</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tool</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">从零开始系列</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/01/从零开始搭建个人博客/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-如何取一个富有吸引力的名字" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -329,167 +490,6 @@ ga('send', 'pageview');
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/10/01/如何取一个让人无法拒绝的标题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-从零开始搭建个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/01/从零开始搭建个人博客/">零基础在互联网中打造属于个人的文字工具流</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/01/从零开始搭建个人博客/" class="archive-article-date">
-  	<time datetime="2019-09-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="0x1"><a href="#0x1" class="headerlink" title="0x1"></a>0x1</h2><p>让你爱上码字的感觉，不需要任何技术，思想的火花就通过指尖的跃动显示出来。或分享大众，或自己雪藏。</p>
-<h2 id="0x2-准备材料"><a href="#0x2-准备材料" class="headerlink" title="0x2 准备材料"></a>0x2 准备材料</h2><ul>
-<li>域名 <code>example.org</code> （可选）</li>
-<li>GitHub 账号 <code>abc</code></li>
-<li>git （mac不记得是否自带，brew install git 和简单，win用户可以想其他办法）</li>
-</ul>
-<h2 id="0x3"><a href="#0x3" class="headerlink" title="0x3"></a>0x3</h2><ul>
-<li><p>安装node</p>
-</li>
-<li><p>安装hexo</p>
-</li>
-<li><p>换上自己喜欢的主题</p>
-</li>
-<li><p>本地预览</p>
-</li>
-<li><p>静态博客生成器 hexo</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br><span class="line">npm install</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<h2 id="0x4"><a href="#0x4" class="headerlink" title="0x4"></a>0x4</h2><p>当然，不止步于此。我们需要在网络中找个房子给这些机灵的文字精灵，github pages 或者coding的pages都是一个不错的选择。后者对国内用户相对友好。</p>
-<ul>
-<li>建立同名的仓库</li>
-<li>自动push</li>
-<li>hexo d</li>
-<li>访问 <code>abc.github.io</code></li>
-</ul>
-<h2 id="0x5"><a href="#0x5" class="headerlink" title="0x5"></a>0x5</h2><p>到了这里，简单的博客就搭建好了，恭喜</p>
-<p>那么如何体验顺滑书写的感觉呢，毕竟有图文，要插入图片，图床这些概念都不懂啊，而且以后想迁移我的这些数据，图床不服务了，这些成本也不小啊。</p>
-<p>不用担心，这里的方式，图片还是在自己的本地，不会再使用到第三方，全部跟网页一样都托管到了github</p>
-<ul>
-<li><p>插入图片的小技巧</p>
-</li>
-<li><p>在source下建立assets 文件夹，用来存放文章用到的图片</p>
-</li>
-<li><p>设置typora的文件复制路径，Typora-偏好设置-图像-复制到指定路径-<code>../assets</code></p>
-</li>
-</ul>
-<p><img src="/assets/image-20191004082014960.png" alt="image-20191004082014960"></p>
-<h2 id="0x7-保存你的源文件"><a href="#0x7-保存你的源文件" class="headerlink" title="0x7 保存你的源文件"></a>0x7 保存你的源文件</h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git commit</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>主题也进行了修改了如何保存</li>
-<li>git submodule add xxx</li>
-</ul>
-<h2 id="0x8"><a href="#0x8" class="headerlink" title="0x8"></a>0x8</h2><p>那个，我先添加cdn 没问题 cloudflare 帮你解决</p>
-<h2 id="0x9"><a href="#0x9" class="headerlink" title="0x9"></a>0x9</h2><p>那个 我还想加个小锁，https，自定义域名</p>
-<h2 id="0xa"><a href="#0xa" class="headerlink" title="0xa"></a>0xa</h2><p>文章只有自己看，加个小密码</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">切换到根目录</span><br><span class="line">npm <span class="keyword">install</span> hexo-blog-<span class="keyword">encrypt</span> <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>开启加密开关,在外层的_config.yml中添加</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">encrypt:</span></span><br><span class="line"><span class="attr">    enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在期望加密的文章头部添加配置</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">我是文章的标题</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2019</span><span class="bullet">-10</span><span class="bullet">-01</span></span><br><span class="line"><span class="attr">tags:</span> <span class="string">[life,tool]</span></span><br><span class="line"><span class="attr">password:</span> <span class="number">12345</span></span><br><span class="line"><span class="attr">abstract:</span> <span class="string">摘要</span></span><br><span class="line"><span class="attr">message:</span> <span class="string">土豆土豆，我是地瓜</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"></span><br><span class="line"><span class="attr">password:</span> <span class="string">博客加密使用的密码</span></span><br><span class="line"><span class="attr">abstract:</span> <span class="string">在博客的列表页显示的摘要信息</span></span><br><span class="line"><span class="attr">message:</span>  <span class="string">密码输入框的提示信息</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="0xb"><a href="#0xb" class="headerlink" title="0xb"></a>0xb</h2><p>搜索引擎看，google 分析，百度分析等站长工具</p>
-
-      
-
-
-    <!-- 增加版权声明 -->
-
-    
-    
-      <div class="declare" hidden="hidden"></div>
-    
-
-    <!-- 增加版权声明结束 -->
-
-
-
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">website</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">todo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tool</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">从零开始系列</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/01/从零开始搭建个人博客/">展开全文 >></a>
         </p>
       
 
@@ -968,11 +968,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">website</a>
+                <a href="javascript:void(0)" class="js-tag color5">todo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">todo</a>
+                <a href="javascript:void(0)" class="js-tag color3">website</a>
               </li>
              
               <li class="article-tag-list-item">
