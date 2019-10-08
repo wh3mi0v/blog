@@ -179,6 +179,160 @@ ga('send', 'pageview');
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-如何快速开发一个app" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/07/如何快速开发一个app/">从零开始开发一个app指南</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/07/如何快速开发一个app/" class="archive-article-date">
+  	<time datetime="2019-10-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>我有一个想法，如果给我一个程序员，我觉得自己就可以干掉 Google，或可以将 Facebook 斩于马下，或者是改变我们现有的商业面貌。我已经发现了“下一个伟大事物”，有可能颠覆 Google 或是 FacebooK这个想法在我脑子里酝酿了一周了，终于搞定了,现在我只需要一个程序员而已。</p>
+<p>当然，我从来没想过自己去学会怎样编程，我有想法就足够了。</p>
+<p>今天上午，把车看好了，也试驾了，宝马7系，有现车，感觉还可以。计划明天付定金，下午去看房子，独栋的别墅价格还行，1000平方米的，门口有花园，能停车，折扣已经谈好且定下了。现在万事俱备，只看今晚双色球了。</p>
+<p>今天吃点醋, 谁家借点小龙虾而已。</p>
+<p><a href="https://yq.aliyun.com/roundtable/55923" target="_blank" rel="noopener">原文访达</a></p>
+</blockquote>
+<p><img src="/assets/v2-c1071fc2a97d304203663f7b7f97e1c4_hd.jpg" alt="img"></p>
+<h2 id="0x1-一切从不安分的心开始"><a href="#0x1-一切从不安分的心开始" class="headerlink" title="0x1 一切从不安分的心开始"></a>0x1 一切从不安分的心开始</h2><p>​    好比苹果从树上掉下来，砸到了你的头上，忽然你就有了一个idea，最终如何落地到产品，中间的路程超乎想象，无知者无惧，如果是你只是有很好的产品思维，但是缺乏代码实现能力，那么实际上需要找一个技术小子，来进行辅助。或者你本来就属于全面型的，那么可以直接略过原型，在脑海中演绎，然后动手撸起来。实际上，我还是强烈的建议通过原型展示在眼前，毕竟完全在大脑中想象，也很难考虑周全。而且，产品原型设计仅仅只是开始踏坑的第一步而已…</p>
+<p>​    很幸运，能够在此相遇，分享一些你可能知道或者不知道，而我又恰恰又知道的东西。</p>
+<p>一个产品的形态有很多种方式体现，PC网站，移动端网站，微信公众号，独立App等，每一个都涉及到非常多的内容，这里先以App为例，谈谈开发一个App需要涉及到的工具以及需要考虑的点。优先选择开源，后续再聊聊具体这个流程中的一些细节以及替代的商用产品。</p>
+<h2 id="0x2-原型设计工具"><a href="#0x2-原型设计工具" class="headerlink" title="0x2 原型设计工具"></a>0x2 原型设计工具</h2><ul>
+<li><p>Flinto</p>
+</li>
+<li><p>磨刀</p>
+</li>
+<li><p>Axure</p>
+</li>
+</ul>
+<h2 id="0x3-前端技术选型（Hybrid-App）"><a href="#0x3-前端技术选型（Hybrid-App）" class="headerlink" title="0x3 前端技术选型（Hybrid App）"></a>0x3 前端技术选型（Hybrid App）</h2><ul>
+<li>Vue</li>
+<li>Uinapp</li>
+<li>Weex</li>
+<li>ReactNative</li>
+<li>Element-UI | Ant-Design （运营管理后台，开发中台管理等） </li>
+</ul>
+<h2 id="0x4-后台技术选型"><a href="#0x4-后台技术选型" class="headerlink" title="0x4 后台技术选型"></a>0x4 后台技术选型</h2><ul>
+<li>基础框架 Java-SpringCloud | SpringBoot | Dubbo </li>
+<li>基础框架 Go 生态系统</li>
+<li>协议选择 文本协议 | 二进制协议选择</li>
+<li>数据库的选型 Mysql | Redis等</li>
+<li>登陆鉴权票据等 有状态 | 无状态， Session | OAuth | JWT</li>
+<li>消息队列 RocketMq</li>
+<li>定时任务管理 ElasticJob</li>
+<li>Nginx | Openresty | </li>
+</ul>
+<h2 id="0x5-部署自动化"><a href="#0x5-部署自动化" class="headerlink" title="0x5 部署自动化"></a>0x5 部署自动化</h2><ul>
+<li>Jenkins | Ansible</li>
+<li>容器技术 Docker </li>
+<li>服务编排 Kubernetes</li>
+</ul>
+<h2 id="0x6-代码托管"><a href="#0x6-代码托管" class="headerlink" title="0x6 代码托管"></a>0x6 代码托管</h2><ul>
+<li>Github</li>
+<li>私有部署 Gitlab | Gogs </li>
+</ul>
+<h2 id="0x7-监控-可视化"><a href="#0x7-监控-可视化" class="headerlink" title="0x7 监控 | 可视化"></a>0x7 监控 | 可视化</h2><ul>
+<li>Cat</li>
+<li>Prometheus</li>
+<li>Pinpoint</li>
+<li>E（Elasticsearch）L（Logstash）K（Kibana） ，ELK</li>
+<li>可视化（Grafana |  Kibana ）可以和Prometheus 结合形成监控数据一体化</li>
+</ul>
+<h2 id="0x8-其他工具类库等（全栈开发人员必知必会）"><a href="#0x8-其他工具类库等（全栈开发人员必知必会）" class="headerlink" title="0x8 其他工具类库等（全栈开发人员必知必会）"></a>0x8 其他工具类库等（全栈开发人员必知必会）</h2><ul>
+<li><p>JavaScript</p>
+</li>
+<li><p>Vuejs</p>
+</li>
+<li><p>Python</p>
+</li>
+<li><p>Postman</p>
+</li>
+<li><p>Whistle </p>
+</li>
+<li><p>WireShark</p>
+</li>
+<li><p>Tcpdump</p>
+</li>
+</ul>
+
+      
+
+
+    <!-- 增加版权声明 -->
+
+    
+    
+      <div class="declare" hidden="hidden"></div>
+    
+
+    <!-- 增加版权声明结束 -->
+
+
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">app</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/07/如何快速开发一个app/">show more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-从零开始搭建个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -338,15 +492,15 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">todo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">website</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tool</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">todo</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -415,16 +569,23 @@ ga('send', 'pageview');
 <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//todo 意思就是项目很敢，目前这里能正常实现，将来有空再来补充 ==》 不做</span></span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><p>如何取一个让人无法拒绝的标题？</p>
-</li>
-<li><p>如何写好一篇通俗易懂的科普文？</p>
-</li>
-<li><p>如何利用好会写一点代码的能力？</p>
-</li>
-<li><p>如何掌握一个好的上班（滑水）姿势？</p>
-</li>
-<li><p>如何在21天精通xxx，yyyy ？</p>
-</li>
+<li>如何取一个让人无法拒绝的标题？</li>
+<li>如何写好一篇通俗易懂的科普文？</li>
+<li>如何利用好会写一点代码的能力？</li>
+<li>如何掌握一个好的上班（滑水）姿势？</li>
+<li>如何在21天精通xxx，yyyy ？</li>
+</ul>
+<h2 id="选题"><a href="#选题" class="headerlink" title="选题"></a>选题</h2><ul>
+<li>架构高可用</li>
+<li>唯一id生成</li>
+<li>创业公司架构</li>
+<li>100cpu 发生了什么</li>
+<li>微服务</li>
+<li>原形工具对比 | 开发工具 | 效率工具使用推荐</li>
+<li>抓包工具，你的接口不对啥，抓个包给我？</li>
+<li>全栈工程师必备的经验和工具</li>
+<li>线程是什么，工作模式如何</li>
+<li>http | https解析</li>
 </ul>
 
       
@@ -492,121 +653,19 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-todo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-模版" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/04/todo/">TODO == NOT DO ?</a>
+      <a class="article-title" href="/2019/10/01/模版/">Template</a>
     </h1>
   
 
         
-        <a href="/2019/10/04/todo/" class="archive-article-date">
-  	<time datetime="2019-10-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/image-20191005013602193.png" alt="image-20191005013602193"></p>
-<p>代码界有个不成文的约定</p>
-<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//todo 意思就是项目很敢，目前这里能正常实现，将来有空再来补充 ==》 不做</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>如何取一个让人无法拒绝的标题？</p>
-</li>
-<li><p>如何写好一篇通俗易懂的科普文？</p>
-</li>
-<li><p>如何利用好会写一点代码的能力？</p>
-</li>
-<li><p>如何掌握一个好的上班（滑水）姿势？</p>
-</li>
-<li><p>如何在21天精通xxx，yyyy ？</p>
-</li>
-</ul>
-
-      
-
-
-    <!-- 增加版权声明 -->
-
-    
-    
-      <div class="declare" hidden="hidden"></div>
-    
-
-    <!-- 增加版权声明结束 -->
-
-
-
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">todo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/04/todo/">show more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Template" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/01/Template/">Template</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/01/Template/" class="archive-article-date">
+        <a href="/2019/10/01/模版/" class="archive-article-date">
   	<time datetime="2019-09-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-01</time>
 </a>
         
@@ -652,7 +711,7 @@ ga('send', 'pageview');
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/01/Template/">show more >></a>
+          <a class="article-more-a" href="/2019/10/01/模版/">show more >></a>
         </p>
       
 
@@ -867,6 +926,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">todo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">website</a>
               </li>
              
@@ -875,15 +938,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">todo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">从零开始系列</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">guides</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">app</a>
               </li>
             
             <div class="clearfix"></div>
