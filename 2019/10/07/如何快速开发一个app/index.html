@@ -9,7 +9,7 @@
   <title>从零开始开发一个app指南 | Cvbox</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="我有一个想法，如果给我一个程序员，我觉得自己就可以干掉 Google，或可以将 Facebook 斩于马下，或者是改变我们现有的商业面貌。我已经发现了“下一个伟大事物”，有可能颠覆 Google 或是 FacebooK这个想法在我脑子里酝酿了一周了，终于搞定了,现在我只需要一个程序员而已。 当然，我从来没想过自己去学会怎样编程，我有想法就足够了。 今天上午，把车看好了，也试驾了，宝马7系，有现车">
-<meta name="keywords" content="app">
+<meta name="keywords" content="website">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从零开始开发一个app指南">
 <meta property="og:url" content="https://blog.cvbox.org/2019/10/07/如何快速开发一个app/index.html">
@@ -17,7 +17,7 @@
 <meta property="og:description" content="我有一个想法，如果给我一个程序员，我觉得自己就可以干掉 Google，或可以将 Facebook 斩于马下，或者是改变我们现有的商业面貌。我已经发现了“下一个伟大事物”，有可能颠覆 Google 或是 FacebooK这个想法在我脑子里酝酿了一周了，终于搞定了,现在我只需要一个程序员而已。 当然，我从来没想过自己去学会怎样编程，我有想法就足够了。 今天上午，把车看好了，也试驾了，宝马7系，有现车">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://blog.cvbox.org/assets/v2-c1071fc2a97d304203663f7b7f97e1c4_hd.jpg">
-<meta property="og:updated_time" content="2019-10-08T01:46:29.423Z">
+<meta property="og:updated_time" content="2019-10-08T01:48:56.029Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始开发一个app指南">
 <meta name="twitter:description" content="我有一个想法，如果给我一个程序员，我觉得自己就可以干掉 Google，或可以将 Facebook 斩于马下，或者是改变我们现有的商业面貌。我已经发现了“下一个伟大事物”，有可能颠覆 Google 或是 FacebooK这个想法在我脑子里酝酿了一周了，终于搞定了,现在我只需要一个程序员而已。 当然，我从来没想过自己去学会怎样编程，我有想法就足够了。 今天上午，把车看好了，也试驾了，宝马7系，有现车">
@@ -208,16 +208,13 @@ ga('send', 'pageview');
 <p><a href="https://yq.aliyun.com/roundtable/55923" target="_blank" rel="noopener">原文访达</a></p>
 </blockquote>
 <p><img src="/assets/v2-c1071fc2a97d304203663f7b7f97e1c4_hd.jpg" alt="img"></p>
-<h2 id="0x1-一切从不安分的心开始"><a href="#0x1-一切从不安分的心开始" class="headerlink" title="0x1 一切从不安分的心开始"></a>0x1 一切从不安分的心开始</h2><p>​    好比苹果从树上掉下来，砸到了你的头上，忽然你就有了一个idea，最终如何落地到产品，中间的路程超乎想象，无知者无惧，如果是你只是有很好的产品思维，但是缺乏代码实现能力，那么实际上需要找一个技术小子，来进行辅助。或者你本来就属于全面型的，那么可以直接略过原型，在脑海中演绎，然后动手撸起来。实际上，我还是强烈的建议通过原型展示在眼前，毕竟完全在大脑中想象，也很难考虑周全。而且，产品原型设计仅仅只是开始踏坑的第一步而已…</p>
-<p>​    很幸运，能够在此相遇，分享一些你可能知道或者不知道，而我又恰恰又知道的东西。</p>
-<p>一个产品的形态有很多种方式体现，PC网站，移动端网站，微信公众号，独立App等，每一个都涉及到非常多的内容，这里先以App为例，谈谈开发一个App需要涉及到的工具以及需要考虑的点。优先选择开源，后续再聊聊具体这个流程中的一些细节以及替代的商用产品。</p>
+<h2 id="0x1-一切从不安分的心开始"><a href="#0x1-一切从不安分的心开始" class="headerlink" title="0x1 一切从不安分的心开始"></a>0x1 一切从不安分的心开始</h2><pre><code>好比苹果从树上掉下来，砸到了你的头上，忽然你就有了一个idea，最终如何落地到产品，中间的路程超乎想象，无知者无惧，如果是你只是有很好的产品思维，但是缺乏代码实现能力，那么实际上需要找一个技术小子，来进行辅助。或者你本来就属于全面型的，那么可以直接略过原型，在脑海中演绎，然后动手撸起来。实际上，我还是强烈的建议通过原型展示在眼前，毕竟完全在大脑中想象，也很难考虑周全。而且，产品原型设计仅仅只是开始踏坑的第一步而已...
+
+很幸运，能够在此相遇，分享一些你可能知道或者不知道，而我又恰恰又知道的东西。</code></pre><p>一个产品的形态有很多种方式体现，PC网站，移动端网站，微信公众号，独立App等，每一个都涉及到非常多的内容，这里先以App为例，谈谈开发一个App需要涉及到的工具以及需要考虑的点。优先选择开源，后续再聊聊具体这个流程中的一些细节以及替代的商用产品。</p>
 <h2 id="0x2-原型设计工具"><a href="#0x2-原型设计工具" class="headerlink" title="0x2 原型设计工具"></a>0x2 原型设计工具</h2><ul>
-<li><p>Flinto</p>
-</li>
-<li><p>磨刀</p>
-</li>
-<li><p>Axure</p>
-</li>
+<li>Flinto</li>
+<li>磨刀</li>
+<li>Axure</li>
 </ul>
 <h2 id="0x3-前端技术选型（Hybrid-App）"><a href="#0x3-前端技术选型（Hybrid-App）" class="headerlink" title="0x3 前端技术选型（Hybrid App）"></a>0x3 前端技术选型（Hybrid App）</h2><ul>
 <li>Vue</li>
@@ -253,20 +250,13 @@ ga('send', 'pageview');
 <li>可视化（Grafana |  Kibana ）可以和Prometheus 结合形成监控数据一体化</li>
 </ul>
 <h2 id="0x8-其他工具类库等（全栈开发人员必知必会）"><a href="#0x8-其他工具类库等（全栈开发人员必知必会）" class="headerlink" title="0x8 其他工具类库等（全栈开发人员必知必会）"></a>0x8 其他工具类库等（全栈开发人员必知必会）</h2><ul>
-<li><p>JavaScript</p>
-</li>
-<li><p>Vuejs</p>
-</li>
-<li><p>Python</p>
-</li>
-<li><p>Postman</p>
-</li>
-<li><p>Whistle </p>
-</li>
-<li><p>WireShark</p>
-</li>
-<li><p>Tcpdump</p>
-</li>
+<li>JavaScript</li>
+<li>Vuejs</li>
+<li>Python</li>
+<li>Postman</li>
+<li>Whistle </li>
+<li>WireShark</li>
+<li>Tcpdump</li>
 </ul>
 
       
@@ -311,7 +301,7 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">app</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">website</a>
         		</li>
       		
 		</ul>
