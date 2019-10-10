@@ -6,19 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://blog.cvbox.org">
-  <title>Archives: 2019/10 | Cvbox</title>
+  <title>GPS 数据分析 | Cvbox</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="非典型Cv工程师,代码助攻猪队友">
-<meta name="keywords" content="前端,js,jquery,cv工程师,cv工程师摇篮,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Cvbox">
-<meta property="og:url" content="https://blog.cvbox.org/archives/2019/10/index.html">
+  <meta name="description" content="代码结构 数据预处理1.清洗数据通过服务器返回的数据，包含许多冗余的数据，我们需要对其进行抽取，转换成我们需要的数据。 1getAllUserData(String inpath, String opath)  将从服务器获取的json字符串进行清洗、换行成结构化数据。格式如下。 1238566965,1.438734627E9,2015-08-05 08:30:27,113.930632,22">
+<meta name="keywords" content="data">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GPS 数据分析">
+<meta property="og:url" content="https://blog.cvbox.org/2019/10/07/GPS数据分析/index.html">
 <meta property="og:site_name" content="Cvbox">
-<meta property="og:description" content="非典型Cv工程师,代码助攻猪队友">
+<meta property="og:description" content="代码结构 数据预处理1.清洗数据通过服务器返回的数据，包含许多冗余的数据，我们需要对其进行抽取，转换成我们需要的数据。 1getAllUserData(String inpath, String opath)  将从服务器获取的json字符串进行清洗、换行成结构化数据。格式如下。 1238566965,1.438734627E9,2015-08-05 08:30:27,113.930632,22">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://needpp.qiniudn.com/2015/09/01/ba63550f-5079-11e5-aa5e-87176098b650.jpg">
+<meta property="og:image" content="http://7punic.com1.z0.glb.clouddn.com/99bfab70-5071-11e5-815b-0d9e9dbaa5ec.png">
+<meta property="og:image" content="http://7punic.com1.z0.glb.clouddn.com/a35f5a90-5071-11e5-815b-0d9e9dbaa5ec.png">
+<meta property="og:image" content="http://7punic.com1.z0.glb.clouddn.com/b64ca130-5071-11e5-815b-0d9e9dbaa5ec.png">
+<meta property="og:updated_time" content="2019-10-07T15:28:30.529Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cvbox">
-<meta name="twitter:description" content="非典型Cv工程师,代码助攻猪队友">
+<meta name="twitter:title" content="GPS 数据分析">
+<meta name="twitter:description" content="代码结构 数据预处理1.清洗数据通过服务器返回的数据，包含许多冗余的数据，我们需要对其进行抽取，转换成我们需要的数据。 1getAllUserData(String inpath, String opath)  将从服务器获取的json字符串进行清洗、换行成结构化数据。格式如下。 1238566965,1.438734627E9,2015-08-05 08:30:27,113.930632,22">
+<meta name="twitter:image" content="https://needpp.qiniudn.com/2015/09/01/ba63550f-5079-11e5-aa5e-87176098b650.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Cvbox" type="application/atom+xml">
   
@@ -177,36 +183,126 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-GPS数据分析" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/07/GPS数据分析/" class="archive-article-date">
-  	<time datetime="2019-10-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/07/GPS数据分析/">GPS 数据分析</a>
+    <h1 class="article-title" itemprop="name">
+      GPS 数据分析
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/10/07/GPS数据分析/" class="archive-article-date">
+  	<time datetime="2019-10-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h3 id="代码结构"><a href="#代码结构" class="headerlink" title="代码结构"></a>代码结构</h3><p><img src="https://needpp.qiniudn.com/2015/09/01/ba63550f-5079-11e5-aa5e-87176098b650.jpg" alt></p>
+<h3 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h3><p>1.清洗数据<br>通过服务器返回的数据，包含许多冗余的数据，我们需要对其进行抽取，转换成我们需要的数据。</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get<span class="constructor">AllUserData(String <span class="params">inpath</span>, String <span class="params">opath</span>)</span></span><br></pre></td></tr></table></figure>
+
+<p>将从服务器获取的json字符串进行清洗、换行成结构化数据。格式如下。</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">8566965</span>,<span class="number">1.438734627E9</span>,<span class="number">2015</span><span class="number">-08</span><span class="number">-05</span> <span class="number">08</span>:<span class="number">30</span>:<span class="number">27</span>,<span class="number">113.930632</span>,<span class="number">22.541371</span></span><br><span class="line"><span class="number">8566965</span>,<span class="number">1.438734647E9</span>,<span class="number">2015</span><span class="number">-08</span><span class="number">-05</span> <span class="number">08</span>:<span class="number">30</span>:<span class="number">47</span>,<span class="number">113.930609</span>,<span class="number">22.541398</span></span><br><span class="line"><span class="number">8566965</span>,<span class="number">1.438734667E9</span>,<span class="number">2015</span><span class="number">-08</span><span class="number">-05</span> <span class="number">08</span>:<span class="number">31</span>:<span class="number">07</span>,<span class="number">113.930603</span>,<span class="number">22.541400</span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+<p>手动选择具体某一个用户的数据进行分析</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">grep <span class="number">8566965</span> orgin.json  &gt; <span class="number">8566965.</span>gps</span><br><span class="line"></span><br><span class="line">example data:</span><br><span class="line"><span class="number">8566965</span>,<span class="number">1.438734627E9</span>,<span class="number">2015</span><span class="number">-08</span><span class="number">-05</span> <span class="number">08</span>:<span class="number">30</span>:<span class="number">27</span>,<span class="number">113.930632</span>,<span class="number">22.541371</span></span><br><span class="line"><span class="number">8566965</span>,<span class="number">1.438734647E9</span>,<span class="number">2015</span><span class="number">-08</span><span class="number">-05</span> <span class="number">08</span>:<span class="number">30</span>:<span class="number">47</span>,<span class="number">113.930609</span>,<span class="number">22.541398</span></span><br><span class="line"><span class="number">8566965</span>,<span class="number">1.438734667E9</span>,<span class="number">2015</span><span class="number">-08</span><span class="number">-05</span> <span class="number">08</span>:<span class="number">31</span>:<span class="number">07</span>,<span class="number">113.930603</span>,<span class="number">22.541400</span></span><br><span class="line"><span class="number">8566965</span>,<span class="number">1.438734687E9</span>,<span class="number">2015</span><span class="number">-08</span><span class="number">-05</span> <span class="number">08</span>:<span class="number">31</span>:<span class="number">27</span>,<span class="number">113.930497</span>,<span class="number">22.541562</span></span><br><span class="line"><span class="number">8566965</span>,<span class="number">1.438734707E9</span>,<span class="number">2015</span><span class="number">-08</span><span class="number">-05</span> <span class="number">08</span>:<span class="number">31</span>:<span class="number">47</span>,<span class="number">113.930488</span>,<span class="number">22.541332</span></span><br><span class="line"><span class="number">8566965</span>,<span class="number">1.438734727E9</span>,<span class="number">2015</span><span class="number">-08</span><span class="number">-05</span> <span class="number">08</span>:<span class="number">32</span>:<span class="number">07</span>,<span class="number">113.930619</span>,<span class="number">22.541423</span></span><br><span class="line"><span class="number">8566965</span>,<span class="number">1.438734747E9</span>,<span class="number">2015</span><span class="number">-08</span><span class="number">-05</span> <span class="number">08</span>:<span class="number">32</span>:<span class="number">27</span>,<span class="number">113.930774</span>,<span class="number">22.541376</span></span><br></pre></td></tr></table></figure>
+
+<p>2.初始化用户数据</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">选择上面处理过的文件，初始化LetZinkModel 静态成员</span><br><span class="line"><span class="keyword">List</span>&lt;GpsModel&gt; <span class="keyword">list</span></span><br><span class="line">调用初始化方法</span><br><span class="line">setUserGpsData(<span class="keyword">String</span> inpath)</span><br></pre></td></tr></table></figure>
+
+<p>3.转换GPS坐标为百度坐标系</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">gps2baidu</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+
+<p>调用此方法需要进行百度开放平台的认证。<br>配置开发者账号。这里采用配置的形式，在config.propertys文件里面进行设置。</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#file config.propertys</span></span><br><span class="line"><span class="symbol">url:</span>https:<span class="comment">//api.map.baidu.com/geoconv/v1/?coords=</span></span><br><span class="line"><span class="symbol">from:</span><span class="number">1</span></span><br><span class="line"><span class="symbol">to:</span><span class="number">5</span></span><br><span class="line"><span class="symbol">ak:</span>replace with your ak</span><br></pre></td></tr></table></figure>
+
+<p>4.分割路径</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">参数：</span><br><span class="line">diserr：距离阈值。路径的起始点距离小于该值，则该路径舍弃。</span><br><span class="line">timeerr：时间阈值。超过该值，开始一条新的路径。</span><br><span class="line">minrange：区域阈值。超过该值，定义一个新的区域标识号。</span><br><span class="line">separate<span class="constructor">GpsPath(Double <span class="params">diserr</span>,Double <span class="params">timeerr</span>,Double <span class="params">minrange</span> )</span></span><br></pre></td></tr></table></figure>
+
+<p>5.至此，GPSModel实体对象内容实例如下所示：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GpsModel [uid=<span class="number">8566965</span>, time=<span class="number">2015</span><span class="number">-07</span><span class="number">-31</span> <span class="number">14</span>:<span class="number">36</span>:<span class="number">04</span>, lng=<span class="number">113.928691</span>, lat=<span class="number">22.540987</span>, blng=<span class="number">113.94010624624</span>, blat=<span class="number">22.543624742073</span>, pathid=<span class="number">0</span>, begintime=<span class="number">2015</span><span class="number">-07</span><span class="number">-31</span> <span class="number">14</span>:<span class="number">36</span>:<span class="number">04</span>, endtime=<span class="number">2015</span><span class="number">-07</span><span class="number">-31</span> <span class="number">18</span>:<span class="number">13</span>:<span class="number">33</span>, areanum=<span class="number">0</span>, area_center_point=<span class="number">22.543624742073</span>,<span class="number">113.94010624624</span>]</span><br></pre></td></tr></table></figure>
+
+<p>6.附加步骤，此前是用于weka关联规则分析。<code>generatorARFF()</code>用于生成arff文件。导入weka进行关联规则分析。</p>
+<h3 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h3><h3 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h3><p>借助百度地图LBS服务，将用户的GPS轨迹数据，显示在地图上，并且绘制出轨迹。<br>可视化分为两个部分：</p>
+<ul>
+<li>包含全部路径的数据表</li>
+<li>包含原始数据，不同拆分路径</li>
+</ul>
+<h3 id="GeoLife-Project-Data-Process"><a href="#GeoLife-Project-Data-Process" class="headerlink" title="GeoLife Project Data Process"></a>GeoLife Project Data Process</h3><p>Geolife是微软开展的一个项目，采集了182位用户从07-12年大约四年内的个人生活GPS轨迹数据，用于学术研究。关于详细的项目信息可以访问<a href="https://research.microsoft.com/en-us/downloads/b16d359d-d164-469e-9fd4-daa38f2b2e13/" target="_blank" rel="noopener">微软GeoLife项目</a>。</p>
+<h4 id="预处理Geolife数据"><a href="#预处理Geolife数据" class="headerlink" title="预处理Geolife数据"></a>预处理Geolife数据</h4><p>原始的文件分散在不同的文件夹里面，而且头部包含一些非结构化的说明，这里采用shell脚本清除掉相关冗余杂乱的数据，最终形成以用户id为文件名的182个文件。里面的数据含义具体表示为：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">用户id，纬度，经度，高度，时间戳</span><br><span class="line"><span class="number">000</span>,<span class="number">39.984683</span>,<span class="number">116.31845</span>,<span class="number">492</span>,<span class="number">2008</span><span class="number">-10</span><span class="number">-23</span> <span class="number">02</span>:<span class="number">53</span>:<span class="number">10</span></span><br><span class="line"><span class="number">000</span>,<span class="number">39.984686</span>,<span class="number">116.318417</span>,<span class="number">492</span>,<span class="number">2008</span><span class="number">-10</span><span class="number">-23</span> <span class="number">02</span>:<span class="number">53</span>:<span class="number">15</span></span><br><span class="line"><span class="number">000</span>,<span class="number">39.984688</span>,<span class="number">116.318385</span>,<span class="number">492</span>,<span class="number">2008</span><span class="number">-10</span><span class="number">-23</span> <span class="number">02</span>:<span class="number">53</span>:<span class="number">20</span></span><br></pre></td></tr></table></figure>
+
+<p>处理脚本，需要具有执行权限。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'hell world,begin to deal with this data'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> filename  <span class="keyword">in</span> `ls /home/spark/geolife/data`</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="variable">$filename</span></span><br><span class="line">	touch ~/sample/<span class="variable">$filename</span></span><br><span class="line">	find ~/geolife/data/<span class="variable">$filename</span>  -name <span class="string">"*.plt"</span> | sort | xargs \</span><br><span class="line">		awk -F <span class="string">','</span> <span class="string">'&#123;print(fname","$1","$2","$4","$6" "$7)&#125;'</span>  fname=<span class="string">"<span class="variable">$filename</span>"</span> &gt;&gt; ~/sample/<span class="variable">$filename</span></span><br><span class="line">	 </span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="数据采样"><a href="#数据采样" class="headerlink" title="数据采样"></a>数据采样</h3><p>原始的数据采样的频率为5s一次，数据过于密集，增大数据存储开销，也影响数据可视化的性能。更重要的是，这么多的数据在坐标转换为百度坐标系里面的坐标也会带来一系列问题，比如每秒请求次数的限制等等。在geolife整理后数据的基础上，我们进行了抽样处理，由原来的5s一次采样到1分钟一次。具体实现参见GpsDemo项目中<code>edu.dcy.util.ResampleGPS</code>.</p>
+<h3 id="坐标转换"><a href="#坐标转换" class="headerlink" title="坐标转换"></a>坐标转换</h3><p>由原来的GPS坐标体系转换为百度坐标系坐标。采用百度提供的API实现。可以参考<a href="https://developer.baidu.com/map/index.php?title=webapi/guide/changeposition" target="_blank" rel="noopener">百度坐标转换说明文档</a>。</p>
+<p>具体实现也可以参考<code>edu.dcy.gps.LetZinkModel</code>里面的 <code>getRightPoints</code>方法。</p>
+<h3 id="导入到mysql"><a href="#导入到mysql" class="headerlink" title="导入到mysql"></a>导入到mysql</h3><p><strong>建表</strong></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> baidugps(</span><br><span class="line">uid <span class="type">int</span>,</span><br><span class="line">lat <span class="type">varchar</span>(<span class="number">15</span>),</span><br><span class="line">lng <span class="type">varchar</span>(<span class="number">15</span>),</span><br><span class="line">height <span class="type">varchar</span>(<span class="number">10</span>),</span><br><span class="line"><span class="type">time</span> datetime</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p><strong>导入数据</strong></p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -<span class="keyword">u</span> root -p geolife --<span class="keyword">local</span>-<span class="keyword">infile</span>=1 -<span class="keyword">e</span> 'load data <span class="keyword">local</span> <span class="keyword">infile</span> <span class="string">"/home/spark/data/baidu.gps"</span>  into <span class="keyword">table</span> baidugps fields terminated <span class="keyword">by</span> <span class="string">","</span> lines terminated <span class="keyword">by</span> <span class="string">"\n"</span>'</span><br></pre></td></tr></table></figure>
+
+<p>示例数据<br>下面展示的是所有的用户行为数据。（注：这里海拔字段没有列出）</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select uid,lat,lng,time <span class="keyword">from</span> baidugps limit <span class="number">10</span>;</span><br><span class="line">+------+-----------------+-----------------+---------------------+</span><br><span class="line">| uid  | lat             | lng             | time                |</span><br><span class="line">+------+-----------------+-----------------+---------------------+</span><br><span class="line">|    <span class="number">0</span> | <span class="number">39.991669316478</span> | <span class="number">116.32943062745</span> | <span class="number">2008</span><span class="number">-10</span><span class="number">-23</span> <span class="number">02</span>:<span class="number">54</span>:<span class="number">00</span> |</span><br><span class="line">|    <span class="number">0</span> | <span class="number">39.991597427888</span> | <span class="number">116.32713152844</span> | <span class="number">2008</span><span class="number">-10</span><span class="number">-23</span> <span class="number">02</span>:<span class="number">55</span>:<span class="number">00</span> |</span><br><span class="line">|    <span class="number">0</span> | <span class="number">39.991829369523</span> | <span class="number">116.3256071635</span>  | <span class="number">2008</span><span class="number">-10</span><span class="number">-23</span> <span class="number">02</span>:<span class="number">56</span>:<span class="number">00</span> |</span><br><span class="line">|    <span class="number">0</span> | <span class="number">39.991829414529</span> | <span class="number">116.32333614866</span> | <span class="number">2008</span><span class="number">-10</span><span class="number">-23</span> <span class="number">02</span>:<span class="number">57</span>:<span class="number">00</span> |</span><br><span class="line">|    <span class="number">0</span> | <span class="number">39.991665880212</span> | <span class="number">116.32148372188</span> | <span class="number">2008</span><span class="number">-10</span><span class="number">-23</span> <span class="number">02</span>:<span class="number">58</span>:<span class="number">00</span> |</span><br><span class="line">|    <span class="number">0</span> | <span class="number">39.991655125323</span> | <span class="number">116.31976560663</span> | <span class="number">2008</span><span class="number">-10</span><span class="number">-23</span> <span class="number">02</span>:<span class="number">59</span>:<span class="number">00</span> |</span><br><span class="line">|    <span class="number">0</span> | <span class="number">39.991617926075</span> | <span class="number">116.31752622722</span> | <span class="number">2008</span><span class="number">-10</span><span class="number">-23</span> <span class="number">03</span>:<span class="number">00</span>:<span class="number">00</span> |</span><br><span class="line">|    <span class="number">0</span> | <span class="number">39.991682692695</span> | <span class="number">116.31536239765</span> | <span class="number">2008</span><span class="number">-10</span><span class="number">-23</span> <span class="number">03</span>:<span class="number">01</span>:<span class="number">00</span> |</span><br><span class="line">|    <span class="number">0</span> | <span class="number">39.991609968636</span> | <span class="number">116.31304414117</span> | <span class="number">2008</span><span class="number">-10</span><span class="number">-23</span> <span class="number">03</span>:<span class="number">02</span>:<span class="number">00</span> |</span><br><span class="line">|    <span class="number">0</span> | <span class="number">39.991145100999</span> | <span class="number">116.3121520717</span>  | <span class="number">2008</span><span class="number">-10</span><span class="number">-23</span> <span class="number">03</span>:<span class="number">03</span>:<span class="number">00</span> |</span><br><span class="line">+------+-----------------+-----------------+---------------------+</span><br><span class="line"><span class="number">10</span> rows <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<p><strong>切分路径</strong><br>上面baidugps表保存的是用户的所有数据，但是没有切分为具体的路径，为了有较好的扩展性，我们使用一张新的表来实现切分路径，该表里面保存有每个用户每条路径的路径号以及起始时间，我们可以根据不同的参数生成不同的路径划分表，与原始数据表baidugps进行关联查询，于是可以根据用户id以及路径号查询这段时间的轨迹数据进行展示。<br>具体实现参考<code>edu.dcy.LetZinkModel</code>里面的<code>separateGpsPath</code>方法。<br>下表表示根据距离阈值为500、时间阈值为10生成的路径划分表。</p>
+<p><strong>建立路径划分表</strong></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> subpath500_10(</span><br><span class="line">uid <span class="type">int</span>,</span><br><span class="line">pathid <span class="type">int</span>,</span><br><span class="line"><span class="keyword">begin</span> datetime,</span><br><span class="line"><span class="keyword">end</span>  datetime,</span><br><span class="line">points <span class="type">int</span>,</span><br><span class="line">dis <span class="type">double</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>字段含义分别为：用户id、路径号、开始时间、结束时间、该路径包含的gps记录点数目、起始点距离。便于展示，其中包含gps记录点数以及起始点距离没有列出。<br>示例数据</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select uid,pathid,begin,end <span class="keyword">from</span> subpath500_10 limit <span class="number">10</span>;</span><br><span class="line">+------+--------+---------------------+---------------------+</span><br><span class="line">| uid  | pathid | begin               | end                 |</span><br><span class="line">+------+--------+---------------------+---------------------+</span><br><span class="line">|  <span class="number">127</span> |      <span class="number">1</span> | <span class="number">2008</span><span class="number">-09</span><span class="number">-27</span> <span class="number">00</span>:<span class="number">58</span>:<span class="number">00</span> | <span class="number">2008</span><span class="number">-09</span><span class="number">-27</span> <span class="number">01</span>:<span class="number">09</span>:<span class="number">00</span> |</span><br><span class="line">|  <span class="number">127</span> |      <span class="number">2</span> | <span class="number">2008</span><span class="number">-09</span><span class="number">-27</span> <span class="number">02</span>:<span class="number">33</span>:<span class="number">38</span> | <span class="number">2008</span><span class="number">-09</span><span class="number">-27</span> <span class="number">02</span>:<span class="number">46</span>:<span class="number">01</span> |</span><br><span class="line">|  <span class="number">127</span> |      <span class="number">3</span> | <span class="number">2008</span><span class="number">-09</span><span class="number">-27</span> <span class="number">03</span>:<span class="number">25</span>:<span class="number">58</span> | <span class="number">2008</span><span class="number">-09</span><span class="number">-27</span> <span class="number">03</span>:<span class="number">34</span>:<span class="number">00</span> |</span><br><span class="line">|  <span class="number">127</span> |      <span class="number">4</span> | <span class="number">2008</span><span class="number">-09</span><span class="number">-27</span> <span class="number">11</span>:<span class="number">05</span>:<span class="number">08</span> | <span class="number">2008</span><span class="number">-09</span><span class="number">-27</span> <span class="number">11</span>:<span class="number">24</span>:<span class="number">01</span> |</span><br><span class="line">|  <span class="number">127</span> |      <span class="number">5</span> | <span class="number">2008</span><span class="number">-09</span><span class="number">-28</span> <span class="number">02</span>:<span class="number">19</span>:<span class="number">31</span> | <span class="number">2008</span><span class="number">-09</span><span class="number">-28</span> <span class="number">02</span>:<span class="number">26</span>:<span class="number">01</span> |</span><br><span class="line">|  <span class="number">127</span> |      <span class="number">6</span> | <span class="number">2008</span><span class="number">-09</span><span class="number">-29</span> <span class="number">04</span>:<span class="number">25</span>:<span class="number">57</span> | <span class="number">2008</span><span class="number">-09</span><span class="number">-29</span> <span class="number">04</span>:<span class="number">44</span>:<span class="number">02</span> |</span><br><span class="line">|  <span class="number">127</span> |      <span class="number">7</span> | <span class="number">2008</span><span class="number">-09</span><span class="number">-29</span> <span class="number">06</span>:<span class="number">20</span>:<span class="number">15</span> | <span class="number">2008</span><span class="number">-09</span><span class="number">-29</span> <span class="number">06</span>:<span class="number">20</span>:<span class="number">15</span> |</span><br><span class="line">|  <span class="number">127</span> |      <span class="number">8</span> | <span class="number">2008</span><span class="number">-09</span><span class="number">-29</span> <span class="number">09</span>:<span class="number">16</span>:<span class="number">11</span> | <span class="number">2008</span><span class="number">-09</span><span class="number">-29</span> <span class="number">09</span>:<span class="number">30</span>:<span class="number">01</span> |</span><br><span class="line">|  <span class="number">127</span> |      <span class="number">9</span> | <span class="number">2008</span><span class="number">-09</span><span class="number">-29</span> <span class="number">10</span>:<span class="number">05</span>:<span class="number">10</span> | <span class="number">2008</span><span class="number">-09</span><span class="number">-29</span> <span class="number">10</span>:<span class="number">31</span>:<span class="number">02</span> |</span><br><span class="line">|  <span class="number">127</span> |     <span class="number">10</span> | <span class="number">2008</span><span class="number">-09</span><span class="number">-29</span> <span class="number">10</span>:<span class="number">46</span>:<span class="number">27</span> | <span class="number">2008</span><span class="number">-09</span><span class="number">-29</span> <span class="number">10</span>:<span class="number">49</span>:<span class="number">02</span> |</span><br><span class="line">+------+--------+---------------------+---------------------+</span><br></pre></td></tr></table></figure>
+
+<h4 id="轨迹展示"><a href="#轨迹展示" class="headerlink" title="轨迹展示"></a>轨迹展示</h4><p>有了上面的数据支持，我们借助百度地图的接口，就能够很轻松的将这些轨迹绘制出来。访问 <a href="https://localhost:8080/GpsDemo/index.html" target="_blank" rel="noopener">https://localhost:8080/GpsDemo/index.html</a>   。这个页面显示的是原始点绘制的路径。<br><img src="http://7punic.com1.z0.glb.clouddn.com/99bfab70-5071-11e5-815b-0d9e9dbaa5ec.png" alt></p>
+<p>如果要显示划分区域之后的路径，可以访问这个页面 <a href="https://localhost:8080/GpsDemo/index0.html" target="_blank" rel="noopener">https://localhost:8080/GpsDemo/index0.html</a>  。<br>效果图<br><img src="http://7punic.com1.z0.glb.clouddn.com/a35f5a90-5071-11e5-815b-0d9e9dbaa5ec.png" alt></p>
+<p>换到智驾小V用户的后台数据，在<code>edu.dcy.servlet.GetAreaData</code>中进行数据库表的切换，里面有详尽注释。<br><img src="http://7punic.com1.z0.glb.clouddn.com/b64ca130-5071-11e5-815b-0d9e9dbaa5ec.png" alt></p>
+
+      
+
+
+    <!-- 增加版权声明 -->
+
+    
+    
+      <div class="declare">
+        <strong>本文作者：</strong>
+        
+          Cvbox
+        
+        <br>
+        <strong>本文链接：</strong>
+        <a rel="license" href="https://blog.cvbox.org/2019/10/07/GPS数据分析/">https://blog.cvbox.org/2019/10/07/GPS数据分析/</a>
+        <br>
+        <strong>版权声明：</strong>
+        本作品采用
+        <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+        进行许可。转载请注明出处！
+        
+          <br>
+          <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+        
+      </div>
+    
+
+    <!-- 增加版权声明结束 -->
+
+
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -218,300 +314,121 @@ ga('send', 'pageview');
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://blog.cvbox.org/2019/10/07/GPS数据分析/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/07/如何快速开发一个app/" class="archive-article-date">
-  	<time datetime="2019-10-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/07/如何快速开发一个app/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">从零开始开发一个app指南</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/07/如何快速开发一个app/">从零开始开发一个app指南</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">website</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/05/从零开始搭建个人博客/" class="archive-article-date">
-  	<time datetime="2019-10-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/05/从零开始搭建个人博客/">零基础教你Hexo+Github+CloudFlare+Typora打造互联网创作工具流</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">website</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">todo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tool</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">guides</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/04/Todo/" class="archive-article-date">
-  	<time datetime="2019-10-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/04/Todo/">TODO == NOT DO ?</a>
-    </h1>
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'cvbox-disqus-com'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">todo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/04/漫画收藏/" class="archive-article-date">
-  	<time datetime="2019-10-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/04/漫画收藏/">漫画收藏</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">website</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/03/关于/" class="archive-article-date">
-  	<time datetime="2019-10-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/03/关于/">关于</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">me</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/01/全栈人员工具站/" class="archive-article-date">
-  	<time datetime="2019-09-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/01/全栈人员工具站/">Template</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">website</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/01/如何取一个让人无法拒绝的标题/" class="archive-article-date">
-  	<time datetime="2019-09-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/01/如何取一个让人无法拒绝的标题/">如何取一个让人无法拒绝的标题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">todo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2019/10/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/10/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -535,8 +452,8 @@ ga('send', 'pageview');
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
