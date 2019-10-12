@@ -180,6 +180,197 @@ ga('send', 'pageview');
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-whistle使用指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/12/whistle使用指南/">whistle使用指南</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/12/whistle使用指南/" class="archive-article-date">
+  	<time datetime="2019-10-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="HTTPS-真的安全吗？-聊聊你可能不知道的中间人攻击"><a href="#HTTPS-真的安全吗？-聊聊你可能不知道的中间人攻击" class="headerlink" title="HTTPS 真的安全吗？ 聊聊你可能不知道的中间人攻击"></a>HTTPS 真的安全吗？ 聊聊你可能不知道的中间人攻击</h2><p>一款基于中间人攻击用于偷窥HTTPs网站流量的秘密代理工具</p>
+<h2 id="0x1-为什么是它？"><a href="#0x1-为什么是它？" class="headerlink" title="0x1 为什么是它？"></a>0x1 为什么是它？</h2><p>我常用的网络分析工具有：<a href="http://www.telerik.com/fiddler/" target="_blank" rel="noopener">Fiddler</a>、<a href="https://www.charlesproxy.com/" target="_blank" rel="noopener">Charles</a> 、<a href="https://github.com/avwo/whistle/" target="_blank" rel="noopener">whistle</a> 、<a href="https://www.wireshark.org/download.html" target="_blank" rel="noopener">WireShark</a> 和 <a href="#">Tcpdump</a></p>
+<p>Fiddler，Charles，whistle 处理的网络协议集中在<a href="https://en.wikipedia.org/wiki/OSI_model" target="_blank" rel="noopener">OSI</a> 中的应用层，Wireshark 和 Tcpdump能捕获所有的网路流量数据，经常用户定位二进制协议的网络故障，因此不在本文的比较之列。 Fiddler和Charles分别适用于windows&amp;macOS，都有各自优点。whistle的一个特点是跨平台，能在windows和macOS上运行，而且以MIT的协议进行开源。保持Fiddler 和Charles优点的同时，还增加了不少的特性。如果你有兴趣，可以继续往下阅读。</p>
+<h2 id="0x2-简介"><a href="#0x2-简介" class="headerlink" title="0x2 简介"></a>0x2 简介</h2><p>whistle是基于Node实现的跨平台web调试代理工具，whistle与所有的web调试代理工具一样，主要功能是用于查看、修改HTTP、HTTPS、Websockt的请求响应或者作为HTTP代理服务器，但不同于Fildder+Willow、Charles通过断点的方式修改请求响应，whistle采用的是一种类似配置Hosts方式，通过配置修改请求响应数据，并且提供规则分组功能及通过域名、路径、正则三种匹配方式，特别的，针对终端调试提供了weinre，log等功能，并支持通过Node模块进行扩展。</p>
+<h3 id="0x3-抓包原理-Man-in-the-middle"><a href="#0x3-抓包原理-Man-in-the-middle" class="headerlink" title="0x3 抓包原理 Man-in-the-middle"></a>0x3 抓包原理 Man-in-the-middle</h3><p>Man-in-the-middle（中间人，简称为 MITM），能够与网络通讯两端分别创建连接，交换其收到的数据，使得通讯两端都认为自己直接与对方对话，事实上整个会话都被中间人所控制。简而言之，在真正的服务端看来，中间人是客户端；而真正的客户端会认为中间人是服务端。</p>
+<p>实现中间人攻击有各种各样的手段，这里不展开讨论。一些常见的 HTTP/HTTPS 抓包调试工具，都是通过创建本地 Proxy 服务，再修改浏览器 Proxy 设置来达到拦截流量的目的，他们的工作原理与中间人攻击一致。我用过的这一类工具有：<a href="http://www.telerik.com/fiddler/" target="_blank" rel="noopener">Fiddler</a>、<a href="https://www.charlesproxy.com/" target="_blank" rel="noopener">Charles</a> 和 <a href="https://github.com/avwo/whistle/" target="_blank" rel="noopener">whistle</a>。</p>
+<p>本文主要讨论 HTTPS 中间人，简单示意如下：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Server &lt;---&gt; Local<span class="built_in"> Proxy </span>&lt;---&gt; Browser</span><br><span class="line">         ^                 ^</span><br><span class="line">       HTTPS(1)          HTTPS(2)</span><br></pre></td></tr></table></figure>
+
+<p>上述 HTTPS(1) 连接，是中间人冒充客户端，与服务端建立的连接，由于 HTTPS 服务端一般不认证客户端身份，这一步通常没有问题。而对于 HTTPS(2) 连接来说，中间人想要冒充服务端，必须拥有对应域名的证书私钥，而攻击者要拿到私钥，只能通过这些手段：1）去网站服务器上拿；2）从 CA 处签发证书；3）自己签发证书。</p>
+<p>要防范前两点，需要网站做好各个方面的安全防护，从主机安全到网站安全（避免私钥被盗），从域名解析安全到域名邮箱安全（避免攻击者重签证书）。而攻击者自己签发的证书，无法通过系统内置根证书的验证，默认无法用于中间人攻击。</p>
+<p>对于 whistle 这一类调试工具来说，能够解密 HTTPS 流量的关键在于他们会往系统受信任的根证书列表导入自己的证书，这样他们的自签证书就能被浏览器信任。进入 whistle 设置中的「HTTPS」Tab，勾选相关功能后，就可以顺利解密和修改 HTTPS 流量。这时在浏览器中可以看到这样的证书链：</p>
+<img src="/../cvbox_blog/assets/image-20191009230219335.png" alt="image-20191009230219335" style="zoom:50%;">
+
+
+
+<p><img src="/../cvbox_blog/assets/image-20191009224852854.png" alt="image-20191009224852854"></p>
+<h2 id="0x4-快速开始"><a href="#0x4-快速开始" class="headerlink" title="0x4 快速开始"></a>0x4 快速开始</h2><ol>
+<li>安装node</li>
+</ol>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g <span class="keyword">node</span><span class="title"></span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>安装whistle</li>
+</ol>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> -g whistle</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>启动whistle</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">w2 start</span><br><span class="line">whistle默认端口为8899，如果要修改端口号，可以这么启动：</span><br><span class="line">w2 start -p 8888</span><br><span class="line">重启whistle：</span><br><span class="line">w2 restart</span><br><span class="line">关闭whistle：</span><br><span class="line">w2 stop</span><br><span class="line">更多内容请查看命令行帮助：</span><br><span class="line">w2 help</span><br></pre></td></tr></table></figure>
+
+<img src="/../cvbox_blog/assets/image-20191009165215721.png" alt="image-20191009165215721" style="zoom:50%;">
+
+<ol start="4">
+<li>配置代理</li>
+</ol>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whistle需要手动配置浏览器代理或者系统代理(代理的ip为whistle所在机器的ip，如果是本机就填<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>；端口号为启动时设置的端口号，默认为<span class="number">8899</span>)，这里我们使用chrome的代理插件（SwitchyOmega）</span><br></pre></td></tr></table></figure>
+
+<img src="/../cvbox_blog/assets/image-20191009165549081.png" alt="image-20191009165549081" style="zoom:50%;">
+
+
+
+<ol start="5">
+<li>信任证书使得能够解密https流量</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">根据上面提到的原理，我们需要下载根证书，并且信任它，从来实现中间人攻击进行代理网络请求，从而实现我们的捕获数据解密</span><br></pre></td></tr></table></figure>
+
+<img src="/../cvbox_blog/assets/image-20191009171219932.png" alt="image-20191009171219932" style="zoom:50%;">
+
+<h2 id="0x5-开始使用"><a href="#0x5-开始使用" class="headerlink" title="0x5 开始使用"></a>0x5 开始使用</h2><p>在浏览器中输入 <a href="http://127.0.0.1:8899/#network" target="_blank" rel="noopener">http://127.0.0.1:8899/#network</a> 后，可以看到下面的界面</p>
+<p>主要分为三个部分：</p>
+<ul>
+<li><p>菜单栏，包括网络数据的导入导出通常都为text或者saz格式，后者是兼容fiddler的导入导出</p>
+</li>
+<li><p>主要内容，在这里面展示了我们发出的Http(s)请求，每一个条目都包含了</p>
+</li>
+<li><ul>
+<li><p>Result： <a href="https://tools.ietf.org/html/rfc2616#section-6.1.1" target="_blank" rel="noopener">RFC2616 StatusCode</a></p>
+</li>
+<li><p>Method： <a href="https://tools.ietf.org/html/rfc2616#page-36" target="_blank" rel="noopener">RFC2616 Method</a></p>
+</li>
+<li><p>Protocal： Http(s) | <a href="https://tools.ietf.org/html/rfc6455" target="_blank" rel="noopener">ws(s)</a> </p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>点击主要内容中的任一个条目，在右侧会显示对应条目的请求和响应</li>
+</ul>
+<p><img src="/../cvbox_blog/assets/image-20191009171023252.png" alt="image-20191009171023252"></p>
+<h2 id="0x6-场景一：捕获手机的网络数据包"><a href="#0x6-场景一：捕获手机的网络数据包" class="headerlink" title="0x6 场景一：捕获手机的网络数据包"></a>0x6 场景一：捕获手机的网络数据包</h2><p>如果我们需要在手机上对app进行抓包，那么同样的需要手机信任中间人生成的证书，在safari中打开地址<a href="http://192.168.0.4:8899" target="_blank" rel="noopener">http://192.168.0.4:8899</a> 这个地址，找到https选项，下载根证书并且信任它。 需要注意的是请确保你的电脑和手机处于同一个局域网。设置完成后，在手机上访问因特网的流量都会被安装在电脑上的wistle接管。所有的Http(s)流量在这个工具下一览无余。你可以尽情发挥你的想象力，去做那些富有创意的事情。祝你好运</p>
+<p><img src="/../cvbox_blog/assets/image-20191009171429169.png" alt="image-20191009171429169"></p>
+<img src="/../cvbox_blog/assets/IMG_8EA01C00A203-1.jpeg" alt="IMG_8EA01C00A203-1" style="zoom:50%;">
+
+<img src="/../cvbox_blog/assets/IMG_1BB465A6D398-1.jpeg" alt="IMG_1BB465A6D398-1" style="zoom:50%;">
+
+
+
+
+
+
+
+<h2 id="0x7-场景二-调式websocket网络流量"><a href="#0x7-场景二-调式websocket网络流量" class="headerlink" title="0x7 场景二 : 调式websocket网络流量"></a>0x7 场景二 : 调式websocket网络流量</h2><p>除了基本的HTTP协议的流量检测，同时还支持<a href="https://tools.ietf.org/html/rfc6455" target="_blank" rel="noopener">websocket</a>协议,在浏览器中打开<a href="https://www.websocket.org/echo.html" target="_blank" rel="noopener">ws测试网站</a>，并发送一些文本消息.</p>
+<img src="/../cvbox_blog/assets/image-20191009173136901.png" alt="image-20191009173136901" style="zoom: 33%;">
+
+
+
+<p>然后回到最开始的流量监测tab页面，查看右侧的Frames，你会发现你刚刚发生的消息在这里全部显示出来了。</p>
+<p><img src="/../cvbox_blog/assets/image-20191009173255666.png" alt="image-20191009173255666"></p>
+<h2 id="0x8-场景三：-重放数据"><a href="#0x8-场景三：-重放数据" class="headerlink" title="0x8 场景三： 重放数据"></a>0x8 场景三： 重放数据</h2><p>选中左侧条目，拖动到右侧，然后就可以在右边红色方框中看到选中数据包的详情，我们可以在Composer菜单项中修改请求体，对改次请求就行重放。这个方法常用于软件开发过程中的网络接口调试使用，尤其在操作路径很长的场景中，有了这个工具，我们可以很便捷的从中间步骤开始测试，而不是一次失败后，全部重新开始。某些情况下，还可以辅助系统测试专家对网站安全进行测试评估，通过修改参数的方式，验证网站的安全性。</p>
+<p><img src="/../cvbox_blog/assets/image-20191009172437289.png" alt="image-20191009172437289"></p>
+<h2 id="0x9-场景四：-在线页面注入调式"><a href="#0x9-场景四：-在线页面注入调式" class="headerlink" title="0x9 场景四： 在线页面注入调式"></a>0x9 场景四： 在线页面注入调式</h2><p><img src="/../cvbox_blog/assets/image-20191010080010069.png" alt="image-20191010080010069"></p>
+<p><img src="/../cvbox_blog/assets/image-20191010080059674.png" alt="image-20191010080059674"></p>
+<p><img src="/../cvbox_blog/assets/image-20191010075932968.png" alt="image-20191010075932968"></p>
+<h2 id="0xa-更多资源"><a href="#0xa-更多资源" class="headerlink" title="0xa 更多资源"></a>0xa 更多资源</h2><ul>
+<li><p><a href="https://github.com/avwo/whistle#documentation" target="_blank" rel="noopener">https://github.com/avwo/whistle#documentation</a></p>
+</li>
+<li><p><a href="https://imququ.com/post/how-to-decrypt-https.html" target="_blank" rel="noopener">https://imququ.com/post/how-to-decrypt-https.html</a></p>
+</li>
+<li><p><a href="https://tools.ietf.org/html/rfc2616#page-36" target="_blank" rel="noopener">https://tools.ietf.org/html/rfc2616#page-36</a></p>
+</li>
+<li><p><a href="https://tools.ietf.org/html/rfc6455" target="_blank" rel="noopener">https://tools.ietf.org/html/rfc6455</a></p>
+</li>
+</ul>
+
+      
+
+
+    <!-- 增加版权声明 -->
+
+    
+    
+      <div class="declare" hidden="hidden"></div>
+    
+
+    <!-- 增加版权声明结束 -->
+
+
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tool</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/12/whistle使用指南/">show more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-8 Things have to Think about to Make Your Idea To an App" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -713,11 +904,11 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">website</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">todo</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">todo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">website</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -1052,93 +1243,6 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-如何取一个富有吸引力的名字" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/01/如何取一个富有吸引力的名字/">如何取一个富有吸引力的名字</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/01/如何取一个富有吸引力的名字/" class="archive-article-date">
-  	<time datetime="2019-09-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>隔壁老王家有一个儿子，每天起早去菜市场卖鱼，</p>
-
-      
-
-
-    <!-- 增加版权声明 -->
-
-    
-    
-      <div class="declare" hidden="hidden"></div>
-    
-
-    <!-- 增加版权声明结束 -->
-
-
-
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">todo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/01/如何取一个富有吸引力的名字/">show more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1236,15 +1340,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">todo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">app</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">website</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">todo</a>
               </li>
              
               <li class="article-tag-list-item">
