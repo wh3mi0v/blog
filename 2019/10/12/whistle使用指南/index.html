@@ -5,37 +5,37 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="https://blog.cvbox.org">
+  <link rel="dns-prefetch" href="https://cvbox.org/blog">
   <title>whistle使用指南 | Cvbox</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="HTTPS 真的安全吗？ 聊聊你可能不知道的中间人攻击一款基于中间人攻击用于偷窥HTTPs网站流量的秘密代理工具 0x1 为什么是它？我常用的网络分析工具有：Fiddler、Charles 、whistle 、WireShark 和 Tcpdump Fiddler，Charles，whistle 处理的网络协议集中在OSI 中的应用层，Wireshark 和 Tcpdump能捕获所有的网路流量数据">
 <meta name="keywords" content="tool">
 <meta property="og:type" content="article">
 <meta property="og:title" content="whistle使用指南">
-<meta property="og:url" content="https://blog.cvbox.org/2019/10/12/whistle使用指南/index.html">
+<meta property="og:url" content="https://cvbox.org/blog/2019/10/12/whistle使用指南/index.html">
 <meta property="og:site_name" content="Cvbox">
 <meta property="og:description" content="HTTPS 真的安全吗？ 聊聊你可能不知道的中间人攻击一款基于中间人攻击用于偷窥HTTPs网站流量的秘密代理工具 0x1 为什么是它？我常用的网络分析工具有：Fiddler、Charles 、whistle 、WireShark 和 Tcpdump Fiddler，Charles，whistle 处理的网络协议集中在OSI 中的应用层，Wireshark 和 Tcpdump能捕获所有的网路流量数据">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://blog.cvbox.org/cvbox_blog/assets/image-20191009230219335.png">
-<meta property="og:image" content="https://blog.cvbox.org/cvbox_blog/assets/image-20191009224852854.png">
-<meta property="og:image" content="https://blog.cvbox.org/cvbox_blog/assets/image-20191009165215721.png">
-<meta property="og:image" content="https://blog.cvbox.org/cvbox_blog/assets/image-20191009165549081.png">
-<meta property="og:image" content="https://blog.cvbox.org/cvbox_blog/assets/image-20191009171219932.png">
-<meta property="og:image" content="https://blog.cvbox.org/cvbox_blog/assets/image-20191009171023252.png">
-<meta property="og:image" content="https://blog.cvbox.org/cvbox_blog/assets/image-20191009171429169.png">
-<meta property="og:image" content="https://blog.cvbox.org/cvbox_blog/assets/IMG_8EA01C00A203-1.jpeg">
-<meta property="og:image" content="https://blog.cvbox.org/cvbox_blog/assets/IMG_1BB465A6D398-1.jpeg">
-<meta property="og:image" content="https://blog.cvbox.org/cvbox_blog/assets/image-20191009173136901.png">
-<meta property="og:image" content="https://blog.cvbox.org/cvbox_blog/assets/image-20191009173255666.png">
-<meta property="og:image" content="https://blog.cvbox.org/cvbox_blog/assets/image-20191009172437289.png">
-<meta property="og:image" content="https://blog.cvbox.org/cvbox_blog/assets/image-20191010080010069.png">
-<meta property="og:image" content="https://blog.cvbox.org/cvbox_blog/assets/image-20191010080059674.png">
-<meta property="og:image" content="https://blog.cvbox.org/cvbox_blog/assets/image-20191010075932968.png">
-<meta property="og:updated_time" content="2019-10-12T14:23:22.152Z">
+<meta property="og:image" content="https://cvbox.org/assets/image-20191009230219335.png">
+<meta property="og:image" content="https://cvbox.org/assets/image-20191009224852854.png">
+<meta property="og:image" content="https://cvbox.org/assets/image-20191009165215721.png">
+<meta property="og:image" content="https://cvbox.org/assets/image-20191009165549081.png">
+<meta property="og:image" content="https://cvbox.org/assets/image-20191009171219932.png">
+<meta property="og:image" content="https://cvbox.org/assets/image-20191009171023252.png">
+<meta property="og:image" content="https://cvbox.org/assets/image-20191009171429169.png">
+<meta property="og:image" content="https://cvbox.org/assets/IMG_8EA01C00A203-1.jpeg">
+<meta property="og:image" content="https://cvbox.org/assets/IMG_1BB465A6D398-1.jpeg">
+<meta property="og:image" content="https://cvbox.org/assets/image-20191009173136901.png">
+<meta property="og:image" content="https://cvbox.org/assets/image-20191009173255666.png">
+<meta property="og:image" content="https://cvbox.org/assets/image-20191009172437289.png">
+<meta property="og:image" content="https://cvbox.org/assets/image-20191010080010069.png">
+<meta property="og:image" content="https://cvbox.org/assets/image-20191010080059674.png">
+<meta property="og:image" content="https://cvbox.org/assets/image-20191010075932968.png">
+<meta property="og:updated_time" content="2019-10-12T14:44:36.936Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="whistle使用指南">
 <meta name="twitter:description" content="HTTPS 真的安全吗？ 聊聊你可能不知道的中间人攻击一款基于中间人攻击用于偷窥HTTPs网站流量的秘密代理工具 0x1 为什么是它？我常用的网络分析工具有：Fiddler、Charles 、whistle 、WireShark 和 Tcpdump Fiddler，Charles，whistle 处理的网络协议集中在OSI 中的应用层，Wireshark 和 Tcpdump能捕获所有的网路流量数据">
-<meta name="twitter:image" content="https://blog.cvbox.org/cvbox_blog/assets/image-20191009230219335.png">
+<meta name="twitter:image" content="https://cvbox.org/assets/image-20191009230219335.png">
   
     <link rel="alternative" href="/atom.xml" title="Cvbox" type="application/atom+xml">
   
@@ -227,11 +227,11 @@ ga('send', 'pageview');
 <p>上述 HTTPS(1) 连接，是中间人冒充客户端，与服务端建立的连接，由于 HTTPS 服务端一般不认证客户端身份，这一步通常没有问题。而对于 HTTPS(2) 连接来说，中间人想要冒充服务端，必须拥有对应域名的证书私钥，而攻击者要拿到私钥，只能通过这些手段：1）去网站服务器上拿；2）从 CA 处签发证书；3）自己签发证书。</p>
 <p>要防范前两点，需要网站做好各个方面的安全防护，从主机安全到网站安全（避免私钥被盗），从域名解析安全到域名邮箱安全（避免攻击者重签证书）。而攻击者自己签发的证书，无法通过系统内置根证书的验证，默认无法用于中间人攻击。</p>
 <p>对于 whistle 这一类调试工具来说，能够解密 HTTPS 流量的关键在于他们会往系统受信任的根证书列表导入自己的证书，这样他们的自签证书就能被浏览器信任。进入 whistle 设置中的「HTTPS」Tab，勾选相关功能后，就可以顺利解密和修改 HTTPS 流量。这时在浏览器中可以看到这样的证书链：</p>
-<img src="/../cvbox_blog/assets/image-20191009230219335.png" alt="image-20191009230219335" style="zoom:50%;">
+<img src="/../assets/image-20191009230219335.png" alt="image-20191009230219335" style="zoom:50%;">
 
 
 
-<p><img src="/../cvbox_blog/assets/image-20191009224852854.png" alt="image-20191009224852854"></p>
+<p><img src="/../assets/image-20191009224852854.png" alt="image-20191009224852854"></p>
 <h2 id="0x4-快速开始"><a href="#0x4-快速开始" class="headerlink" title="0x4 快速开始"></a>0x4 快速开始</h2><ol>
 <li>安装node</li>
 </ol>
@@ -247,14 +247,14 @@ ga('send', 'pageview');
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">w2 start</span><br><span class="line">whistle默认端口为8899，如果要修改端口号，可以这么启动：</span><br><span class="line">w2 start -p 8888</span><br><span class="line">重启whistle：</span><br><span class="line">w2 restart</span><br><span class="line">关闭whistle：</span><br><span class="line">w2 stop</span><br><span class="line">更多内容请查看命令行帮助：</span><br><span class="line">w2 help</span><br></pre></td></tr></table></figure>
 
-<img src="/../cvbox_blog/assets/image-20191009165215721.png" alt="image-20191009165215721" style="zoom:50%;">
+<img src="/../assets/image-20191009165215721.png" alt="image-20191009165215721" style="zoom:50%;">
 
 <ol start="4">
 <li>配置代理</li>
 </ol>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whistle需要手动配置浏览器代理或者系统代理(代理的ip为whistle所在机器的ip，如果是本机就填<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>；端口号为启动时设置的端口号，默认为<span class="number">8899</span>)，这里我们使用chrome的代理插件（SwitchyOmega）</span><br></pre></td></tr></table></figure>
 
-<img src="/../cvbox_blog/assets/image-20191009165549081.png" alt="image-20191009165549081" style="zoom:50%;">
+<img src="/../assets/image-20191009165549081.png" alt="image-20191009165549081" style="zoom:50%;">
 
 
 
@@ -263,7 +263,7 @@ ga('send', 'pageview');
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">根据上面提到的原理，我们需要下载根证书，并且信任它，从来实现中间人攻击进行代理网络请求，从而实现我们的捕获数据解密</span><br></pre></td></tr></table></figure>
 
-<img src="/../cvbox_blog/assets/image-20191009171219932.png" alt="image-20191009171219932" style="zoom:50%;">
+<img src="/../assets/image-20191009171219932.png" alt="image-20191009171219932" style="zoom:50%;">
 
 <h2 id="0x5-开始使用"><a href="#0x5-开始使用" class="headerlink" title="0x5 开始使用"></a>0x5 开始使用</h2><p>在浏览器中输入 <a href="http://127.0.0.1:8899/#network" target="_blank" rel="noopener">http://127.0.0.1:8899/#network</a> 后，可以看到下面的界面</p>
 <p>主要分为三个部分：</p>
@@ -285,12 +285,12 @@ ga('send', 'pageview');
 <ul>
 <li>点击主要内容中的任一个条目，在右侧会显示对应条目的请求和响应</li>
 </ul>
-<p><img src="/../cvbox_blog/assets/image-20191009171023252.png" alt="image-20191009171023252"></p>
+<p><img src="/../assets/image-20191009171023252.png" alt="image-20191009171023252"></p>
 <h2 id="0x6-场景一：捕获手机的网络数据包"><a href="#0x6-场景一：捕获手机的网络数据包" class="headerlink" title="0x6 场景一：捕获手机的网络数据包"></a>0x6 场景一：捕获手机的网络数据包</h2><p>如果我们需要在手机上对app进行抓包，那么同样的需要手机信任中间人生成的证书，在safari中打开地址<a href="http://192.168.0.4:8899" target="_blank" rel="noopener">http://192.168.0.4:8899</a> 这个地址，找到https选项，下载根证书并且信任它。 需要注意的是请确保你的电脑和手机处于同一个局域网。设置完成后，在手机上访问因特网的流量都会被安装在电脑上的wistle接管。所有的Http(s)流量在这个工具下一览无余。你可以尽情发挥你的想象力，去做那些富有创意的事情。祝你好运</p>
-<p><img src="/../cvbox_blog/assets/image-20191009171429169.png" alt="image-20191009171429169"></p>
-<img src="/../cvbox_blog/assets/IMG_8EA01C00A203-1.jpeg" alt="IMG_8EA01C00A203-1" style="zoom:50%;">
+<p><img src="/../assets/image-20191009171429169.png" alt="image-20191009171429169"></p>
+<img src="/../assets/IMG_8EA01C00A203-1.jpeg" alt="IMG_8EA01C00A203-1" style="zoom:50%;">
 
-<img src="/../cvbox_blog/assets/IMG_1BB465A6D398-1.jpeg" alt="IMG_1BB465A6D398-1" style="zoom:50%;">
+<img src="/../assets/IMG_1BB465A6D398-1.jpeg" alt="IMG_1BB465A6D398-1" style="zoom:50%;">
 
 
 
@@ -299,17 +299,17 @@ ga('send', 'pageview');
 
 
 <h2 id="0x7-场景二-调式websocket网络流量"><a href="#0x7-场景二-调式websocket网络流量" class="headerlink" title="0x7 场景二 : 调式websocket网络流量"></a>0x7 场景二 : 调式websocket网络流量</h2><p>除了基本的HTTP协议的流量检测，同时还支持<a href="https://tools.ietf.org/html/rfc6455" target="_blank" rel="noopener">websocket</a>协议,在浏览器中打开<a href="https://www.websocket.org/echo.html" target="_blank" rel="noopener">ws测试网站</a>，并发送一些文本消息.</p>
-<img src="/../cvbox_blog/assets/image-20191009173136901.png" alt="image-20191009173136901" style="zoom: 33%;">
+<img src="/../assets/image-20191009173136901.png" alt="image-20191009173136901" style="zoom: 33%;">
 
 
 
 <p>然后回到最开始的流量监测tab页面，查看右侧的Frames，你会发现你刚刚发生的消息在这里全部显示出来了。</p>
-<p><img src="/../cvbox_blog/assets/image-20191009173255666.png" alt="image-20191009173255666"></p>
+<p><img src="/../assets/image-20191009173255666.png" alt="image-20191009173255666"></p>
 <h2 id="0x8-场景三：-重放数据"><a href="#0x8-场景三：-重放数据" class="headerlink" title="0x8 场景三： 重放数据"></a>0x8 场景三： 重放数据</h2><p>选中左侧条目，拖动到右侧，然后就可以在右边红色方框中看到选中数据包的详情，我们可以在Composer菜单项中修改请求体，对改次请求就行重放。这个方法常用于软件开发过程中的网络接口调试使用，尤其在操作路径很长的场景中，有了这个工具，我们可以很便捷的从中间步骤开始测试，而不是一次失败后，全部重新开始。某些情况下，还可以辅助系统测试专家对网站安全进行测试评估，通过修改参数的方式，验证网站的安全性。</p>
-<p><img src="/../cvbox_blog/assets/image-20191009172437289.png" alt="image-20191009172437289"></p>
-<h2 id="0x9-场景四：-在线页面注入调式"><a href="#0x9-场景四：-在线页面注入调式" class="headerlink" title="0x9 场景四： 在线页面注入调式"></a>0x9 场景四： 在线页面注入调式</h2><p><img src="/../cvbox_blog/assets/image-20191010080010069.png" alt="image-20191010080010069"></p>
-<p><img src="/../cvbox_blog/assets/image-20191010080059674.png" alt="image-20191010080059674"></p>
-<p><img src="/../cvbox_blog/assets/image-20191010075932968.png" alt="image-20191010075932968"></p>
+<p><img src="/../assets/image-20191009172437289.png" alt="image-20191009172437289"></p>
+<h2 id="0x9-场景四：-在线页面注入调式"><a href="#0x9-场景四：-在线页面注入调式" class="headerlink" title="0x9 场景四： 在线页面注入调式"></a>0x9 场景四： 在线页面注入调式</h2><p><img src="/../assets/image-20191010080010069.png" alt="image-20191010080010069"></p>
+<p><img src="/../assets/image-20191010080059674.png" alt="image-20191010080059674"></p>
+<p><img src="/../assets/image-20191010075932968.png" alt="image-20191010075932968"></p>
 <h2 id="0xa-更多资源"><a href="#0xa-更多资源" class="headerlink" title="0xa 更多资源"></a>0xa 更多资源</h2><ul>
 <li><p><a href="https://github.com/avwo/whistle#documentation" target="_blank" rel="noopener">https://github.com/avwo/whistle#documentation</a></p>
 </li>
@@ -335,7 +335,7 @@ ga('send', 'pageview');
         
         <br>
         <strong>本文链接：</strong>
-        <a rel="license" href="https://blog.cvbox.org/2019/10/12/whistle使用指南/">https://blog.cvbox.org/2019/10/12/whistle使用指南/</a>
+        <a rel="license" href="https://cvbox.org/blog/2019/10/12/whistle使用指南/">https://cvbox.org/blog/2019/10/12/whistle使用指南/</a>
         <br>
         <strong>版权声明：</strong>
         本作品采用
@@ -419,7 +419,7 @@ ga('send', 'pageview');
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://blog.cvbox.org/2019/10/12/whistle使用指南/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://cvbox.org/blog/2019/10/12/whistle使用指南/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -577,15 +577,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">todo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">app</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">website</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">todo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -597,11 +597,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">me</a>
+                <a href="javascript:void(0)" class="js-tag color5">data</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data</a>
+                <a href="javascript:void(0)" class="js-tag color3">me</a>
               </li>
             
             <div class="clearfix"></div>
