@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://cvbox.org/2019/10/01/privacy/</loc>
+    <lastmod>2019-10-14</lastmod>
+  </url>  <url>
+    <loc>https://cvbox.org/2019/10/01/%E6%A8%A1%E7%89%88/</loc>
+    <lastmod>2019-10-14</lastmod>
+  </url>  <url>
     <loc>https://cvbox.org/2019/10/12/whistle%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</loc>
     <lastmod>2019-10-12</lastmod>
   </url>  <url>
@@ -20,9 +26,6 @@
     <lastmod>2019-10-07</lastmod>
   </url>  <url>
     <loc>https://cvbox.org/2019/10/04/Todo/</loc>
-    <lastmod>2019-10-07</lastmod>
-  </url>  <url>
-    <loc>https://cvbox.org/2019/10/01/%E6%A8%A1%E7%89%88/</loc>
     <lastmod>2019-10-07</lastmod>
   </url>  <url>
     <loc>https://cvbox.org/2019/10/05/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
