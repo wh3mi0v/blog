@@ -220,7 +220,8 @@ ga('send', 'pageview');
 
 
 <p>抱歉，放错图了…</p>
-<h2 id="自己动手，丰衣足食"><a href="#自己动手，丰衣足食" class="headerlink" title="自己动手，丰衣足食"></a>自己动手，丰衣足食</h2><p>是的，没有看错，不用任何代码基础，跟着<code>cv工程师</code>，就能手摸手的带你制作喜欢的圣诞帽子，也可以给朋友制作 爱的帽子，接下来就可以去朋友圈承接圣诞帽子制作业务了，贴上自己的收钱码，把cv工程师的代码拷贝下去，月入百万不是梦。如果不想折腾，只是想先试用下，可以戳此链接直达  (微信圣诞帽制作网站)<a href="https://cvbox.org/touxiang/index.html">https://cvbox.org/touxiang/index.html</a>    本服务不保存任何数据，可以查看源代码认证，放心食用</p>
+<h2 id="自己动手，丰衣足食"><a href="#自己动手，丰衣足食" class="headerlink" title="自己动手，丰衣足食"></a>自己动手，丰衣足食</h2><p>是的，没有看错，不用任何代码基础，跟着<code>cv工程师</code>，就能手摸手的带你制作喜欢的圣诞帽子，也可以给朋友制作 爱的帽子，接下来就可以去朋友圈承接圣诞帽子制作业务了，贴上自己的收钱码，把cv工程师的代码拷贝下去，月入百万不是梦。如果不想折腾，只是想先试用下，可以戳此链接直达  </p>
+<h2 id="微信圣诞帽制作网站"><a href="#微信圣诞帽制作网站" class="headerlink" title="(微信圣诞帽制作网站)"></a>(微信圣诞帽制作网站)</h2><h2 id="https-cvbox-org-touxiang-index-html"><a href="#https-cvbox-org-touxiang-index-html" class="headerlink" title="https://cvbox.org/touxiang/index.html"></a><a href="https://cvbox.org/touxiang/index.html">https://cvbox.org/touxiang/index.html</a></h2><p>本服务不保存任何数据，可以查看源代码认证，放心食用</p>
 <p>三步走</p>
 <ol>
 <li>上传头像</li>
@@ -232,7 +233,7 @@ ga('send', 'pageview');
 
 
 
-<h2 id="支持我"><a href="#支持我" class="headerlink" title="支持我"></a>支持我</h2><ul>
+<h2 id="独立部署，获取源代码"><a href="#独立部署，获取源代码" class="headerlink" title="独立部署，获取源代码"></a>独立部署，获取源代码</h2><ul>
 <li><a href="https://button.like.co/markhoma" target="_blank" rel="noopener">戳我支持</a></li>
 <li><a href="https://github.com/reshuige/touxiang.git" target="_blank" rel="noopener">源代码 自豪的引用热水哥</a></li>
 </ul>
@@ -870,100 +871,6 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-GPS数据分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/07/GPS数据分析/">GPS 数据分析</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/07/GPS数据分析/" class="archive-article-date">
-  	<time datetime="2019-10-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<h3 id="代码结构"><a href="#代码结构" class="headerlink" title="代码结构"></a>代码结构</h3><h3 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h3><p>1.清洗数据<br>通过服务器返回的数据，包含许多冗余的数据，我们需要对其进行抽取，转换成我们需要的数据。</p>
-<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get<span class="constructor">AllUserData(String <span class="params">inpath</span>, String <span class="params">opath</span>)</span></span><br></pre></td></tr></table></figure>
-
-<p>将从服务器获取的json字符串进行清洗、换行成结构化数据。格式如下。</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">8566965</span>,<span class="number">1.438734627E9</span>,<span class="number">2015</span><span class="number">-08</span><span class="number">-05</span> <span class="number">08</span>:<span class="number">30</span>:<span class="number">27</span>,<span class="number">113.930632</span>,<span class="number">22.541371</span></span><br><span class="line"><span class="number">8566965</span>,<span class="number">1.438734647E9</span>,<span class="number">2015</span><span class="number">-08</span><span class="number">-05</span> <span class="number">08</span>:<span class="number">30</span>:<span class="number">47</span>,<span class="number">113.930609</span>,<span class="number">22.541398</span></span><br><span class="line"><span class="number">8566965</span>,<span class="number">1.438734667E9</span>,<span class="number">2015</span><span class="number">-08</span><span class="number">-05</span> <span class="number">08</span>:<span class="number">31</span>:<span class="number">07</span>,<span class="number">113.930603</span>,<span class="number">22.541400</span></span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2019/10/07/GPS数据分析/#more">more >></a>
-        
-      
-
-
-    <!-- 增加版权声明 -->
-
-    
-    
-      <div class="declare" hidden="hidden"></div>
-    
-
-    <!-- 增加版权声明结束 -->
-
-
-
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/07/GPS数据分析/">show more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-如何快速开发一个app" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1079,6 +986,100 @@ ga('send', 'pageview');
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/10/07/如何快速开发一个app/">show more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-GPS数据分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/07/GPS数据分析/">GPS 数据分析</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/07/GPS数据分析/" class="archive-article-date">
+  	<time datetime="2019-10-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h3 id="代码结构"><a href="#代码结构" class="headerlink" title="代码结构"></a>代码结构</h3><h3 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h3><p>1.清洗数据<br>通过服务器返回的数据，包含许多冗余的数据，我们需要对其进行抽取，转换成我们需要的数据。</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get<span class="constructor">AllUserData(String <span class="params">inpath</span>, String <span class="params">opath</span>)</span></span><br></pre></td></tr></table></figure>
+
+<p>将从服务器获取的json字符串进行清洗、换行成结构化数据。格式如下。</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">8566965</span>,<span class="number">1.438734627E9</span>,<span class="number">2015</span><span class="number">-08</span><span class="number">-05</span> <span class="number">08</span>:<span class="number">30</span>:<span class="number">27</span>,<span class="number">113.930632</span>,<span class="number">22.541371</span></span><br><span class="line"><span class="number">8566965</span>,<span class="number">1.438734647E9</span>,<span class="number">2015</span><span class="number">-08</span><span class="number">-05</span> <span class="number">08</span>:<span class="number">30</span>:<span class="number">47</span>,<span class="number">113.930609</span>,<span class="number">22.541398</span></span><br><span class="line"><span class="number">8566965</span>,<span class="number">1.438734667E9</span>,<span class="number">2015</span><span class="number">-08</span><span class="number">-05</span> <span class="number">08</span>:<span class="number">31</span>:<span class="number">07</span>,<span class="number">113.930603</span>,<span class="number">22.541400</span></span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2019/10/07/GPS数据分析/#more">more >></a>
+        
+      
+
+
+    <!-- 增加版权声明 -->
+
+    
+    
+      <div class="declare" hidden="hidden"></div>
+    
+
+    <!-- 增加版权声明结束 -->
+
+
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/07/GPS数据分析/">show more >></a>
         </p>
       
 
@@ -1424,6 +1425,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">website</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">圣诞帽</a>
               </li>
              
@@ -1432,15 +1437,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">website</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">about</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">me</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1452,6 +1449,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">me</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">ngrok</a>
               </li>
              
@@ -1460,15 +1461,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">data</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">whistle</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">cvbox</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data</a>
               </li>
             
             <div class="clearfix"></div>
