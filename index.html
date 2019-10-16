@@ -180,53 +180,59 @@ ga('send', 'pageview');
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-搭建属于自己的ngrok服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-不要再@微信官方了，cv工程师教你带上圣诞帽" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/14/搭建属于自己的ngrok服务/">搭建属于自己的ngrok服务</a>
+      <a class="article-title" href="/2019/10/15/不要再@微信官方了，cv工程师教你带上圣诞帽/">不要再@微信官方了，cv工程师源代码手摸手教你正确的带上圣诞帽以及其他帽</a>
     </h1>
   
 
         
-        <a href="/2019/10/14/搭建属于自己的ngrok服务/" class="archive-article-date">
-  	<time datetime="2019-10-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-14</time>
+        <a href="/2019/10/15/不要再@微信官方了，cv工程师教你带上圣诞帽/" class="archive-article-date">
+  	<time datetime="2019-10-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="搭建属于自己的ngrok服务"><a href="#搭建属于自己的ngrok服务" class="headerlink" title="搭建属于自己的ngrok服务"></a>搭建属于自己的ngrok服务</h1><p>很多时候，我们在进行微信企业号或者微信公众号，小程序等相关接口开发时，我们知道部署在本地的web服务想暴露到公网，但是没有ip地址。那么就无法从外部访问了。这个时候有两种选择。</p>
-<ul>
-<li><ol>
-<li>租用vps，搭建各种环境。把代码提交到vps上，并进行部署。这个方式耗时耗力。</li>
+        <h2 id="圣诞帽制作教程和攻略-附上源代码"><a href="#圣诞帽制作教程和攻略-附上源代码" class="headerlink" title="圣诞帽制作教程和攻略-附上源代码"></a>圣诞帽制作教程和攻略-附上源代码</h2><blockquote>
+<blockquote>
+<p>请给我一个圣诞帽 @微信官网。</p>
+</blockquote>
+<p>开始还很纳闷，微信开始在朋友圈搞摇奖活动了？</p>
+<p>直到看到有些朋友的头像，变成了这样。</p>
+</blockquote>
+<img src="/assets/image-20191016172843623.png" alt="image-20191016172843623" style="zoom:50%;">
+
+
+
+
+
+<p>不用怀疑，很多朋友都中招了，纷纷咨询如何才能给自己带上圣诞帽，真到要低下自己高贵的头颅，</p>
+<p>叫一声 微信爸爸，请赐我一道帽子。好比这样？</p>
+<img src="/assets/image-20191016172703931.png" alt="image-20191016172703931" style="zoom:50%;">
+
+
+
+<p>抱歉，放错图了…</p>
+<h2 id="自己动手，丰衣足食"><a href="#自己动手，丰衣足食" class="headerlink" title="自己动手，丰衣足食"></a>自己动手，丰衣足食</h2><p>是的，没有看错，不用任何代码基础，跟着<code>cv工程师</code>，就能手摸手的带你制作喜欢的圣诞帽子，也可以给朋友制作 爱的帽子，接下来就可以去朋友圈承接圣诞帽子制作业务了，贴上自己的收钱码，把cv工程师的代码拷贝下去，月入百万不是梦。如果不想折腾，只是想先试用下，可以戳此链接直达  (微信圣诞帽制作网站)<a href="https://cvbox.org/touxiang/index.html">https://cvbox.org/touxiang/index.html</a>    本服务不保存任何数据，可以查看源代码认证，放心食用</p>
+<p>三步走</p>
+<ol>
+<li>上传头像</li>
+<li>点击换个样式，操作头像上面出现的圣诞帽子，移动到合适的位置</li>
+<li>点击生成图像，搞掂</li>
 </ol>
-</li>
-<li><ol start="2">
-<li>选择一个代理方式，本文介绍的ngrok就是一种。</li>
-</ol>
-</li>
-</ul>
-<h1 id="源码编译"><a href="#源码编译" class="headerlink" title="源码编译"></a>源码编译</h1><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">证书生成</span><br><span class="line">cd ngrok</span><br><span class="line">openssl genrsa -out rootCA<span class="selector-class">.key</span> <span class="number">2048</span></span><br><span class="line">openssl req -x509 -new -nodes -key rootCA<span class="selector-class">.key</span> -subj <span class="string">"/CN=ngrok.cvbox.org"</span> -days <span class="number">5000</span> -out rootCA.pem</span><br><span class="line">openssl genrsa -out device<span class="selector-class">.key</span> <span class="number">2048</span></span><br><span class="line">openssl req -new -key device<span class="selector-class">.key</span> -subj <span class="string">"/CN=ngrok.cvbox.org"</span> -out device.csr</span><br><span class="line">openssl x509 -req -<span class="keyword">in</span> device<span class="selector-class">.csr</span> -CA rootCA<span class="selector-class">.pem</span> -CAkey rootCA<span class="selector-class">.key</span> -CAcreateserial -out device<span class="selector-class">.crt</span> -days <span class="number">5000</span></span><br><span class="line"></span><br><span class="line">替换原有证书</span><br><span class="line">$ cp rootCA<span class="selector-class">.pem</span> assets/client/tls/ngrokroot.crt</span><br><span class="line">$ cp device<span class="selector-class">.crt</span> assets/server/tls/snakeoil.crt</span><br><span class="line">$ cp device<span class="selector-class">.key</span> assets/server/tls/snakeoil.key</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">交叉编译环境</span><br><span class="line">$ GOOS=linux GOARCH=amd64 make release-client</span><br><span class="line">$ GOOS=windows GOARCH=amd64 make release-client</span><br><span class="line">$ GOOS=linux GOARCH=arm make release-client</span><br></pre></td></tr></table></figure>
+<p>快快把朋友的头像上传，看看惊喜吧……</p>
+<img src="/assets/image-20191016172139957.png" alt="image-20191016172139957" style="zoom:50%;">
 
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Linux 平台 32 位系统：<span class="attribute">GOOS</span>=linux <span class="attribute">GOARCH</span>=386</span><br><span class="line">Linux 平台 64 位系统：<span class="attribute">GOOS</span>=linux <span class="attribute">GOARCH</span>=amd64</span><br><span class="line"></span><br><span class="line">Windows 平台 32 位系统：<span class="attribute">GOOS</span>=windows <span class="attribute">GOARCH</span>=386</span><br><span class="line">Windows 平台 64 位系统：<span class="attribute">GOOS</span>=windows <span class="attribute">GOARCH</span>=amd64</span><br><span class="line"></span><br><span class="line">MAC 平台 32 位系统：<span class="attribute">GOOS</span>=darwin <span class="attribute">GOARCH</span>=386</span><br><span class="line">MAC 平台 64 位系统：<span class="attribute">GOOS</span>=darwin <span class="attribute">GOARCH</span>=amd64</span><br><span class="line"></span><br><span class="line">ARM 平台：<span class="attribute">GOOS</span>=linux <span class="attribute">GOARCH</span>=arm</span><br></pre></td></tr></table></figure>
 
-<h1 id="启动服务器"><a href="#启动服务器" class="headerlink" title="启动服务器"></a>启动服务器</h1><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nohup ./ngrokd <span class="attribute">-domain</span>=<span class="string">"ngrok.cvbox.org"</span> <span class="attribute">-httpAddr</span>=<span class="string">":8088"</span> <span class="attribute">-httpsAddr</span>=<span class="string">":8089"</span> &amp;</span><br></pre></td></tr></table></figure>
 
-<h1 id="启动客户端"><a href="#启动客户端" class="headerlink" title="启动客户端"></a>启动客户端</h1><p>ngrok.cfg</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server_addr:</span> <span class="string">“ngrok.cvbox.org:4443"</span></span><br><span class="line"><span class="attr">trust_host_root_certs:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
-<p>start client</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ngrok -subdomain demo -<span class="built_in">config</span>=./<span class="built_in">config</span>.cfg <span class="number">4000</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
-<li><a href="https://morongs.github.io/2016/12/28/dajian-ngrok/" target="_blank" rel="noopener">https://morongs.github.io/2016/12/28/dajian-ngrok/</a></li>
-</ul>
-
+<h2 id><a href="#" class="headerlink" title></a></h2><h2 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h2>
       
 
 
@@ -252,19 +258,11 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">website</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">圣诞帽</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ngrok</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tool</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">微信官方</a>
         		</li>
       		
 		</ul>
@@ -274,7 +272,7 @@ ga('send', 'pageview');
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/14/搭建属于自己的ngrok服务/">show more >></a>
+          <a class="article-more-a" href="/2019/10/15/不要再@微信官方了，cv工程师教你带上圣诞帽/">show more >></a>
         </p>
       
 
@@ -474,6 +472,130 @@ ga('send', 'pageview');
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/10/14/HTTPS 真的安全吗？ 聊聊你可能不知道的中间人攻击/">show more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-搭建属于自己的ngrok服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/14/搭建属于自己的ngrok服务/">搭建属于自己的ngrok服务</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/14/搭建属于自己的ngrok服务/" class="archive-article-date">
+  	<time datetime="2019-10-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="搭建属于自己的ngrok服务"><a href="#搭建属于自己的ngrok服务" class="headerlink" title="搭建属于自己的ngrok服务"></a>搭建属于自己的ngrok服务</h1><p>很多时候，我们在进行微信企业号或者微信公众号，小程序等相关接口开发时，我们知道部署在本地的web服务想暴露到公网，但是没有ip地址。那么就无法从外部访问了。这个时候有两种选择。</p>
+<ul>
+<li><ol>
+<li>租用vps，搭建各种环境。把代码提交到vps上，并进行部署。这个方式耗时耗力。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>选择一个代理方式，本文介绍的ngrok就是一种。</li>
+</ol>
+</li>
+</ul>
+<h1 id="源码编译"><a href="#源码编译" class="headerlink" title="源码编译"></a>源码编译</h1><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">证书生成</span><br><span class="line">cd ngrok</span><br><span class="line">openssl genrsa -out rootCA<span class="selector-class">.key</span> <span class="number">2048</span></span><br><span class="line">openssl req -x509 -new -nodes -key rootCA<span class="selector-class">.key</span> -subj <span class="string">"/CN=ngrok.cvbox.org"</span> -days <span class="number">5000</span> -out rootCA.pem</span><br><span class="line">openssl genrsa -out device<span class="selector-class">.key</span> <span class="number">2048</span></span><br><span class="line">openssl req -new -key device<span class="selector-class">.key</span> -subj <span class="string">"/CN=ngrok.cvbox.org"</span> -out device.csr</span><br><span class="line">openssl x509 -req -<span class="keyword">in</span> device<span class="selector-class">.csr</span> -CA rootCA<span class="selector-class">.pem</span> -CAkey rootCA<span class="selector-class">.key</span> -CAcreateserial -out device<span class="selector-class">.crt</span> -days <span class="number">5000</span></span><br><span class="line"></span><br><span class="line">替换原有证书</span><br><span class="line">$ cp rootCA<span class="selector-class">.pem</span> assets/client/tls/ngrokroot.crt</span><br><span class="line">$ cp device<span class="selector-class">.crt</span> assets/server/tls/snakeoil.crt</span><br><span class="line">$ cp device<span class="selector-class">.key</span> assets/server/tls/snakeoil.key</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">交叉编译环境</span><br><span class="line">$ GOOS=linux GOARCH=amd64 make release-client</span><br><span class="line">$ GOOS=windows GOARCH=amd64 make release-client</span><br><span class="line">$ GOOS=linux GOARCH=arm make release-client</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Linux 平台 32 位系统：<span class="attribute">GOOS</span>=linux <span class="attribute">GOARCH</span>=386</span><br><span class="line">Linux 平台 64 位系统：<span class="attribute">GOOS</span>=linux <span class="attribute">GOARCH</span>=amd64</span><br><span class="line"></span><br><span class="line">Windows 平台 32 位系统：<span class="attribute">GOOS</span>=windows <span class="attribute">GOARCH</span>=386</span><br><span class="line">Windows 平台 64 位系统：<span class="attribute">GOOS</span>=windows <span class="attribute">GOARCH</span>=amd64</span><br><span class="line"></span><br><span class="line">MAC 平台 32 位系统：<span class="attribute">GOOS</span>=darwin <span class="attribute">GOARCH</span>=386</span><br><span class="line">MAC 平台 64 位系统：<span class="attribute">GOOS</span>=darwin <span class="attribute">GOARCH</span>=amd64</span><br><span class="line"></span><br><span class="line">ARM 平台：<span class="attribute">GOOS</span>=linux <span class="attribute">GOARCH</span>=arm</span><br></pre></td></tr></table></figure>
+
+<h1 id="启动服务器"><a href="#启动服务器" class="headerlink" title="启动服务器"></a>启动服务器</h1><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nohup ./ngrokd <span class="attribute">-domain</span>=<span class="string">"ngrok.cvbox.org"</span> <span class="attribute">-httpAddr</span>=<span class="string">":8088"</span> <span class="attribute">-httpsAddr</span>=<span class="string">":8089"</span> &amp;</span><br></pre></td></tr></table></figure>
+
+<h1 id="启动客户端"><a href="#启动客户端" class="headerlink" title="启动客户端"></a>启动客户端</h1><p>ngrok.cfg</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server_addr:</span> <span class="string">“ngrok.cvbox.org:4443"</span></span><br><span class="line"><span class="attr">trust_host_root_certs:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<p>start client</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ngrok -subdomain demo -<span class="built_in">config</span>=./<span class="built_in">config</span>.cfg <span class="number">4000</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="https://morongs.github.io/2016/12/28/dajian-ngrok/" target="_blank" rel="noopener">https://morongs.github.io/2016/12/28/dajian-ngrok/</a></li>
+</ul>
+
+      
+
+
+    <!-- 增加版权声明 -->
+
+    
+    
+      <div class="declare" hidden="hidden"></div>
+    
+
+    <!-- 增加版权声明结束 -->
+
+
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">website</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tool</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ngrok</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/14/搭建属于自己的ngrok服务/">show more >></a>
         </p>
       
 
@@ -1193,115 +1315,6 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-Todo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/04/Todo/">TODO == NOT DO ?</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/04/Todo/" class="archive-article-date">
-  	<time datetime="2019-10-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/image-20191005013602193.png" alt="image-20191005013602193"></p>
-<p>代码界有个不成文的约定</p>
-<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//todo 意思就是项目很敢，目前这里能正常实现，将来有空再来补充 ==》 不做</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>如何取一个让人无法拒绝的标题？</li>
-<li>如何写好一篇通俗易懂的科普文？</li>
-<li>如何利用好会写一点代码的能力？</li>
-<li>如何掌握一个好的上班（滑水）姿势？</li>
-<li>如何在21天精通xxx，yyyy ？</li>
-</ul>
-<h2 id="选题"><a href="#选题" class="headerlink" title="选题"></a>选题</h2><ul>
-<li>架构高可用</li>
-<li>唯一id生成</li>
-<li>创业公司架构</li>
-<li>100cpu 发生了什么</li>
-<li>微服务</li>
-<li>原形工具对比 | 开发工具 | 效率工具使用推荐</li>
-<li>抓包工具，你的接口不对啥，抓个包给我？</li>
-<li>全栈工程师必备的经验和工具</li>
-<li>线程是什么，工作模式如何</li>
-<li>http | https解析</li>
-</ul>
-
-      
-
-
-    <!-- 增加版权声明 -->
-
-    
-    
-      <div class="declare" hidden="hidden"></div>
-    
-
-    <!-- 增加版权声明结束 -->
-
-
-
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">todo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/04/Todo/">show more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1407,6 +1420,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">圣诞帽</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">微信官方</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">website</a>
               </li>
              
@@ -1415,15 +1436,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ngrok</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">tool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1432,6 +1445,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">me</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ngrok</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
