@@ -180,6 +180,361 @@ ga('send', 'pageview');
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-如何快速开发一个app" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/07/如何快速开发一个app/">从零开始开发一个app指南</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/07/如何快速开发一个app/" class="archive-article-date">
+  	<time datetime="2019-10-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>我有一个想法，如果给我一个程序员，我觉得自己就可以干掉 Google，或可以将 Facebook 斩于马下，或者是改变我们现有的商业面貌。我已经发现了“下一个伟大事物”，有可能颠覆 Google 或是 FacebooK这个想法在我脑子里酝酿了一周了，终于搞定了,现在我只需要一个程序员而已。</p>
+<p>当然，我从来没想过自己去学会怎样编程，我有想法就足够了。</p>
+<p>今天上午，把车看好了，也试驾了，宝马7系，有现车，感觉还可以。计划明天付定金，下午去看房子，独栋的别墅价格还行，1000平方米的，门口有花园，能停车，折扣已经谈好且定下了。现在万事俱备，只看今晚双色球了。</p>
+<p>今天吃点醋, 谁家借点小龙虾而已。</p>
+<p><a href="https://yq.aliyun.com/roundtable/55923" target="_blank" rel="noopener">原文访达</a></p>
+</blockquote>
+<p><img src="/assets/v2-c1071fc2a97d304203663f7b7f97e1c4_hd.jpg" alt="img"></p>
+<h2 id="0x1-一切从不安分的心开始"><a href="#0x1-一切从不安分的心开始" class="headerlink" title="0x1 一切从不安分的心开始"></a>0x1 一切从不安分的心开始</h2><p>​    好比苹果从树上掉下来，砸到了你的头上，忽然你就有了一个idea，最终如何落地到产品，中间的路程超乎想象，无知者无惧，如果是你只是有很好的产品思维，但是缺乏代码实现能力，那么实际上需要找一个技术小子，来进行辅助。或者你本来就属于全面型的，那么可以直接略过原型，在脑海中演绎，然后动手撸起来。实际上，我还是强烈的建议通过原型展示在眼前，毕竟完全在大脑中想象，也很难考虑周全。而且，产品原型设计仅仅只是开始踏坑的第一步而已…</p>
+<p>​    很幸运，能够在此相遇，分享一些你可能知道或者不知道，而我又恰恰又知道的东西。</p>
+<p>一个产品的形态有很多种方式体现，PC网站，移动端网站，微信公众号，独立App等，每一个都涉及到非常多的内容，这里先以App为例，谈谈开发一个App需要涉及到的工具以及需要考虑的点。优先选择开源，后续再聊聊具体这个流程中的一些细节以及替代的商用产品。</p>
+<h2 id="0x2-原型设计工具"><a href="#0x2-原型设计工具" class="headerlink" title="0x2 原型设计工具"></a>0x2 原型设计工具</h2><ul>
+<li>Flinto</li>
+<li>磨刀</li>
+<li>Axure</li>
+</ul>
+<h2 id="0x3-前端技术选型（Hybrid-App）"><a href="#0x3-前端技术选型（Hybrid-App）" class="headerlink" title="0x3 前端技术选型（Hybrid App）"></a>0x3 前端技术选型（Hybrid App）</h2><ul>
+<li>Vue</li>
+<li>Uinapp</li>
+<li>Weex</li>
+<li>ReactNative</li>
+<li>Element-UI | Ant-Design （运营管理后台，开发中台管理等） </li>
+</ul>
+<h2 id="0x4-后台技术选型"><a href="#0x4-后台技术选型" class="headerlink" title="0x4 后台技术选型"></a>0x4 后台技术选型</h2><ul>
+<li>基础框架 Java-SpringCloud | SpringBoot | Dubbo </li>
+<li>基础框架 Go 生态系统</li>
+<li>协议选择 文本协议 | 二进制协议选择</li>
+<li>数据库的选型 Mysql | Redis等</li>
+<li>登陆鉴权票据等 有状态 | 无状态， Session | OAuth | JWT</li>
+<li>消息队列 RocketMq</li>
+<li>定时任务管理 ElasticJob</li>
+<li>Nginx | Openresty | </li>
+</ul>
+<h2 id="0x5-部署自动化"><a href="#0x5-部署自动化" class="headerlink" title="0x5 部署自动化"></a>0x5 部署自动化</h2><ul>
+<li>Jenkins | Ansible</li>
+<li>容器技术 Docker </li>
+<li>服务编排 Kubernetes</li>
+</ul>
+<h2 id="0x6-代码托管"><a href="#0x6-代码托管" class="headerlink" title="0x6 代码托管"></a>0x6 代码托管</h2><ul>
+<li>Github</li>
+<li>私有部署 Gitlab | Gogs </li>
+</ul>
+<h2 id="0x7-监控-可视化"><a href="#0x7-监控-可视化" class="headerlink" title="0x7 监控 | 可视化"></a>0x7 监控 | 可视化</h2><ul>
+<li>Cat</li>
+<li>Prometheus</li>
+<li>Pinpoint</li>
+<li>E（Elasticsearch）L（Logstash）K（Kibana） ，ELK</li>
+<li>可视化（Grafana |  Kibana ）可以和Prometheus 结合形成监控数据一体化</li>
+</ul>
+<h2 id="0x8-其他工具类库等（全栈开发人员必知必会）"><a href="#0x8-其他工具类库等（全栈开发人员必知必会）" class="headerlink" title="0x8 其他工具类库等（全栈开发人员必知必会）"></a>0x8 其他工具类库等（全栈开发人员必知必会）</h2><ul>
+<li>JavaScript</li>
+<li>Vuejs</li>
+<li>Python</li>
+<li>Postman</li>
+<li>Whistle </li>
+<li>WireShark</li>
+<li>Tcpdump</li>
+</ul>
+
+      
+
+
+    <!-- 增加版权声明 -->
+
+    
+    
+      <div class="declare" hidden="hidden"></div>
+    
+
+    <!-- 增加版权声明结束 -->
+
+
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">website</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/07/如何快速开发一个app/">show more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-从零开始搭建个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/05/从零开始搭建个人博客/">零基础教你Hexo+Github+CloudFlare+Typora打造互联网创作工具流</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/05/从零开始搭建个人博客/" class="archive-article-date">
+  	<time datetime="2019-10-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="0x1"><a href="#0x1" class="headerlink" title="0x1"></a>0x1</h2><p>让你爱上码字的感觉，不需要任何技术，思想的火花就通过指尖的跃动显示出来。或分享大众，或自己雪藏。</p>
+<h2 id="0x2-准备材料"><a href="#0x2-准备材料" class="headerlink" title="0x2 准备材料"></a>0x2 准备材料</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">- </span>域名 <span class="code">`example.org`</span> （可选）</span><br><span class="line"></span><br><span class="line"><span class="bullet">- </span>GitHub 账号 <span class="code">`cvbox`</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="0x3-安装工具"><a href="#0x3-安装工具" class="headerlink" title="0x3 安装工具"></a>0x3 安装工具</h2><ol>
+<li>mac下安装homebrew，如果已经安装，跳过此步</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/<span class="keyword">install</span>/<span class="keyword">master</span>/<span class="keyword">install</span>)<span class="string">"</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>安装node</li>
+</ol>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install <span class="keyword">node</span><span class="title"></span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>安装hexo</li>
+</ol>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-<span class="keyword">cli</span>  <span class="meta">#-g表示全局安装</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>初始化博客,选择一个目录执行下面命令，这里用cvbox来进行演示，如无特别声明，后续都在cvbox下进行操作</li>
+</ol>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">hexo</span> <span class="string">init cvbox</span></span><br><span class="line"><span class="attr">cd</span> <span class="string">cvbox</span></span><br><span class="line"><span class="attr">npm</span> <span class="string">install</span></span><br><span class="line"><span class="attr">hexo</span> <span class="string">g</span></span><br><span class="line"><span class="attr">hexo</span> <span class="string">s</span></span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>本地测试预览</li>
+</ol>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">http:</span><span class="comment">//localhost:4000/</span></span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>安装git</li>
+</ol>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span><span class="keyword">install </span>git</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>更改主题(yilla)</li>
+</ol>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 这款主题简单优雅</span></span><br><span class="line"><span class="meta"># 在cvbox目录下执行</span></span><br><span class="line">git clone https:<span class="comment">//github.com/litten/hexo-theme-yilia.git themes/yilia</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 下载完成后，更改cvbox目录下的_config.yml中</span></span><br><span class="line">theme: yilia</span><br><span class="line"></span><br><span class="line"><span class="meta"># 重新生成博客页面并进行预览，查看最终效果</span></span><br><span class="line"></span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li>到此，差不多在本地能看到新主题博客的预览效果了</li>
+</ol>
+<img src="/assets/image-20191005214317956.png" alt="image-20191005214317956" style="zoom:50%;">
+
+
+
+<h2 id="0x4"><a href="#0x4" class="headerlink" title="0x4"></a>0x4</h2><p>当然，不止步于此。我们需要在网络中找个房子给这些机灵的文字精灵，github pages 或者coding的pages都是一个不错的选择。后者对国内用户相对友好。</p>
+<ol>
+<li>建立一个以github用户名为前缀的仓库（<code>xxx.github.io</code>），下图截图的<code>cvbox</code>就是托管本博客仓库的github账号，所以取名为<code>cvbox.github.io</code>,切记不要搞错</li>
+</ol>
+<img src="/assets/image-20191005214733420.png" alt="image-20191005214733420" style="zoom:50%;">
+
+<ol start="2">
+<li>创建完成后，复制下图中的地址 <code>https://github.com/cvbox/cvbox.github.io.git</code></li>
+</ol>
+<img src="/assets/image-20191005215100601.png" alt="image-20191005215100601" style="zoom:50%;">
+
+<ol start="3">
+<li>生成本地公钥并添加到github，此步骤是为了能够实现无密码获取到对github仓库的操作权限，为后续的第4步骤提供基础条件</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"邮件地址@youremail.com"</span></span><br><span class="line"></span><br><span class="line"># 一路回车，执行完成后</span><br><span class="line">cd</span><br><span class="line">cat .ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p>复制下面这样一坨马赛克一样的东西</p>
+<img src="/assets/image-20191005222540433.png" alt="image-20191005222540433" style="zoom:50%;">
+
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 浏览器中打开页面 http<span class="variable">s:</span>//github.<span class="keyword">com</span>/settings/<span class="built_in">keys</span>，并把复制的公钥贴到sshkeys栏目中</span><br></pre></td></tr></table></figure>
+
+<img src="/assets/image-20191005221828045.png" alt="image-20191005221828045" style="zoom:30%;">
+
+<ol start="4">
+<li>修改cvbox下<code>_config.yml</code>,根据具体情况，更改为自己的对应仓库链接</li>
+</ol>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">  <span class="attribute">type</span>: git </span><br><span class="line">  <span class="attribute">repo</span>: <span class="attribute">https</span>:<span class="comment">//github.com/cvbox/cvbox.github.io.git</span></span><br><span class="line">  <span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li><p>浏览器中访问 <code>cvbox.github.io</code>，验证部署成功</p>
+</li>
+<li><p>推送博客页面到github，此步骤可选</p>
+</li>
+</ol>
+<h2 id="0x5"><a href="#0x5" class="headerlink" title="0x5"></a>0x5</h2><p>到了这里，简单的博客就搭建好了，恭喜</p>
+<p>那么如何体验顺滑书写的感觉呢，毕竟有图文，要插入图片，图床这些概念都不懂啊，而且以后想迁移我的这些数据，图床不服务了，这些成本也不小啊。</p>
+<p>不用担心，这里的方式，图片还是在自己的本地，不会再使用到第三方，全部跟网页一样都托管到了github</p>
+<ul>
+<li><p>插入图片的小技巧</p>
+</li>
+<li><p>在source下建立assets 文件夹，用来存放文章用到的图片</p>
+</li>
+<li><p>设置typora的文件复制路径，Typora-偏好设置-图像-复制到指定路径-<code>../assets</code></p>
+</li>
+</ul>
+<p><img src="/assets/image-20191004082014960.png" alt="image-20191004082014960"></p>
+<h2 id="0x7-保存你的源文件"><a href="#0x7-保存你的源文件" class="headerlink" title="0x7 保存你的源文件"></a>0x7 保存你的源文件</h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git commit</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>主题也进行了修改了如何保存</li>
+<li>git submodule add xxx</li>
+</ul>
+<h2 id="0x8"><a href="#0x8" class="headerlink" title="0x8"></a>0x8</h2><p>那个，我先添加cdn 没问题 cloudflare 帮你解决</p>
+<h2 id="0x9"><a href="#0x9" class="headerlink" title="0x9"></a>0x9</h2><p>那个 我还想加个小锁，https，自定义域名</p>
+<h2 id="0xa"><a href="#0xa" class="headerlink" title="0xa"></a>0xa</h2><p>文章只有自己看，加个小密码</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">切换到根目录</span><br><span class="line">npm <span class="keyword">install</span> hexo-blog-<span class="keyword">encrypt</span> <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>开启加密开关,在外层的_config.yml中添加</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">encrypt:</span></span><br><span class="line"><span class="attr">    enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在期望加密的文章头部添加配置</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">我是文章的标题</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2019</span><span class="bullet">-10</span><span class="bullet">-01</span></span><br><span class="line"><span class="attr">tags:</span> <span class="string">[life,tool]</span></span><br><span class="line"><span class="attr">password:</span> <span class="number">12345</span></span><br><span class="line"><span class="attr">abstract:</span> <span class="string">摘要</span></span><br><span class="line"><span class="attr">message:</span> <span class="string">土豆土豆，我是地瓜</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"></span><br><span class="line"><span class="attr">password:</span> <span class="string">博客加密使用的密码</span></span><br><span class="line"><span class="attr">abstract:</span> <span class="string">在博客的列表页显示的摘要信息</span></span><br><span class="line"><span class="attr">message:</span>  <span class="string">密码输入框的提示信息</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="0xb"><a href="#0xb" class="headerlink" title="0xb"></a>0xb</h2><p>搜索引擎看，google 分析，百度分析等站长工具</p>
+
+      
+
+
+    <!-- 增加版权声明 -->
+
+    
+    
+      <div class="declare" hidden="hidden"></div>
+    
+
+    <!-- 增加版权声明结束 -->
+
+
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">website</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">todo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tool</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">guides</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/05/从零开始搭建个人博客/">show more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Todo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -467,92 +822,6 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-如何正确掌握好的上班(划水)姿势" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/01/如何正确掌握好的上班(划水)姿势/">如何掌握一个好的上班（滑水）姿势</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/01/如何正确掌握好的上班(划水)姿势/" class="archive-article-date">
-  	<time datetime="2019-09-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-
-    <!-- 增加版权声明 -->
-
-    
-    
-      <div class="declare" hidden="hidden"></div>
-    
-
-    <!-- 增加版权声明结束 -->
-
-
-
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">todo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/01/如何正确掌握好的上班(划水)姿势/">show more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-全栈人员工具站" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -688,19 +957,19 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-抓包这件事情" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-如何正确掌握好的上班(划水)姿势" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/01/抓包这件事情/">Template</a>
+      <a class="article-title" href="/2019/10/01/如何正确掌握好的上班(划水)姿势/">如何掌握一个好的上班（滑水）姿势</a>
     </h1>
   
 
         
-        <a href="/2019/10/01/抓包这件事情/" class="archive-article-date">
+        <a href="/2019/10/01/如何正确掌握好的上班(划水)姿势/" class="archive-article-date">
   	<time datetime="2019-09-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-01</time>
 </a>
         
@@ -708,22 +977,7 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="配图"><a href="#配图" class="headerlink" title="配图"></a>配图</h2><blockquote>
-<p>被抓先行了吧？</p>
-</blockquote>
-<h2 id="0x1-出问题了，抓个包给我"><a href="#0x1-出问题了，抓个包给我" class="headerlink" title="0x1 出问题了，抓个包给我"></a>0x1 出问题了，抓个包给我</h2><p>啥是包，怎么抓</p>
-<p>常用的抓包工具</p>
-<ul>
-<li>fiddle</li>
-<li>whislte</li>
-<li>tcpdump | wireshark</li>
-</ul>
-<h2 id="0x2-牛刀小试"><a href="#0x2-牛刀小试" class="headerlink" title="0x2 牛刀小试"></a>0x2 牛刀小试</h2><h2 id="0x3-初出茅庐"><a href="#0x3-初出茅庐" class="headerlink" title="0x3 初出茅庐"></a>0x3 初出茅庐</h2><h2 id="0x4-杀手锏"><a href="#0x4-杀手锏" class="headerlink" title="0x4 杀手锏"></a>0x4 杀手锏</h2><h2 id="0x5-总结-对比分析"><a href="#0x5-总结-对比分析" class="headerlink" title="0x5 总结 | 对比分析"></a>0x5 总结 | 对比分析</h2><p>使用场景：</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><a href="https://imququ.com/post/how-to-decrypt-https.html" target="_blank" rel="noopener">https://imququ.com/post/how-to-decrypt-https.html</a></li>
-<li></li>
-</ul>
-
+        
       
 
 
@@ -749,7 +1003,7 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">website</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">todo</a>
         		</li>
       		
 		</ul>
@@ -759,95 +1013,7 @@ ga('send', 'pageview');
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/01/抓包这件事情/">show more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-cv工程师盘点最常用的app开发工具" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/01/cv工程师盘点最常用的app开发工具/">Template</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/01/cv工程师盘点最常用的app开发工具/" class="archive-article-date">
-  	<time datetime="2019-09-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="文章模版"><a href="#文章模版" class="headerlink" title="文章模版"></a>文章模版</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span>   <span class="string">网站更新记录</span></span><br><span class="line"><span class="attr">date:</span>   <span class="number">2019</span><span class="bullet">-10</span><span class="bullet">-01</span></span><br><span class="line"><span class="attr">tags:</span>   <span class="string">[website]</span> </span><br><span class="line"><span class="attr">declare:</span>   <span class="literal">true</span></span><br><span class="line"><span class="attr">typora-root-url:</span> <span class="string">../../source/</span></span><br><span class="line"><span class="attr">password:</span> <span class="number">12345</span></span><br><span class="line"><span class="attr">abstract:</span> <span class="string">列表页的摘要显示</span></span><br><span class="line"><span class="attr">message:</span> <span class="string">🥔🥔</span> <span class="string">我是</span> <span class="string">🍠</span> </span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-
-
-      
-
-
-    <!-- 增加版权声明 -->
-
-    
-    
-      <div class="declare" hidden="hidden"></div>
-    
-
-    <!-- 增加版权声明结束 -->
-
-
-
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">website</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/01/cv工程师盘点最常用的app开发工具/">show more >></a>
+          <a class="article-more-a" href="/2019/10/01/如何正确掌握好的上班(划水)姿势/">show more >></a>
         </p>
       
 
@@ -1067,11 +1233,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">todo</a>
+                <a href="javascript:void(0)" class="js-tag color3">website</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">website</a>
+                <a href="javascript:void(0)" class="js-tag color1">about</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">todo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1083,7 +1253,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">about</a>
+                <a href="javascript:void(0)" class="js-tag color3">me</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1095,7 +1265,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">me</a>
+                <a href="javascript:void(0)" class="js-tag color2">wechat</a>
               </li>
              
               <li class="article-tag-list-item">
