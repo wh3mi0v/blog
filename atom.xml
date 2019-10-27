@@ -5,9 +5,9 @@
   <subtitle>make coding easy</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://cvbox.org/"/>
+  <link href="https://cvbox.org/blog/"/>
   <updated>2019-10-27T01:28:55.492Z</updated>
-  <id>https://cvbox.org/</id>
+  <id>https://cvbox.org/blog/</id>
   
   <author>
     <name>Cvbox</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>WebP转PNG或者JPEG</title>
-    <link href="https://cvbox.org/2019/10/22/webp/"/>
-    <id>https://cvbox.org/2019/10/22/webp/</id>
+    <link href="https://cvbox.org/blog/2019/10/22/webp/"/>
+    <id>https://cvbox.org/blog/2019/10/22/webp/</id>
     <published>2019-10-21T16:00:00.000Z</published>
     <updated>2019-10-27T01:28:55.492Z</updated>
     
@@ -39,16 +39,16 @@
     
     
     
-      <category term="website" scheme="https://cvbox.org/tags/website/"/>
+      <category term="website" scheme="https://cvbox.org/blog/tags/website/"/>
     
-      <category term="tool" scheme="https://cvbox.org/tags/tool/"/>
+      <category term="tool" scheme="https://cvbox.org/blog/tags/tool/"/>
     
   </entry>
   
   <entry>
     <title>如果开发一款微信App之协议分析</title>
-    <link href="https://cvbox.org/2019/10/17/ru-guo-kai-fa-yi-kuan-wei-xin-app-zhi-xie-yi-fen-xi/"/>
-    <id>https://cvbox.org/2019/10/17/ru-guo-kai-fa-yi-kuan-wei-xin-app-zhi-xie-yi-fen-xi/</id>
+    <link href="https://cvbox.org/blog/2019/10/17/ru-guo-kai-fa-yi-kuan-wei-xin-app-zhi-xie-yi-fen-xi/"/>
+    <id>https://cvbox.org/blog/2019/10/17/ru-guo-kai-fa-yi-kuan-wei-xin-app-zhi-xie-yi-fen-xi/</id>
     <published>2019-10-16T16:00:00.000Z</published>
     <updated>2019-10-27T01:28:55.477Z</updated>
     
@@ -67,16 +67,16 @@
     
     
     
-      <category term="app" scheme="https://cvbox.org/tags/app/"/>
+      <category term="app" scheme="https://cvbox.org/blog/tags/app/"/>
     
-      <category term="wechat" scheme="https://cvbox.org/tags/wechat/"/>
+      <category term="wechat" scheme="https://cvbox.org/blog/tags/wechat/"/>
     
   </entry>
   
   <entry>
     <title>Gitchat题目</title>
-    <link href="https://cvbox.org/2019/10/16/gitchat-ti-mu/"/>
-    <id>https://cvbox.org/2019/10/16/gitchat-ti-mu/</id>
+    <link href="https://cvbox.org/blog/2019/10/16/gitchat-ti-mu/"/>
+    <id>https://cvbox.org/blog/2019/10/16/gitchat-ti-mu/</id>
     <published>2019-10-15T16:00:00.000Z</published>
     <updated>2019-10-27T01:28:55.485Z</updated>
     
@@ -94,14 +94,14 @@
     
     
     
-      <category term="website" scheme="https://cvbox.org/tags/website/"/>
+      <category term="website" scheme="https://cvbox.org/blog/tags/website/"/>
     
   </entry>
   
   <entry>
     <title>不要再@微信官方了，cv工程师源代码手摸手教你正确的带上圣诞帽以及其他帽</title>
-    <link href="https://cvbox.org/2019/10/15/bu-yao-zai-wei-xin-guan-fang-liao-cv-gong-cheng-shi-jiao-ni-dai-shang-sheng-dan-mao/"/>
-    <id>https://cvbox.org/2019/10/15/bu-yao-zai-wei-xin-guan-fang-liao-cv-gong-cheng-shi-jiao-ni-dai-shang-sheng-dan-mao/</id>
+    <link href="https://cvbox.org/blog/2019/10/15/bu-yao-zai-wei-xin-guan-fang-liao-cv-gong-cheng-shi-jiao-ni-dai-shang-sheng-dan-mao/"/>
+    <id>https://cvbox.org/blog/2019/10/15/bu-yao-zai-wei-xin-guan-fang-liao-cv-gong-cheng-shi-jiao-ni-dai-shang-sheng-dan-mao/</id>
     <published>2019-10-14T16:00:00.000Z</published>
     <updated>2019-10-27T01:28:55.491Z</updated>
     
@@ -119,16 +119,16 @@
     
     
     
-      <category term="圣诞帽" scheme="https://cvbox.org/tags/%E5%9C%A3%E8%AF%9E%E5%B8%BD/"/>
+      <category term="圣诞帽" scheme="https://cvbox.org/blog/tags/%E5%9C%A3%E8%AF%9E%E5%B8%BD/"/>
     
-      <category term="微信官方" scheme="https://cvbox.org/tags/%E5%BE%AE%E4%BF%A1%E5%AE%98%E6%96%B9/"/>
+      <category term="微信官方" scheme="https://cvbox.org/blog/tags/%E5%BE%AE%E4%BF%A1%E5%AE%98%E6%96%B9/"/>
     
   </entry>
   
   <entry>
     <title>HTTPS 真的安全吗？ 聊聊你可能不知道的中间人攻击</title>
-    <link href="https://cvbox.org/2019/10/14/https-zhen-de-an-quan-ma-liao-liao-ni-ke-neng-bu-zhi-dao-de-zhong-jian-ren-gong-ji/"/>
-    <id>https://cvbox.org/2019/10/14/https-zhen-de-an-quan-ma-liao-liao-ni-ke-neng-bu-zhi-dao-de-zhong-jian-ren-gong-ji/</id>
+    <link href="https://cvbox.org/blog/2019/10/14/https-zhen-de-an-quan-ma-liao-liao-ni-ke-neng-bu-zhi-dao-de-zhong-jian-ren-gong-ji/"/>
+    <id>https://cvbox.org/blog/2019/10/14/https-zhen-de-an-quan-ma-liao-liao-ni-ke-neng-bu-zhi-dao-de-zhong-jian-ren-gong-ji/</id>
     <published>2019-10-13T16:00:00.000Z</published>
     <updated>2019-10-27T01:28:55.479Z</updated>
     
@@ -146,18 +146,18 @@
     
     
     
-      <category term="tool" scheme="https://cvbox.org/tags/tool/"/>
+      <category term="tool" scheme="https://cvbox.org/blog/tags/tool/"/>
     
-      <category term="whistle" scheme="https://cvbox.org/tags/whistle/"/>
+      <category term="whistle" scheme="https://cvbox.org/blog/tags/whistle/"/>
     
-      <category term="cvbox" scheme="https://cvbox.org/tags/cvbox/"/>
+      <category term="cvbox" scheme="https://cvbox.org/blog/tags/cvbox/"/>
     
   </entry>
   
   <entry>
     <title>搭建属于自己的ngrok服务</title>
-    <link href="https://cvbox.org/2019/10/14/da-jian-shu-yu-zi-ji-de-ngrok-fu-wu/"/>
-    <id>https://cvbox.org/2019/10/14/da-jian-shu-yu-zi-ji-de-ngrok-fu-wu/</id>
+    <link href="https://cvbox.org/blog/2019/10/14/da-jian-shu-yu-zi-ji-de-ngrok-fu-wu/"/>
+    <id>https://cvbox.org/blog/2019/10/14/da-jian-shu-yu-zi-ji-de-ngrok-fu-wu/</id>
     <published>2019-10-13T16:00:00.000Z</published>
     <updated>2019-10-27T01:28:55.492Z</updated>
     
@@ -175,20 +175,20 @@
     
     
     
-      <category term="website" scheme="https://cvbox.org/tags/website/"/>
+      <category term="website" scheme="https://cvbox.org/blog/tags/website/"/>
     
-      <category term="tool" scheme="https://cvbox.org/tags/tool/"/>
+      <category term="tool" scheme="https://cvbox.org/blog/tags/tool/"/>
     
-      <category term="ngrok" scheme="https://cvbox.org/tags/ngrok/"/>
+      <category term="ngrok" scheme="https://cvbox.org/blog/tags/ngrok/"/>
     
-      <category term="web" scheme="https://cvbox.org/tags/web/"/>
+      <category term="web" scheme="https://cvbox.org/blog/tags/web/"/>
     
   </entry>
   
   <entry>
     <title>隐私政策</title>
-    <link href="https://cvbox.org/2019/10/12/privacy/"/>
-    <id>https://cvbox.org/2019/10/12/privacy/</id>
+    <link href="https://cvbox.org/blog/2019/10/12/privacy/"/>
+    <id>https://cvbox.org/blog/2019/10/12/privacy/</id>
     <published>2019-10-11T16:00:00.000Z</published>
     <updated>2019-10-27T01:28:55.482Z</updated>
     
@@ -206,16 +206,16 @@
     
     
     
-      <category term="website" scheme="https://cvbox.org/tags/website/"/>
+      <category term="website" scheme="https://cvbox.org/blog/tags/website/"/>
     
-      <category term="about" scheme="https://cvbox.org/tags/about/"/>
+      <category term="about" scheme="https://cvbox.org/blog/tags/about/"/>
     
   </entry>
   
   <entry>
     <title>8 Things have to Think about to Make Your Idea To an App</title>
-    <link href="https://cvbox.org/2019/10/10/8-things-have-to-think-about-to-make-your-idea-to-an-app/"/>
-    <id>https://cvbox.org/2019/10/10/8-things-have-to-think-about-to-make-your-idea-to-an-app/</id>
+    <link href="https://cvbox.org/blog/2019/10/10/8-things-have-to-think-about-to-make-your-idea-to-an-app/"/>
+    <id>https://cvbox.org/blog/2019/10/10/8-things-have-to-think-about-to-make-your-idea-to-an-app/</id>
     <published>2019-10-09T16:00:00.000Z</published>
     <updated>2019-10-27T01:28:55.476Z</updated>
     
@@ -233,38 +233,14 @@
     
     
     
-      <category term="app" scheme="https://cvbox.org/tags/app/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GPS 数据分析</title>
-    <link href="https://cvbox.org/2019/10/07/gps-shu-ju-fen-xi/"/>
-    <id>https://cvbox.org/2019/10/07/gps-shu-ju-fen-xi/</id>
-    <published>2019-10-06T16:00:00.000Z</published>
-    <updated>2019-10-27T01:28:55.484Z</updated>
-    
-    <summary type="html">
-    
-      &lt;hr&gt;
-&lt;h3 id=&quot;代码结构&quot;&gt;&lt;a href=&quot;#代码结构&quot; class=&quot;headerlink&quot; title=&quot;代码结构&quot;&gt;&lt;/a&gt;代码结构&lt;/h3&gt;&lt;h3 id=&quot;数据预处理&quot;&gt;&lt;a href=&quot;#数据预处理&quot; class=&quot;headerlink&quot; title=&quot;数据预处理&quot;&gt;&lt;/a&gt;数据预处理&lt;/h3&gt;&lt;p&gt;1.清洗数据&lt;br&gt;通过服务器返回的数据，包含许多冗余的数据，我们需要对其进行抽取，转换成我们需要的数据。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;getAllUserData(String inpath, String opath)&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;将从服务器获取的json字符串进行清洗、换行成结构化数据。格式如下。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;8566965,1.438734627E9,2015-08-05 08:30:27,113.930632,22.541371
-8566965,1.438734647E9,2015-08-05 08:30:47,113.930609,22.541398
-8566965,1.438734667E9,2015-08-05 08:31:07,113.930603,22.541400&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="data" scheme="https://cvbox.org/tags/data/"/>
+      <category term="app" scheme="https://cvbox.org/blog/tags/app/"/>
     
   </entry>
   
   <entry>
     <title>从零开始开发一个app指南</title>
-    <link href="https://cvbox.org/2019/10/07/ru-he-kuai-su-kai-fa-yi-ge-app/"/>
-    <id>https://cvbox.org/2019/10/07/ru-he-kuai-su-kai-fa-yi-ge-app/</id>
+    <link href="https://cvbox.org/blog/2019/10/07/ru-he-kuai-su-kai-fa-yi-ge-app/"/>
+    <id>https://cvbox.org/blog/2019/10/07/ru-he-kuai-su-kai-fa-yi-ge-app/</id>
     <published>2019-10-06T16:00:00.000Z</published>
     <updated>2019-10-27T02:20:30.110Z</updated>
     
@@ -282,17 +258,41 @@
     </summary>
     
     
-      <category term="resume" scheme="https://cvbox.org/categories/resume/"/>
+      <category term="resume" scheme="https://cvbox.org/blog/categories/resume/"/>
     
     
-      <category term="website" scheme="https://cvbox.org/tags/website/"/>
+      <category term="website" scheme="https://cvbox.org/blog/tags/website/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GPS 数据分析</title>
+    <link href="https://cvbox.org/blog/2019/10/07/gps-shu-ju-fen-xi/"/>
+    <id>https://cvbox.org/blog/2019/10/07/gps-shu-ju-fen-xi/</id>
+    <published>2019-10-06T16:00:00.000Z</published>
+    <updated>2019-10-27T01:28:55.484Z</updated>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;h3 id=&quot;代码结构&quot;&gt;&lt;a href=&quot;#代码结构&quot; class=&quot;headerlink&quot; title=&quot;代码结构&quot;&gt;&lt;/a&gt;代码结构&lt;/h3&gt;&lt;h3 id=&quot;数据预处理&quot;&gt;&lt;a href=&quot;#数据预处理&quot; class=&quot;headerlink&quot; title=&quot;数据预处理&quot;&gt;&lt;/a&gt;数据预处理&lt;/h3&gt;&lt;p&gt;1.清洗数据&lt;br&gt;通过服务器返回的数据，包含许多冗余的数据，我们需要对其进行抽取，转换成我们需要的数据。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;getAllUserData(String inpath, String opath)&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;将从服务器获取的json字符串进行清洗、换行成结构化数据。格式如下。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;8566965,1.438734627E9,2015-08-05 08:30:27,113.930632,22.541371
+8566965,1.438734647E9,2015-08-05 08:30:47,113.930609,22.541398
+8566965,1.438734667E9,2015-08-05 08:31:07,113.930603,22.541400&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="data" scheme="https://cvbox.org/blog/tags/data/"/>
     
   </entry>
   
   <entry>
     <title>零基础教你Hexo+Github+CloudFlare+Typora打造互联网创作工具流</title>
-    <link href="https://cvbox.org/2019/10/05/cong-ling-kai-shi-da-jian-ge-ren-bo-ke/"/>
-    <id>https://cvbox.org/2019/10/05/cong-ling-kai-shi-da-jian-ge-ren-bo-ke/</id>
+    <link href="https://cvbox.org/blog/2019/10/05/cong-ling-kai-shi-da-jian-ge-ren-bo-ke/"/>
+    <id>https://cvbox.org/blog/2019/10/05/cong-ling-kai-shi-da-jian-ge-ren-bo-ke/</id>
     <published>2019-10-04T16:00:00.000Z</published>
     <updated>2019-10-27T02:18:57.416Z</updated>
     
@@ -311,20 +311,20 @@
     
     
     
-      <category term="website" scheme="https://cvbox.org/tags/website/"/>
+      <category term="todo" scheme="https://cvbox.org/blog/tags/todo/"/>
     
-      <category term="todo" scheme="https://cvbox.org/tags/todo/"/>
+      <category term="website" scheme="https://cvbox.org/blog/tags/website/"/>
     
-      <category term="tool" scheme="https://cvbox.org/tags/tool/"/>
+      <category term="tool" scheme="https://cvbox.org/blog/tags/tool/"/>
     
-      <category term="guides" scheme="https://cvbox.org/tags/guides/"/>
+      <category term="guides" scheme="https://cvbox.org/blog/tags/guides/"/>
     
   </entry>
   
   <entry>
     <title>TODO == NOT DO ?</title>
-    <link href="https://cvbox.org/2019/10/04/todo/"/>
-    <id>https://cvbox.org/2019/10/04/todo/</id>
+    <link href="https://cvbox.org/blog/2019/10/04/todo/"/>
+    <id>https://cvbox.org/blog/2019/10/04/todo/</id>
     <published>2019-10-03T16:00:00.000Z</published>
     <updated>2019-10-27T01:28:55.486Z</updated>
     
@@ -344,14 +344,14 @@
     
     
     
-      <category term="todo" scheme="https://cvbox.org/tags/todo/"/>
+      <category term="todo" scheme="https://cvbox.org/blog/tags/todo/"/>
     
   </entry>
   
   <entry>
     <title>漫画收藏</title>
-    <link href="https://cvbox.org/2019/10/04/man-hua-shou-cang/"/>
-    <id>https://cvbox.org/2019/10/04/man-hua-shou-cang/</id>
+    <link href="https://cvbox.org/blog/2019/10/04/man-hua-shou-cang/"/>
+    <id>https://cvbox.org/blog/2019/10/04/man-hua-shou-cang/</id>
     <published>2019-10-03T16:00:00.000Z</published>
     <updated>2019-10-27T01:28:55.489Z</updated>
     
@@ -363,14 +363,14 @@
     
     
     
-      <category term="website" scheme="https://cvbox.org/tags/website/"/>
+      <category term="website" scheme="https://cvbox.org/blog/tags/website/"/>
     
   </entry>
   
   <entry>
     <title>关于</title>
-    <link href="https://cvbox.org/2019/10/03/guan-yu/"/>
-    <id>https://cvbox.org/2019/10/03/guan-yu/</id>
+    <link href="https://cvbox.org/blog/2019/10/03/guan-yu/"/>
+    <id>https://cvbox.org/blog/2019/10/03/guan-yu/</id>
     <published>2019-10-02T16:00:00.000Z</published>
     <updated>2019-10-27T01:28:55.483Z</updated>
     
@@ -382,14 +382,31 @@
     
     
     
-      <category term="me" scheme="https://cvbox.org/tags/me/"/>
+      <category term="me" scheme="https://cvbox.org/blog/tags/me/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何取一个让人无法拒绝的标题</title>
+    <link href="https://cvbox.org/blog/2019/10/01/ru-he-qu-yi-ge-rang-ren-wu-fa-ju-jue-de-biao-ti/"/>
+    <id>https://cvbox.org/blog/2019/10/01/ru-he-qu-yi-ge-rang-ren-wu-fa-ju-jue-de-biao-ti/</id>
+    <published>2019-09-30T16:00:00.000Z</published>
+    <updated>2019-10-27T01:28:55.487Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+      <category term="todo" scheme="https://cvbox.org/blog/tags/todo/"/>
     
   </entry>
   
   <entry>
     <title>Template</title>
-    <link href="https://cvbox.org/2019/10/01/quan-zhan-ren-yuan-gong-ju-zhan/"/>
-    <id>https://cvbox.org/2019/10/01/quan-zhan-ren-yuan-gong-ju-zhan/</id>
+    <link href="https://cvbox.org/blog/2019/10/01/quan-zhan-ren-yuan-gong-ju-zhan/"/>
+    <id>https://cvbox.org/blog/2019/10/01/quan-zhan-ren-yuan-gong-ju-zhan/</id>
     <published>2019-09-30T16:00:00.000Z</published>
     <updated>2019-10-27T01:28:55.480Z</updated>
     
@@ -409,42 +426,14 @@
     
     
     
-      <category term="website" scheme="https://cvbox.org/tags/website/"/>
+      <category term="website" scheme="https://cvbox.org/blog/tags/website/"/>
     
   </entry>
   
   <entry>
     <title>Template</title>
-    <link href="https://cvbox.org/2019/10/01/zhua-bao-zhe-jian-shi-qing/"/>
-    <id>https://cvbox.org/2019/10/01/zhua-bao-zhe-jian-shi-qing/</id>
-    <published>2019-09-30T16:00:00.000Z</published>
-    <updated>2019-10-27T01:28:55.481Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;配图&quot;&gt;&lt;a href=&quot;#配图&quot; class=&quot;headerlink&quot; title=&quot;配图&quot;&gt;&lt;/a&gt;配图&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;被抓先行了吧？&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;0x1-出问题了，抓个包给我&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="website" scheme="https://cvbox.org/tags/website/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Template</title>
-    <link href="https://cvbox.org/2019/10/01/mo-ban/"/>
-    <id>https://cvbox.org/2019/10/01/mo-ban/</id>
+    <link href="https://cvbox.org/blog/2019/10/01/mo-ban/"/>
+    <id>https://cvbox.org/blog/2019/10/01/mo-ban/</id>
     <published>2019-09-30T16:00:00.000Z</published>
     <updated>2019-10-27T01:28:55.493Z</updated>
     
@@ -465,31 +454,42 @@ tags:
     
     
     
-      <category term="website" scheme="https://cvbox.org/tags/website/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何取一个让人无法拒绝的标题</title>
-    <link href="https://cvbox.org/2019/10/01/ru-he-qu-yi-ge-rang-ren-wu-fa-ju-jue-de-biao-ti/"/>
-    <id>https://cvbox.org/2019/10/01/ru-he-qu-yi-ge-rang-ren-wu-fa-ju-jue-de-biao-ti/</id>
-    <published>2019-09-30T16:00:00.000Z</published>
-    <updated>2019-10-27T01:28:55.487Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-    
-      <category term="todo" scheme="https://cvbox.org/tags/todo/"/>
+      <category term="website" scheme="https://cvbox.org/blog/tags/website/"/>
     
   </entry>
   
   <entry>
     <title>Template</title>
-    <link href="https://cvbox.org/2019/10/01/cv-gong-cheng-shi-pan-dian-zui-chang-yong-de-app-kai-fa-gong-ju/"/>
-    <id>https://cvbox.org/2019/10/01/cv-gong-cheng-shi-pan-dian-zui-chang-yong-de-app-kai-fa-gong-ju/</id>
+    <link href="https://cvbox.org/blog/2019/10/01/zhua-bao-zhe-jian-shi-qing/"/>
+    <id>https://cvbox.org/blog/2019/10/01/zhua-bao-zhe-jian-shi-qing/</id>
+    <published>2019-09-30T16:00:00.000Z</published>
+    <updated>2019-10-27T01:28:55.481Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;配图&quot;&gt;&lt;a href=&quot;#配图&quot; class=&quot;headerlink&quot; title=&quot;配图&quot;&gt;&lt;/a&gt;配图&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;被抓先行了吧？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;0x1-出问题了，抓个包给我&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="website" scheme="https://cvbox.org/blog/tags/website/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Template</title>
+    <link href="https://cvbox.org/blog/2019/10/01/cv-gong-cheng-shi-pan-dian-zui-chang-yong-de-app-kai-fa-gong-ju/"/>
+    <id>https://cvbox.org/blog/2019/10/01/cv-gong-cheng-shi-pan-dian-zui-chang-yong-de-app-kai-fa-gong-ju/</id>
     <published>2019-09-30T16:00:00.000Z</published>
     <updated>2019-10-27T01:28:55.487Z</updated>
     
@@ -510,14 +510,14 @@ tags:
     
     
     
-      <category term="website" scheme="https://cvbox.org/tags/website/"/>
+      <category term="website" scheme="https://cvbox.org/blog/tags/website/"/>
     
   </entry>
   
   <entry>
     <title>如何取一个富有吸引力的名字</title>
-    <link href="https://cvbox.org/2019/10/01/ru-he-qu-yi-ge-fu-you-xi-yin-li-de-ming-zi/"/>
-    <id>https://cvbox.org/2019/10/01/ru-he-qu-yi-ge-fu-you-xi-yin-li-de-ming-zi/</id>
+    <link href="https://cvbox.org/blog/2019/10/01/ru-he-qu-yi-ge-fu-you-xi-yin-li-de-ming-zi/"/>
+    <id>https://cvbox.org/blog/2019/10/01/ru-he-qu-yi-ge-fu-you-xi-yin-li-de-ming-zi/</id>
     <published>2019-09-30T16:00:00.000Z</published>
     <updated>2019-10-27T01:28:55.490Z</updated>
     
@@ -535,14 +535,14 @@ tags:
     
     
     
-      <category term="todo" scheme="https://cvbox.org/tags/todo/"/>
+      <category term="todo" scheme="https://cvbox.org/blog/tags/todo/"/>
     
   </entry>
   
   <entry>
     <title>如何掌握一个好的上班（滑水）姿势</title>
-    <link href="https://cvbox.org/2019/10/01/ru-he-zheng-que-zhang-wo-hao-de-shang-ban-hua-shui-zi-shi/"/>
-    <id>https://cvbox.org/2019/10/01/ru-he-zheng-que-zhang-wo-hao-de-shang-ban-hua-shui-zi-shi/</id>
+    <link href="https://cvbox.org/blog/2019/10/01/ru-he-zheng-que-zhang-wo-hao-de-shang-ban-hua-shui-zi-shi/"/>
+    <id>https://cvbox.org/blog/2019/10/01/ru-he-zheng-que-zhang-wo-hao-de-shang-ban-hua-shui-zi-shi/</id>
     <published>2019-09-30T16:00:00.000Z</published>
     <updated>2019-10-27T01:28:55.489Z</updated>
     
@@ -552,14 +552,14 @@ tags:
     
     
     
-      <category term="todo" scheme="https://cvbox.org/tags/todo/"/>
+      <category term="todo" scheme="https://cvbox.org/blog/tags/todo/"/>
     
   </entry>
   
   <entry>
     <title>网站更新记录</title>
-    <link href="https://cvbox.org/2019/09/30/xlog/"/>
-    <id>https://cvbox.org/2019/09/30/xlog/</id>
+    <link href="https://cvbox.org/blog/2019/09/30/xlog/"/>
+    <id>https://cvbox.org/blog/2019/09/30/xlog/</id>
     <published>2019-09-29T16:00:00.000Z</published>
     <updated>2019-10-27T01:28:55.479Z</updated>
     
@@ -581,7 +581,7 @@ tags:
     
     
     
-      <category term="website" scheme="https://cvbox.org/tags/website/"/>
+      <category term="website" scheme="https://cvbox.org/blog/tags/website/"/>
     
   </entry>
   
