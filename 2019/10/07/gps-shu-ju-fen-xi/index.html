@@ -1,0 +1,1094 @@
+<!DOCTYPE HTML>
+<html lang="">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="GPS 数据分析, 前端,js,jquery,cv工程师,cv工程师摇篮,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
+    <meta name="description" content="
+代码结构数据预处理1.清洗数据通过服务器返回的数据，包含许多冗余的数据，我们需要对其进行抽取，转换成我们需要的数据。
+getAllUserData(String inpath, String opath)将从服务器获取的json字符串进行">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>GPS 数据分析 | Cvbox</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+    
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Cvbox</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Cvbox</div>
+        <div class="logo-desc">
+            
+            非典型Cv工程师,代码助攻猪队友
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        GPS 数据分析
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/data/">
+                                <span class="chip bg-color">data</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2019-10-07
+                </div>
+                
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2019-10-27
+                </div>
+                
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                        1.9k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                        8 Min
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <hr>
+<h3 id="代码结构"><a href="#代码结构" class="headerlink" title="代码结构"></a>代码结构</h3><h3 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h3><p>1.清洗数据<br>通过服务器返回的数据，包含许多冗余的数据，我们需要对其进行抽取，转换成我们需要的数据。</p>
+<pre><code>getAllUserData(String inpath, String opath)</code></pre><p>将从服务器获取的json字符串进行清洗、换行成结构化数据。格式如下。</p>
+<pre><code>8566965,1.438734627E9,2015-08-05 08:30:27,113.930632,22.541371
+8566965,1.438734647E9,2015-08-05 08:30:47,113.930609,22.541398
+8566965,1.438734667E9,2015-08-05 08:31:07,113.930603,22.541400</code></pre><a id="more"></a>
+<p>手动选择具体某一个用户的数据进行分析</p>
+<pre><code>grep 8566965 orgin.json  &gt; 8566965.gps
+
+example data:
+8566965,1.438734627E9,2015-08-05 08:30:27,113.930632,22.541371
+8566965,1.438734647E9,2015-08-05 08:30:47,113.930609,22.541398
+8566965,1.438734667E9,2015-08-05 08:31:07,113.930603,22.541400
+8566965,1.438734687E9,2015-08-05 08:31:27,113.930497,22.541562
+8566965,1.438734707E9,2015-08-05 08:31:47,113.930488,22.541332
+8566965,1.438734727E9,2015-08-05 08:32:07,113.930619,22.541423
+8566965,1.438734747E9,2015-08-05 08:32:27,113.930774,22.541376</code></pre><p>2.初始化用户数据</p>
+<pre><code>选择上面处理过的文件，初始化LetZinkModel 静态成员
+List&lt;GpsModel&gt; list
+调用初始化方法
+setUserGpsData(String inpath)</code></pre><p>3.转换GPS坐标为百度坐标系</p>
+<pre><code>gps2baidu()</code></pre><p>调用此方法需要进行百度开放平台的认证。<br>配置开发者账号。这里采用配置的形式，在config.propertys文件里面进行设置。</p>
+<pre><code>#file config.propertys
+url:https://api.map.baidu.com/geoconv/v1/?coords=
+from:1
+to:5
+ak:replace with your ak</code></pre><p>4.分割路径</p>
+<pre><code>参数：
+diserr：距离阈值。路径的起始点距离小于该值，则该路径舍弃。
+timeerr：时间阈值。超过该值，开始一条新的路径。
+minrange：区域阈值。超过该值，定义一个新的区域标识号。
+separateGpsPath(Double diserr,Double timeerr,Double minrange )</code></pre><p>5.至此，GPSModel实体对象内容实例如下所示：</p>
+<pre><code>GpsModel [uid=8566965, time=2015-07-31 14:36:04, lng=113.928691, lat=22.540987, blng=113.94010624624, blat=22.543624742073, pathid=0, begintime=2015-07-31 14:36:04, endtime=2015-07-31 18:13:33, areanum=0, area_center_point=22.543624742073,113.94010624624]
+</code></pre><p>6.附加步骤，此前是用于weka关联规则分析。<code>generatorARFF()</code>用于生成arff文件。导入weka进行关联规则分析。</p>
+<h3 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h3><h3 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h3><p>借助百度地图LBS服务，将用户的GPS轨迹数据，显示在地图上，并且绘制出轨迹。<br>可视化分为两个部分：</p>
+<ul>
+<li>包含全部路径的数据表</li>
+<li>包含原始数据，不同拆分路径</li>
+</ul>
+<h3 id="GeoLife-Project-Data-Process"><a href="#GeoLife-Project-Data-Process" class="headerlink" title="GeoLife Project Data Process"></a>GeoLife Project Data Process</h3><p>Geolife是微软开展的一个项目，采集了182位用户从07-12年大约四年内的个人生活GPS轨迹数据，用于学术研究。关于详细的项目信息可以访问<a href="https://research.microsoft.com/en-us/downloads/b16d359d-d164-469e-9fd4-daa38f2b2e13/" target="_blank" rel="noopener">微软GeoLife项目</a>。</p>
+<h4 id="预处理Geolife数据"><a href="#预处理Geolife数据" class="headerlink" title="预处理Geolife数据"></a>预处理Geolife数据</h4><p>原始的文件分散在不同的文件夹里面，而且头部包含一些非结构化的说明，这里采用shell脚本清除掉相关冗余杂乱的数据，最终形成以用户id为文件名的182个文件。里面的数据含义具体表示为：</p>
+<pre><code>用户id，纬度，经度，高度，时间戳
+000,39.984683,116.31845,492,2008-10-23 02:53:10
+000,39.984686,116.318417,492,2008-10-23 02:53:15
+000,39.984688,116.318385,492,2008-10-23 02:53:20</code></pre><p>处理脚本，需要具有执行权限。</p>
+<pre><code>#!/bin/bash
+
+echo &#39;hell world,begin to deal with this data&#39;
+
+for filename  in `ls /home/spark/geolife/data`
+do
+    echo $filename
+    touch ~/sample/$filename
+    find ~/geolife/data/$filename  -name &quot;*.plt&quot; | sort | xargs \
+        awk -F &#39;,&#39; &#39;{print(fname&quot;,&quot;$1&quot;,&quot;$2&quot;,&quot;$4&quot;,&quot;$6&quot; &quot;$7)}&#39;  fname=&quot;$filename&quot; &gt;&gt; ~/sample/$filename
+
+done
+</code></pre><h3 id="数据采样"><a href="#数据采样" class="headerlink" title="数据采样"></a>数据采样</h3><p>原始的数据采样的频率为5s一次，数据过于密集，增大数据存储开销，也影响数据可视化的性能。更重要的是，这么多的数据在坐标转换为百度坐标系里面的坐标也会带来一系列问题，比如每秒请求次数的限制等等。在geolife整理后数据的基础上，我们进行了抽样处理，由原来的5s一次采样到1分钟一次。具体实现参见GpsDemo项目中<code>edu.cx.util.ResampleGPS</code>.</p>
+<h3 id="坐标转换"><a href="#坐标转换" class="headerlink" title="坐标转换"></a>坐标转换</h3><p>由原来的GPS坐标体系转换为百度坐标系坐标。采用百度提供的API实现。可以参考<a href="https://developer.baidu.com/map/index.php?title=webapi/guide/changeposition" target="_blank" rel="noopener">百度坐标转换说明文档</a>。</p>
+<p>具体实现也可以参考<code>edu.dcy.gps.LetZinkModel</code>里面的 <code>getRightPoints</code>方法。</p>
+<h3 id="导入到mysql"><a href="#导入到mysql" class="headerlink" title="导入到mysql"></a>导入到mysql</h3><p><strong>建表</strong></p>
+<pre><code>create table baidugps(
+uid int,
+lat varchar(15),
+lng varchar(15),
+height varchar(10),
+time datetime
+)</code></pre><p><strong>导入数据</strong></p>
+<pre><code>mysql -u root -p geolife --local-infile=1 -e &#39;load data local infile &quot;/home/spark/data/baidu.gps&quot;  into table baidugps fields terminated by &quot;,&quot; lines terminated by &quot;\n&quot;&#39;
+</code></pre><p>示例数据<br>下面展示的是所有的用户行为数据。（注：这里海拔字段没有列出）</p>
+<pre><code>mysql&gt; select uid,lat,lng,time from baidugps limit 10;
++------+-----------------+-----------------+---------------------+
+| uid  | lat             | lng             | time                |
++------+-----------------+-----------------+---------------------+
+|    0 | 39.991669316478 | 116.32943062745 | 2008-10-23 02:54:00 |
+|    0 | 39.991597427888 | 116.32713152844 | 2008-10-23 02:55:00 |
+|    0 | 39.991829369523 | 116.3256071635  | 2008-10-23 02:56:00 |
+|    0 | 39.991829414529 | 116.32333614866 | 2008-10-23 02:57:00 |
+|    0 | 39.991665880212 | 116.32148372188 | 2008-10-23 02:58:00 |
+|    0 | 39.991655125323 | 116.31976560663 | 2008-10-23 02:59:00 |
+|    0 | 39.991617926075 | 116.31752622722 | 2008-10-23 03:00:00 |
+|    0 | 39.991682692695 | 116.31536239765 | 2008-10-23 03:01:00 |
+|    0 | 39.991609968636 | 116.31304414117 | 2008-10-23 03:02:00 |
+|    0 | 39.991145100999 | 116.3121520717  | 2008-10-23 03:03:00 |
++------+-----------------+-----------------+---------------------+
+10 rows in set (0.00 sec)</code></pre><p><strong>切分路径</strong><br>上面baidugps表保存的是用户的所有数据，但是没有切分为具体的路径，为了有较好的扩展性，我们使用一张新的表来实现切分路径，该表里面保存有每个用户每条路径的路径号以及起始时间，我们可以根据不同的参数生成不同的路径划分表，与原始数据表baidugps进行关联查询，于是可以根据用户id以及路径号查询这段时间的轨迹数据进行展示。<br>具体实现参考<code>edu.cx.LetZinkModel</code>里面的<code>separateGpsPath</code>方法。<br>下表表示根据距离阈值为500、时间阈值为10生成的路径划分表。</p>
+<p><strong>建立路径划分表</strong></p>
+<pre><code>create table subpath500_10(
+uid int,
+pathid int,
+begin datetime,
+end  datetime,
+points int,
+dis double
+)</code></pre><p>字段含义分别为：用户id、路径号、开始时间、结束时间、该路径包含的gps记录点数目、起始点距离。便于展示，其中包含gps记录点数以及起始点距离没有列出。<br>示例数据</p>
+<pre><code>mysql&gt; select uid,pathid,begin,end from subpath500_10 limit 10;
++------+--------+---------------------+---------------------+
+| uid  | pathid | begin               | end                 |
++------+--------+---------------------+---------------------+
+|  127 |      1 | 2008-09-27 00:58:00 | 2008-09-27 01:09:00 |
+|  127 |      2 | 2008-09-27 02:33:38 | 2008-09-27 02:46:01 |
+|  127 |      3 | 2008-09-27 03:25:58 | 2008-09-27 03:34:00 |
+|  127 |      4 | 2008-09-27 11:05:08 | 2008-09-27 11:24:01 |
+|  127 |      5 | 2008-09-28 02:19:31 | 2008-09-28 02:26:01 |
+|  127 |      6 | 2008-09-29 04:25:57 | 2008-09-29 04:44:02 |
+|  127 |      7 | 2008-09-29 06:20:15 | 2008-09-29 06:20:15 |
+|  127 |      8 | 2008-09-29 09:16:11 | 2008-09-29 09:30:01 |
+|  127 |      9 | 2008-09-29 10:05:10 | 2008-09-29 10:31:02 |
+|  127 |     10 | 2008-09-29 10:46:27 | 2008-09-29 10:49:02 |
++------+--------+---------------------+---------------------+</code></pre><h4 id="轨迹展示"><a href="#轨迹展示" class="headerlink" title="轨迹展示"></a>轨迹展示</h4><p>有了上面的数据支持，我们借助百度地图的接口，就能够很轻松的将这些轨迹绘制出来。访问 <a href="https://localhost:8080/GpsDemo/index.html" target="_blank" rel="noopener">https://localhost:8080/GpsDemo/index.html</a>   。这个页面显示的是原始点绘制的路径。</p>
+<p>如果要显示划分区域之后的路径，可以访问这个页面 <a href="https://localhost:8080/GpsDemo/index0.html" target="_blank" rel="noopener">https://localhost:8080/GpsDemo/index0.html</a>  。<br>效果图</p>
+<p>换到智驾小V用户的后台数据，在<code>edu.cx.servlet.GetAreaData</code>中进行数据库表的切换，里面有详尽注释。</p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://cvbox.org/blog" rel="external nofollow noreferrer">Cvbox</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://cvbox.org/blog/2019/10/07/gps-shu-ju-fen-xi/">https://cvbox.org/blog/2019/10/07/gps-shu-ju-fen-xi/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="https://cvbox.org/blog" target="_blank">Cvbox</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/data/">
+                                    <span class="chip bg-color">data</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+        <div class="disqus-card card" data-aos="fade-up">
+    <div id="disqus_thread" class="card-content">
+        <noscript>Please enable JavaScript to view the
+            <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+    </div>
+</div>
+
+<script type="text/javascript">
+    disqus_config = function () {
+        this.page.url = 'https://cvbox.org/blog/2019/10/07/gps-shu-ju-fen-xi/';
+        this.page.identifier = '/2019/10/07/gps-shu-ju-fen-xi/';
+        this.page.title = 'GPS 数据分析';
+    };
+    let disqus_shortname = 'cvbox-disqus-com';
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+        let d = document, s = d.createElement('script');
+        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2019/10/10/8-things-have-to-think-about-to-make-your-idea-to-an-app/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="8 Things have to Think about to Make Your Idea To an App">
+                        
+                        <span class="card-title">8 Things have to Think about to Make Your Idea To an App</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            8 Things have to Think about to Make Your Idea To an App
+
+Photo by Chris Adamus on [Unsplash]
+0x1 The story begins with 
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-10-10
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Cvbox
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/app/">
+                        <span class="chip bg-color">app</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/10/07/ru-he-kuai-su-kai-fa-yi-ge-app/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="从零开始开发一个app指南">
+                        
+                        <span class="card-title">从零开始开发一个app指南</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+我有一个想法，如果给我一个程序员，我觉得自己就可以干掉 Google，或可以将 Facebook 斩于马下，或者是改变我们现有的商业面貌。我已经发现了“下一个伟大事物”，有可能颠覆 Google 或是 FacebooK这个想法在我脑子里酝
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/resume/" class="post-category">
+                                    resume
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/website/">
+                        <span class="chip bg-color">website</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Cvbox<br />'
+            + 'Author: Cvbox<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+    
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">年份</span>
+            <a href="https://cvbox.org/blog" target="_blank">Cvbox</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">9.2k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    window.setTimeout("siteTime()", 1000);
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "6";
+                    var startDate = "1";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-149341335-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-149341335-1');
+</script>
+
+
+    <!-- Baidu Analytics -->
+
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i["DaoVoiceObject"] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            a.charset = "utf-8";
+            m.parentNode.insertBefore(a, m)
+        })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') +
+            "//widget.daovoice.io/widget/6984b559.js", "daovoice")
+        daovoice('init', {
+            app_id: ""
+        });
+        daovoice('update');
+    </script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
