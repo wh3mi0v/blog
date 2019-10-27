@@ -174,6 +174,25 @@
     
     
     <entry>
+      <title>GPS 数据分析</title>
+      <link href="/2019/10/07/gps-shu-ju-fen-xi/"/>
+      <url>/2019/10/07/gps-shu-ju-fen-xi/</url>
+      
+        <content type="html"><![CDATA[<hr><h3 id="代码结构"><a href="#代码结构" class="headerlink" title="代码结构"></a>代码结构</h3><h3 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h3><p>1.清洗数据<br>通过服务器返回的数据，包含许多冗余的数据，我们需要对其进行抽取，转换成我们需要的数据。</p><pre><code>getAllUserData(String inpath, String opath)</code></pre><p>将从服务器获取的json字符串进行清洗、换行成结构化数据。格式如下。</p><pre><code>8566965,1.438734627E9,2015-08-05 08:30:27,113.930632,22.5413718566965,1.438734647E9,2015-08-05 08:30:47,113.930609,22.5413988566965,1.438734667E9,2015-08-05 08:31:07,113.930603,22.541400</code></pre><a id="more"></a><p>手动选择具体某一个用户的数据进行分析</p><pre><code>grep 8566965 orgin.json  &gt; 8566965.gpsexample data:8566965,1.438734627E9,2015-08-05 08:30:27,113.930632,22.5413718566965,1.438734647E9,2015-08-05 08:30:47,113.930609,22.5413988566965,1.438734667E9,2015-08-05 08:31:07,113.930603,22.5414008566965,1.438734687E9,2015-08-05 08:31:27,113.930497,22.5415628566965,1.438734707E9,2015-08-05 08:31:47,113.930488,22.5413328566965,1.438734727E9,2015-08-05 08:32:07,113.930619,22.5414238566965,1.438734747E9,2015-08-05 08:32:27,113.930774,22.541376</code></pre><p>2.初始化用户数据</p><pre><code>选择上面处理过的文件，初始化LetZinkModel 静态成员List&lt;GpsModel&gt; list调用初始化方法setUserGpsData(String inpath)</code></pre><p>3.转换GPS坐标为百度坐标系</p><pre><code>gps2baidu()</code></pre><p>调用此方法需要进行百度开放平台的认证。<br>配置开发者账号。这里采用配置的形式，在config.propertys文件里面进行设置。</p><pre><code>#file config.propertysurl:https://api.map.baidu.com/geoconv/v1/?coords=from:1to:5ak:replace with your ak</code></pre><p>4.分割路径</p><pre><code>参数：diserr：距离阈值。路径的起始点距离小于该值，则该路径舍弃。timeerr：时间阈值。超过该值，开始一条新的路径。minrange：区域阈值。超过该值，定义一个新的区域标识号。separateGpsPath(Double diserr,Double timeerr,Double minrange )</code></pre><p>5.至此，GPSModel实体对象内容实例如下所示：</p><pre><code>GpsModel [uid=8566965, time=2015-07-31 14:36:04, lng=113.928691, lat=22.540987, blng=113.94010624624, blat=22.543624742073, pathid=0, begintime=2015-07-31 14:36:04, endtime=2015-07-31 18:13:33, areanum=0, area_center_point=22.543624742073,113.94010624624]</code></pre><p>6.附加步骤，此前是用于weka关联规则分析。<code>generatorARFF()</code>用于生成arff文件。导入weka进行关联规则分析。</p><h3 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h3><h3 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h3><p>借助百度地图LBS服务，将用户的GPS轨迹数据，显示在地图上，并且绘制出轨迹。<br>可视化分为两个部分：</p><ul><li>包含全部路径的数据表</li><li>包含原始数据，不同拆分路径</li></ul><h3 id="GeoLife-Project-Data-Process"><a href="#GeoLife-Project-Data-Process" class="headerlink" title="GeoLife Project Data Process"></a>GeoLife Project Data Process</h3><p>Geolife是微软开展的一个项目，采集了182位用户从07-12年大约四年内的个人生活GPS轨迹数据，用于学术研究。关于详细的项目信息可以访问<a href="https://research.microsoft.com/en-us/downloads/b16d359d-d164-469e-9fd4-daa38f2b2e13/" target="_blank" rel="noopener">微软GeoLife项目</a>。</p><h4 id="预处理Geolife数据"><a href="#预处理Geolife数据" class="headerlink" title="预处理Geolife数据"></a>预处理Geolife数据</h4><p>原始的文件分散在不同的文件夹里面，而且头部包含一些非结构化的说明，这里采用shell脚本清除掉相关冗余杂乱的数据，最终形成以用户id为文件名的182个文件。里面的数据含义具体表示为：</p><pre><code>用户id，纬度，经度，高度，时间戳000,39.984683,116.31845,492,2008-10-23 02:53:10000,39.984686,116.318417,492,2008-10-23 02:53:15000,39.984688,116.318385,492,2008-10-23 02:53:20</code></pre><p>处理脚本，需要具有执行权限。</p><pre><code>#!/bin/bashecho &#39;hell world,begin to deal with this data&#39;for filename  in `ls /home/spark/geolife/data`do    echo $filename    touch ~/sample/$filename    find ~/geolife/data/$filename  -name &quot;*.plt&quot; | sort | xargs \        awk -F &#39;,&#39; &#39;{print(fname&quot;,&quot;$1&quot;,&quot;$2&quot;,&quot;$4&quot;,&quot;$6&quot; &quot;$7)}&#39;  fname=&quot;$filename&quot; &gt;&gt; ~/sample/$filenamedone</code></pre><h3 id="数据采样"><a href="#数据采样" class="headerlink" title="数据采样"></a>数据采样</h3><p>原始的数据采样的频率为5s一次，数据过于密集，增大数据存储开销，也影响数据可视化的性能。更重要的是，这么多的数据在坐标转换为百度坐标系里面的坐标也会带来一系列问题，比如每秒请求次数的限制等等。在geolife整理后数据的基础上，我们进行了抽样处理，由原来的5s一次采样到1分钟一次。具体实现参见GpsDemo项目中<code>edu.cx.util.ResampleGPS</code>.</p><h3 id="坐标转换"><a href="#坐标转换" class="headerlink" title="坐标转换"></a>坐标转换</h3><p>由原来的GPS坐标体系转换为百度坐标系坐标。采用百度提供的API实现。可以参考<a href="https://developer.baidu.com/map/index.php?title=webapi/guide/changeposition" target="_blank" rel="noopener">百度坐标转换说明文档</a>。</p><p>具体实现也可以参考<code>edu.dcy.gps.LetZinkModel</code>里面的 <code>getRightPoints</code>方法。</p><h3 id="导入到mysql"><a href="#导入到mysql" class="headerlink" title="导入到mysql"></a>导入到mysql</h3><p><strong>建表</strong></p><pre><code>create table baidugps(uid int,lat varchar(15),lng varchar(15),height varchar(10),time datetime)</code></pre><p><strong>导入数据</strong></p><pre><code>mysql -u root -p geolife --local-infile=1 -e &#39;load data local infile &quot;/home/spark/data/baidu.gps&quot;  into table baidugps fields terminated by &quot;,&quot; lines terminated by &quot;\n&quot;&#39;</code></pre><p>示例数据<br>下面展示的是所有的用户行为数据。（注：这里海拔字段没有列出）</p><pre><code>mysql&gt; select uid,lat,lng,time from baidugps limit 10;+------+-----------------+-----------------+---------------------+| uid  | lat             | lng             | time                |+------+-----------------+-----------------+---------------------+|    0 | 39.991669316478 | 116.32943062745 | 2008-10-23 02:54:00 ||    0 | 39.991597427888 | 116.32713152844 | 2008-10-23 02:55:00 ||    0 | 39.991829369523 | 116.3256071635  | 2008-10-23 02:56:00 ||    0 | 39.991829414529 | 116.32333614866 | 2008-10-23 02:57:00 ||    0 | 39.991665880212 | 116.32148372188 | 2008-10-23 02:58:00 ||    0 | 39.991655125323 | 116.31976560663 | 2008-10-23 02:59:00 ||    0 | 39.991617926075 | 116.31752622722 | 2008-10-23 03:00:00 ||    0 | 39.991682692695 | 116.31536239765 | 2008-10-23 03:01:00 ||    0 | 39.991609968636 | 116.31304414117 | 2008-10-23 03:02:00 ||    0 | 39.991145100999 | 116.3121520717  | 2008-10-23 03:03:00 |+------+-----------------+-----------------+---------------------+10 rows in set (0.00 sec)</code></pre><p><strong>切分路径</strong><br>上面baidugps表保存的是用户的所有数据，但是没有切分为具体的路径，为了有较好的扩展性，我们使用一张新的表来实现切分路径，该表里面保存有每个用户每条路径的路径号以及起始时间，我们可以根据不同的参数生成不同的路径划分表，与原始数据表baidugps进行关联查询，于是可以根据用户id以及路径号查询这段时间的轨迹数据进行展示。<br>具体实现参考<code>edu.cx.LetZinkModel</code>里面的<code>separateGpsPath</code>方法。<br>下表表示根据距离阈值为500、时间阈值为10生成的路径划分表。</p><p><strong>建立路径划分表</strong></p><pre><code>create table subpath500_10(uid int,pathid int,begin datetime,end  datetime,points int,dis double)</code></pre><p>字段含义分别为：用户id、路径号、开始时间、结束时间、该路径包含的gps记录点数目、起始点距离。便于展示，其中包含gps记录点数以及起始点距离没有列出。<br>示例数据</p><pre><code>mysql&gt; select uid,pathid,begin,end from subpath500_10 limit 10;+------+--------+---------------------+---------------------+| uid  | pathid | begin               | end                 |+------+--------+---------------------+---------------------+|  127 |      1 | 2008-09-27 00:58:00 | 2008-09-27 01:09:00 ||  127 |      2 | 2008-09-27 02:33:38 | 2008-09-27 02:46:01 ||  127 |      3 | 2008-09-27 03:25:58 | 2008-09-27 03:34:00 ||  127 |      4 | 2008-09-27 11:05:08 | 2008-09-27 11:24:01 ||  127 |      5 | 2008-09-28 02:19:31 | 2008-09-28 02:26:01 ||  127 |      6 | 2008-09-29 04:25:57 | 2008-09-29 04:44:02 ||  127 |      7 | 2008-09-29 06:20:15 | 2008-09-29 06:20:15 ||  127 |      8 | 2008-09-29 09:16:11 | 2008-09-29 09:30:01 ||  127 |      9 | 2008-09-29 10:05:10 | 2008-09-29 10:31:02 ||  127 |     10 | 2008-09-29 10:46:27 | 2008-09-29 10:49:02 |+------+--------+---------------------+---------------------+</code></pre><h4 id="轨迹展示"><a href="#轨迹展示" class="headerlink" title="轨迹展示"></a>轨迹展示</h4><p>有了上面的数据支持，我们借助百度地图的接口，就能够很轻松的将这些轨迹绘制出来。访问 <a href="https://localhost:8080/GpsDemo/index.html" target="_blank" rel="noopener">https://localhost:8080/GpsDemo/index.html</a>   。这个页面显示的是原始点绘制的路径。</p><p>如果要显示划分区域之后的路径，可以访问这个页面 <a href="https://localhost:8080/GpsDemo/index0.html" target="_blank" rel="noopener">https://localhost:8080/GpsDemo/index0.html</a>  。<br>效果图</p><p>换到智驾小V用户的后台数据，在<code>edu.cx.servlet.GetAreaData</code>中进行数据库表的切换，里面有详尽注释。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> data </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>从零开始开发一个app指南</title>
       <link href="/2019/10/07/ru-he-kuai-su-kai-fa-yi-ge-app/"/>
       <url>/2019/10/07/ru-he-kuai-su-kai-fa-yi-ge-app/</url>
@@ -199,25 +218,6 @@
     
     
     <entry>
-      <title>GPS 数据分析</title>
-      <link href="/2019/10/07/gps-shu-ju-fen-xi/"/>
-      <url>/2019/10/07/gps-shu-ju-fen-xi/</url>
-      
-        <content type="html"><![CDATA[<hr><h3 id="代码结构"><a href="#代码结构" class="headerlink" title="代码结构"></a>代码结构</h3><h3 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h3><p>1.清洗数据<br>通过服务器返回的数据，包含许多冗余的数据，我们需要对其进行抽取，转换成我们需要的数据。</p><pre><code>getAllUserData(String inpath, String opath)</code></pre><p>将从服务器获取的json字符串进行清洗、换行成结构化数据。格式如下。</p><pre><code>8566965,1.438734627E9,2015-08-05 08:30:27,113.930632,22.5413718566965,1.438734647E9,2015-08-05 08:30:47,113.930609,22.5413988566965,1.438734667E9,2015-08-05 08:31:07,113.930603,22.541400</code></pre><a id="more"></a><p>手动选择具体某一个用户的数据进行分析</p><pre><code>grep 8566965 orgin.json  &gt; 8566965.gpsexample data:8566965,1.438734627E9,2015-08-05 08:30:27,113.930632,22.5413718566965,1.438734647E9,2015-08-05 08:30:47,113.930609,22.5413988566965,1.438734667E9,2015-08-05 08:31:07,113.930603,22.5414008566965,1.438734687E9,2015-08-05 08:31:27,113.930497,22.5415628566965,1.438734707E9,2015-08-05 08:31:47,113.930488,22.5413328566965,1.438734727E9,2015-08-05 08:32:07,113.930619,22.5414238566965,1.438734747E9,2015-08-05 08:32:27,113.930774,22.541376</code></pre><p>2.初始化用户数据</p><pre><code>选择上面处理过的文件，初始化LetZinkModel 静态成员List&lt;GpsModel&gt; list调用初始化方法setUserGpsData(String inpath)</code></pre><p>3.转换GPS坐标为百度坐标系</p><pre><code>gps2baidu()</code></pre><p>调用此方法需要进行百度开放平台的认证。<br>配置开发者账号。这里采用配置的形式，在config.propertys文件里面进行设置。</p><pre><code>#file config.propertysurl:https://api.map.baidu.com/geoconv/v1/?coords=from:1to:5ak:replace with your ak</code></pre><p>4.分割路径</p><pre><code>参数：diserr：距离阈值。路径的起始点距离小于该值，则该路径舍弃。timeerr：时间阈值。超过该值，开始一条新的路径。minrange：区域阈值。超过该值，定义一个新的区域标识号。separateGpsPath(Double diserr,Double timeerr,Double minrange )</code></pre><p>5.至此，GPSModel实体对象内容实例如下所示：</p><pre><code>GpsModel [uid=8566965, time=2015-07-31 14:36:04, lng=113.928691, lat=22.540987, blng=113.94010624624, blat=22.543624742073, pathid=0, begintime=2015-07-31 14:36:04, endtime=2015-07-31 18:13:33, areanum=0, area_center_point=22.543624742073,113.94010624624]</code></pre><p>6.附加步骤，此前是用于weka关联规则分析。<code>generatorARFF()</code>用于生成arff文件。导入weka进行关联规则分析。</p><h3 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h3><h3 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h3><p>借助百度地图LBS服务，将用户的GPS轨迹数据，显示在地图上，并且绘制出轨迹。<br>可视化分为两个部分：</p><ul><li>包含全部路径的数据表</li><li>包含原始数据，不同拆分路径</li></ul><h3 id="GeoLife-Project-Data-Process"><a href="#GeoLife-Project-Data-Process" class="headerlink" title="GeoLife Project Data Process"></a>GeoLife Project Data Process</h3><p>Geolife是微软开展的一个项目，采集了182位用户从07-12年大约四年内的个人生活GPS轨迹数据，用于学术研究。关于详细的项目信息可以访问<a href="https://research.microsoft.com/en-us/downloads/b16d359d-d164-469e-9fd4-daa38f2b2e13/" target="_blank" rel="noopener">微软GeoLife项目</a>。</p><h4 id="预处理Geolife数据"><a href="#预处理Geolife数据" class="headerlink" title="预处理Geolife数据"></a>预处理Geolife数据</h4><p>原始的文件分散在不同的文件夹里面，而且头部包含一些非结构化的说明，这里采用shell脚本清除掉相关冗余杂乱的数据，最终形成以用户id为文件名的182个文件。里面的数据含义具体表示为：</p><pre><code>用户id，纬度，经度，高度，时间戳000,39.984683,116.31845,492,2008-10-23 02:53:10000,39.984686,116.318417,492,2008-10-23 02:53:15000,39.984688,116.318385,492,2008-10-23 02:53:20</code></pre><p>处理脚本，需要具有执行权限。</p><pre><code>#!/bin/bashecho &#39;hell world,begin to deal with this data&#39;for filename  in `ls /home/spark/geolife/data`do    echo $filename    touch ~/sample/$filename    find ~/geolife/data/$filename  -name &quot;*.plt&quot; | sort | xargs \        awk -F &#39;,&#39; &#39;{print(fname&quot;,&quot;$1&quot;,&quot;$2&quot;,&quot;$4&quot;,&quot;$6&quot; &quot;$7)}&#39;  fname=&quot;$filename&quot; &gt;&gt; ~/sample/$filenamedone</code></pre><h3 id="数据采样"><a href="#数据采样" class="headerlink" title="数据采样"></a>数据采样</h3><p>原始的数据采样的频率为5s一次，数据过于密集，增大数据存储开销，也影响数据可视化的性能。更重要的是，这么多的数据在坐标转换为百度坐标系里面的坐标也会带来一系列问题，比如每秒请求次数的限制等等。在geolife整理后数据的基础上，我们进行了抽样处理，由原来的5s一次采样到1分钟一次。具体实现参见GpsDemo项目中<code>edu.cx.util.ResampleGPS</code>.</p><h3 id="坐标转换"><a href="#坐标转换" class="headerlink" title="坐标转换"></a>坐标转换</h3><p>由原来的GPS坐标体系转换为百度坐标系坐标。采用百度提供的API实现。可以参考<a href="https://developer.baidu.com/map/index.php?title=webapi/guide/changeposition" target="_blank" rel="noopener">百度坐标转换说明文档</a>。</p><p>具体实现也可以参考<code>edu.dcy.gps.LetZinkModel</code>里面的 <code>getRightPoints</code>方法。</p><h3 id="导入到mysql"><a href="#导入到mysql" class="headerlink" title="导入到mysql"></a>导入到mysql</h3><p><strong>建表</strong></p><pre><code>create table baidugps(uid int,lat varchar(15),lng varchar(15),height varchar(10),time datetime)</code></pre><p><strong>导入数据</strong></p><pre><code>mysql -u root -p geolife --local-infile=1 -e &#39;load data local infile &quot;/home/spark/data/baidu.gps&quot;  into table baidugps fields terminated by &quot;,&quot; lines terminated by &quot;\n&quot;&#39;</code></pre><p>示例数据<br>下面展示的是所有的用户行为数据。（注：这里海拔字段没有列出）</p><pre><code>mysql&gt; select uid,lat,lng,time from baidugps limit 10;+------+-----------------+-----------------+---------------------+| uid  | lat             | lng             | time                |+------+-----------------+-----------------+---------------------+|    0 | 39.991669316478 | 116.32943062745 | 2008-10-23 02:54:00 ||    0 | 39.991597427888 | 116.32713152844 | 2008-10-23 02:55:00 ||    0 | 39.991829369523 | 116.3256071635  | 2008-10-23 02:56:00 ||    0 | 39.991829414529 | 116.32333614866 | 2008-10-23 02:57:00 ||    0 | 39.991665880212 | 116.32148372188 | 2008-10-23 02:58:00 ||    0 | 39.991655125323 | 116.31976560663 | 2008-10-23 02:59:00 ||    0 | 39.991617926075 | 116.31752622722 | 2008-10-23 03:00:00 ||    0 | 39.991682692695 | 116.31536239765 | 2008-10-23 03:01:00 ||    0 | 39.991609968636 | 116.31304414117 | 2008-10-23 03:02:00 ||    0 | 39.991145100999 | 116.3121520717  | 2008-10-23 03:03:00 |+------+-----------------+-----------------+---------------------+10 rows in set (0.00 sec)</code></pre><p><strong>切分路径</strong><br>上面baidugps表保存的是用户的所有数据，但是没有切分为具体的路径，为了有较好的扩展性，我们使用一张新的表来实现切分路径，该表里面保存有每个用户每条路径的路径号以及起始时间，我们可以根据不同的参数生成不同的路径划分表，与原始数据表baidugps进行关联查询，于是可以根据用户id以及路径号查询这段时间的轨迹数据进行展示。<br>具体实现参考<code>edu.cx.LetZinkModel</code>里面的<code>separateGpsPath</code>方法。<br>下表表示根据距离阈值为500、时间阈值为10生成的路径划分表。</p><p><strong>建立路径划分表</strong></p><pre><code>create table subpath500_10(uid int,pathid int,begin datetime,end  datetime,points int,dis double)</code></pre><p>字段含义分别为：用户id、路径号、开始时间、结束时间、该路径包含的gps记录点数目、起始点距离。便于展示，其中包含gps记录点数以及起始点距离没有列出。<br>示例数据</p><pre><code>mysql&gt; select uid,pathid,begin,end from subpath500_10 limit 10;+------+--------+---------------------+---------------------+| uid  | pathid | begin               | end                 |+------+--------+---------------------+---------------------+|  127 |      1 | 2008-09-27 00:58:00 | 2008-09-27 01:09:00 ||  127 |      2 | 2008-09-27 02:33:38 | 2008-09-27 02:46:01 ||  127 |      3 | 2008-09-27 03:25:58 | 2008-09-27 03:34:00 ||  127 |      4 | 2008-09-27 11:05:08 | 2008-09-27 11:24:01 ||  127 |      5 | 2008-09-28 02:19:31 | 2008-09-28 02:26:01 ||  127 |      6 | 2008-09-29 04:25:57 | 2008-09-29 04:44:02 ||  127 |      7 | 2008-09-29 06:20:15 | 2008-09-29 06:20:15 ||  127 |      8 | 2008-09-29 09:16:11 | 2008-09-29 09:30:01 ||  127 |      9 | 2008-09-29 10:05:10 | 2008-09-29 10:31:02 ||  127 |     10 | 2008-09-29 10:46:27 | 2008-09-29 10:49:02 |+------+--------+---------------------+---------------------+</code></pre><h4 id="轨迹展示"><a href="#轨迹展示" class="headerlink" title="轨迹展示"></a>轨迹展示</h4><p>有了上面的数据支持，我们借助百度地图的接口，就能够很轻松的将这些轨迹绘制出来。访问 <a href="https://localhost:8080/GpsDemo/index.html" target="_blank" rel="noopener">https://localhost:8080/GpsDemo/index.html</a>   。这个页面显示的是原始点绘制的路径。</p><p>如果要显示划分区域之后的路径，可以访问这个页面 <a href="https://localhost:8080/GpsDemo/index0.html" target="_blank" rel="noopener">https://localhost:8080/GpsDemo/index0.html</a>  。<br>效果图</p><p>换到智驾小V用户的后台数据，在<code>edu.cx.servlet.GetAreaData</code>中进行数据库表的切换，里面有详尽注释。</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> data </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>零基础教你Hexo+Github+CloudFlare+Typora打造互联网创作工具流</title>
       <link href="/2019/10/05/cong-ling-kai-shi-da-jian-ge-ren-bo-ke/"/>
       <url>/2019/10/05/cong-ling-kai-shi-da-jian-ge-ren-bo-ke/</url>
@@ -228,9 +228,9 @@
       
         <tags>
             
-            <tag> todo </tag>
-            
             <tag> website </tag>
+            
+            <tag> todo </tag>
             
             <tag> tool </tag>
             
@@ -300,25 +300,6 @@
     
     
     <entry>
-      <title>如何掌握一个好的上班（滑水）姿势</title>
-      <link href="/2019/10/01/ru-he-zheng-que-zhang-wo-hao-de-shang-ban-hua-shui-zi-shi/"/>
-      <url>/2019/10/01/ru-he-zheng-que-zhang-wo-hao-de-shang-ban-hua-shui-zi-shi/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> todo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Template</title>
       <link href="/2019/10/01/quan-zhan-ren-yuan-gong-ju-zhan/"/>
       <url>/2019/10/01/quan-zhan-ren-yuan-gong-ju-zhan/</url>
@@ -343,25 +324,6 @@
       <url>/2019/10/01/zhua-bao-zhe-jian-shi-qing/</url>
       
         <content type="html"><![CDATA[<h2 id="配图"><a href="#配图" class="headerlink" title="配图"></a>配图</h2><blockquote><p>被抓先行了吧？</p></blockquote><h2 id="0x1-出问题了，抓个包给我"><a href="#0x1-出问题了，抓个包给我" class="headerlink" title="0x1 出问题了，抓个包给我"></a>0x1 出问题了，抓个包给我</h2><p>啥是包，怎么抓</p><p>常用的抓包工具</p><ul><li>fiddle</li><li>whislte</li><li>tcpdump | wireshark</li></ul><h2 id="0x2-牛刀小试"><a href="#0x2-牛刀小试" class="headerlink" title="0x2 牛刀小试"></a>0x2 牛刀小试</h2><h2 id="0x3-初出茅庐"><a href="#0x3-初出茅庐" class="headerlink" title="0x3 初出茅庐"></a>0x3 初出茅庐</h2><h2 id="0x4-杀手锏"><a href="#0x4-杀手锏" class="headerlink" title="0x4 杀手锏"></a>0x4 杀手锏</h2><h2 id="0x5-总结-对比分析"><a href="#0x5-总结-对比分析" class="headerlink" title="0x5 总结 | 对比分析"></a>0x5 总结 | 对比分析</h2><p>使用场景：</p><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul><li><a href="https://imququ.com/post/how-to-decrypt-https.html" target="_blank" rel="noopener">https://imququ.com/post/how-to-decrypt-https.html</a></li><li></li></ul>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> website </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Template</title>
-      <link href="/2019/10/01/cv-gong-cheng-shi-pan-dian-zui-chang-yong-de-app-kai-fa-gong-ju/"/>
-      <url>/2019/10/01/cv-gong-cheng-shi-pan-dian-zui-chang-yong-de-app-kai-fa-gong-ju/</url>
-      
-        <content type="html"><![CDATA[<h2 id="文章模版"><a href="#文章模版" class="headerlink" title="文章模版"></a>文章模版</h2><pre><code>---title:   网站更新记录date:   2019-10-01tags:   [website] declare:   truetypora-root-url: ../../source/password: 12345abstract: 列表页的摘要显示message: 🥔🥔 我是 🍠 ---</code></pre>]]></content>
       
       
       
@@ -414,11 +376,49 @@
     
     
     <entry>
+      <title>Template</title>
+      <link href="/2019/10/01/cv-gong-cheng-shi-pan-dian-zui-chang-yong-de-app-kai-fa-gong-ju/"/>
+      <url>/2019/10/01/cv-gong-cheng-shi-pan-dian-zui-chang-yong-de-app-kai-fa-gong-ju/</url>
+      
+        <content type="html"><![CDATA[<h2 id="文章模版"><a href="#文章模版" class="headerlink" title="文章模版"></a>文章模版</h2><pre><code>---title:   网站更新记录date:   2019-10-01tags:   [website] declare:   truetypora-root-url: ../../source/password: 12345abstract: 列表页的摘要显示message: 🥔🥔 我是 🍠 ---</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> website </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>如何取一个富有吸引力的名字</title>
       <link href="/2019/10/01/ru-he-qu-yi-ge-fu-you-xi-yin-li-de-ming-zi/"/>
       <url>/2019/10/01/ru-he-qu-yi-ge-fu-you-xi-yin-li-de-ming-zi/</url>
       
         <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>隔壁老王家有一个儿子，每天起早去菜市场卖鱼，</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> todo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>如何掌握一个好的上班（滑水）姿势</title>
+      <link href="/2019/10/01/ru-he-zheng-que-zhang-wo-hao-de-shang-ban-hua-shui-zi-shi/"/>
+      <url>/2019/10/01/ru-he-zheng-que-zhang-wo-hao-de-shang-ban-hua-shui-zi-shi/</url>
+      
+        <content type="html"><![CDATA[]]></content>
       
       
       
