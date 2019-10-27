@@ -228,9 +228,9 @@
       
         <tags>
             
-            <tag> website </tag>
-            
             <tag> todo </tag>
+            
+            <tag> website </tag>
             
             <tag> tool </tag>
             
@@ -300,68 +300,11 @@
     
     
     <entry>
-      <title>如何掌握一个好的上班（滑水）姿势</title>
-      <link href="/2019/10/01/ru-he-zheng-que-zhang-wo-hao-de-shang-ban-hua-shui-zi-shi/"/>
-      <url>/2019/10/01/ru-he-zheng-que-zhang-wo-hao-de-shang-ban-hua-shui-zi-shi/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> todo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>如何取一个让人无法拒绝的标题</title>
-      <link href="/2019/10/01/ru-he-qu-yi-ge-rang-ren-wu-fa-ju-jue-de-biao-ti/"/>
-      <url>/2019/10/01/ru-he-qu-yi-ge-rang-ren-wu-fa-ju-jue-de-biao-ti/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> todo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Template</title>
       <link href="/2019/10/01/quan-zhan-ren-yuan-gong-ju-zhan/"/>
       <url>/2019/10/01/quan-zhan-ren-yuan-gong-ju-zhan/</url>
       
         <content type="html"><![CDATA[<h2 id="0x1-前端"><a href="#0x1-前端" class="headerlink" title="0x1 前端"></a>0x1 前端</h2><p>目前的前端技术发展非常的迅猛</p><p>node有一统江湖之势头</p><h2 id="0x2-工具"><a href="#0x2-工具" class="headerlink" title="0x2 工具"></a>0x2 工具</h2><ul><li>webstorm</li><li>nodejs</li><li>vuejs</li><li>sublime</li><li>postman</li><li>whistle</li></ul><h2 id="0x0-gateway"><a href="#0x0-gateway" class="headerlink" title="0x0 gateway"></a>0x0 gateway</h2><ul><li>nginx</li><li>api 技术</li></ul><h2 id="0x3-客户端"><a href="#0x3-客户端" class="headerlink" title="0x3 客户端"></a>0x3 客户端</h2><ul><li>weex</li><li>eros</li><li>reactnative</li></ul><h2 id="0x4-后台"><a href="#0x4-后台" class="headerlink" title="0x4 后台"></a>0x4 后台</h2><ul><li><p>cloudapi？</p></li><li><p>Springcloud | springboot</p></li><li><p>dubbo rpc</p></li><li><p>serveless</p></li><li><p>aws | amazure</p></li><li><p>java | go</p></li></ul><h2 id="0x5-数据层"><a href="#0x5-数据层" class="headerlink" title="0x5 数据层"></a>0x5 数据层</h2><ul><li>mysql</li><li>oracle</li><li>redis</li><li>hbase | big data </li></ul><h2 id="0x5-中间介"><a href="#0x5-中间介" class="headerlink" title="0x5 中间介"></a>0x5 中间介</h2><ul><li>nginx</li><li>cache</li><li>message queue</li></ul><h2 id="0x6-辅助工具"><a href="#0x6-辅助工具" class="headerlink" title="0x6 辅助工具"></a>0x6 辅助工具</h2><ul><li>抓包</li><li>java 调试 avatos</li><li></li></ul>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> website </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Template</title>
-      <link href="/2019/10/01/cv-gong-cheng-shi-pan-dian-zui-chang-yong-de-app-kai-fa-gong-ju/"/>
-      <url>/2019/10/01/cv-gong-cheng-shi-pan-dian-zui-chang-yong-de-app-kai-fa-gong-ju/</url>
-      
-        <content type="html"><![CDATA[<h2 id="文章模版"><a href="#文章模版" class="headerlink" title="文章模版"></a>文章模版</h2><pre><code>---title:   网站更新记录date:   2019-10-01tags:   [website] declare:   truetypora-root-url: ../../source/password: 12345abstract: 列表页的摘要显示message: 🥔🥔 我是 🍠 ---</code></pre>]]></content>
       
       
       
@@ -396,10 +339,10 @@
     
     <entry>
       <title>Template</title>
-      <link href="/2019/10/01/mo-ban/"/>
-      <url>/2019/10/01/mo-ban/</url>
+      <link href="/2019/10/01/cv-gong-cheng-shi-pan-dian-zui-chang-yong-de-app-kai-fa-gong-ju/"/>
+      <url>/2019/10/01/cv-gong-cheng-shi-pan-dian-zui-chang-yong-de-app-kai-fa-gong-ju/</url>
       
-        <content type="html"><![CDATA[<h2 id="文章模版"><a href="#文章模版" class="headerlink" title="文章模版"></a>文章模版</h2><pre><code>---title:   网站更新记录date:   2019-10-01tags:   [website] declare:   truetypora-root-url: ../../source/password: 12345abstract: 列表页的摘要显示message: 🥔🥔 我是 🍠 ---</code></pre><p><a href="https://button.like.co/markhoma" target="_blank" rel="noopener">https://button.like.co/markhoma</a></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="文章模版"><a href="#文章模版" class="headerlink" title="文章模版"></a>文章模版</h2><pre><code>---title:   网站更新记录date:   2019-10-01tags:   [website] declare:   truetypora-root-url: ../../source/password: 12345abstract: 列表页的摘要显示message: 🥔🥔 我是 🍠 ---</code></pre>]]></content>
       
       
       
@@ -425,6 +368,63 @@
         <tags>
             
             <tag> website </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Template</title>
+      <link href="/2019/10/01/mo-ban/"/>
+      <url>/2019/10/01/mo-ban/</url>
+      
+        <content type="html"><![CDATA[<h2 id="文章模版"><a href="#文章模版" class="headerlink" title="文章模版"></a>文章模版</h2><pre><code>---title:   网站更新记录date:   2019-10-01tags:   [website] declare:   truetypora-root-url: ../../source/password: 12345abstract: 列表页的摘要显示message: 🥔🥔 我是 🍠 ---</code></pre><p><a href="https://button.like.co/markhoma" target="_blank" rel="noopener">https://button.like.co/markhoma</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> website </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>如何取一个让人无法拒绝的标题</title>
+      <link href="/2019/10/01/ru-he-qu-yi-ge-rang-ren-wu-fa-ju-jue-de-biao-ti/"/>
+      <url>/2019/10/01/ru-he-qu-yi-ge-rang-ren-wu-fa-ju-jue-de-biao-ti/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> todo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>如何掌握一个好的上班（滑水）姿势</title>
+      <link href="/2019/10/01/ru-he-zheng-que-zhang-wo-hao-de-shang-ban-hua-shui-zi-shi/"/>
+      <url>/2019/10/01/ru-he-zheng-que-zhang-wo-hao-de-shang-ban-hua-shui-zi-shi/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> todo </tag>
             
         </tags>
       
