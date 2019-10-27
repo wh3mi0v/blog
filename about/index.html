@@ -70,12 +70,35 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/categories" class="waves-effect waves-light">
+    <a href="" class="waves-effect waves-light">
+
       
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
       
-      <span>Categories</span>
+      <span>Resume</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
     </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Resume Builder</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tags/resume">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Resume Guides</span>
+        </a>
+      </li>
+      
+    </ul>
     
   </li>
   
@@ -139,12 +162,36 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/categories" class="waves-effect waves-light">
+		<a href="javascript:;">
 			
-			    <i class="fa-fw fas fa-bookmark"></i>
+				<i class="fa-fw fas fa-list"></i>
 			
-			Categories
+			Resume
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
 		</a>
+            <ul  style="background:  ;" >
+              
+                <li>   
+				
+                  <a href="/musics " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Resume Builder</span>
+                  </a>
+                </li>
+              
+                <li>   
+				
+                  <a href="/tags/resume " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Resume Guides</span>
+                  </a>
+                </li>
+               
+            </ul>
           
         </li>
         
@@ -195,7 +242,7 @@
                 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
                 <script>
                     var typed = new Typed("#typed", {
-                        strings: ['从来没有真正的绝境, 只有心灵的迷途', 'Never really desperate, only the lost of the soul'],
+                        strings: ['Never really desperate, only the lost of the soul', 'Life was like a box of chocolates ,you never know what you are going to get.'],
                         startDelay: 300,
                         typeSpeed: 100,
                         loop: true,
@@ -211,8 +258,7 @@
 
 
 <script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+    $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
 </script>
 
 
@@ -434,7 +480,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"tool","value":1},{"name":"resume","value":1}],
+                data: [{"name":"resume","value":1},{"name":"tool","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -458,7 +504,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["app","resume","2019","cv"]
+                data: ["resume","2019","cv","app"]
             }
         ],
         yAxis: [
