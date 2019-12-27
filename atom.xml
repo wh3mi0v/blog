@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>CvBox</title>
-  <icon>https://www.gravatar.com/avatar/57b8279c7172c4517feb20c78ad91d80</icon>
-  <subtitle>make cv &amp; resume easy</subtitle>
+  <title>PrayDaily</title>
+  <icon>https://www.gravatar.com/avatar/9bb024ca1a7cafe692cf1f9e3b4b6eba</icon>
+  
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://c.cvbox.org/blog/"/>
+  <link href="https://praydaily.net/blog/"/>
   <updated>2019-10-27T12:57:44.872Z</updated>
-  <id>https://c.cvbox.org/blog/</id>
+  <id>https://praydaily.net/blog/</id>
   
   <author>
-    <name>CvBox</name>
-    <email>me@cvbox.org</email>
+    <name>Mark</name>
+    <email>i@praydaily.net</email>
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
     <title>You just need to remember these three principles!</title>
-    <link href="https://c.cvbox.org/blog/2019/10/25/is-it-better-for-college-students-to-write-more-than-one-page-of-resume-or-one-page-of-resume-you-just-need-to-remember-these-three-principles/"/>
-    <id>https://c.cvbox.org/blog/2019/10/25/is-it-better-for-college-students-to-write-more-than-one-page-of-resume-or-one-page-of-resume-you-just-need-to-remember-these-three-principles/</id>
+    <link href="https://praydaily.net/blog/2019/10/25/is-it-better-for-college-students-to-write-more-than-one-page-of-resume-or-one-page-of-resume-you-just-need-to-remember-these-three-principles/"/>
+    <id>https://praydaily.net/blog/2019/10/25/is-it-better-for-college-students-to-write-more-than-one-page-of-resume-or-one-page-of-resume-you-just-need-to-remember-these-three-principles/</id>
     <published>2019-10-24T16:00:00.000Z</published>
     <updated>2019-10-27T12:57:44.872Z</updated>
     
@@ -36,21 +36,21 @@
     </summary>
     
     
-      <category term="resume" scheme="https://c.cvbox.org/blog/categories/resume/"/>
+      <category term="resume" scheme="https://praydaily.net/blog/categories/resume/"/>
     
     
-      <category term="resume" scheme="https://c.cvbox.org/blog/tags/resume/"/>
+      <category term="resume" scheme="https://praydaily.net/blog/tags/resume/"/>
     
-      <category term="2019" scheme="https://c.cvbox.org/blog/tags/2019/"/>
+      <category term="2019" scheme="https://praydaily.net/blog/tags/2019/"/>
     
-      <category term="cv" scheme="https://c.cvbox.org/blog/tags/cv/"/>
+      <category term="cv" scheme="https://praydaily.net/blog/tags/cv/"/>
     
   </entry>
   
   <entry>
     <title>8 Things have to Think about to Make Your Idea To an App</title>
-    <link href="https://c.cvbox.org/blog/2019/10/10/8-things-have-to-think-about-to-make-your-idea-to-an-app/"/>
-    <id>https://c.cvbox.org/blog/2019/10/10/8-things-have-to-think-about-to-make-your-idea-to-an-app/</id>
+    <link href="https://praydaily.net/blog/2019/10/10/8-things-have-to-think-about-to-make-your-idea-to-an-app/"/>
+    <id>https://praydaily.net/blog/2019/10/10/8-things-have-to-think-about-to-make-your-idea-to-an-app/</id>
     <published>2019-10-09T16:00:00.000Z</published>
     <updated>2019-10-27T08:38:47.877Z</updated>
     
@@ -67,10 +67,10 @@
     </summary>
     
     
-      <category term="tool" scheme="https://c.cvbox.org/blog/categories/tool/"/>
+      <category term="tool" scheme="https://praydaily.net/blog/categories/tool/"/>
     
     
-      <category term="app" scheme="https://c.cvbox.org/blog/tags/app/"/>
+      <category term="app" scheme="https://praydaily.net/blog/tags/app/"/>
     
   </entry>
   
