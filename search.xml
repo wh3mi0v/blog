@@ -5,22 +5,22 @@
     
     <entry>
       <title>8 Things have to Think about to Make Your Idea To an App</title>
-      <link href="/blog/2019/10/10/8-things-have-to-think-about-to-make-your-idea-to-an-app/"/>
-      <url>/blog/2019/10/10/8-things-have-to-think-about-to-make-your-idea-to-an-app/</url>
+      <link href="/blog/2019/12/10/8-things-have-to-think-about-to-make-your-idea-to-an-app/"/>
+      <url>/blog/2019/12/10/8-things-have-to-think-about-to-make-your-idea-to-an-app/</url>
       
         <content type="html"><![CDATA[<h1 id="8-Things-have-to-Think-about-to-Make-Your-Idea-To-an-App"><a href="#8-Things-have-to-Think-about-to-Make-Your-Idea-To-an-App" class="headerlink" title="8 Things have to Think about to Make Your Idea To an App"></a>8 Things have to Think about to Make Your Idea To an App</h1><img src="/assets/image-20191011090730791.png" alt="image-20191011090730791" style="zoom:50%;"><p>Photo by <a href="https://unsplash.com/@adamus?utm_source=medium&utm_medium=referral" target="_blank" rel="noopener">Chris Adamus</a> on [Unsplash]</p><h1 id="0x1-The-story-begins-with-an-apple"><a href="#0x1-The-story-begins-with-an-apple" class="headerlink" title="0x1 The story begins with an apple"></a>0x1 The story begins with an apple</h1><blockquote><p>Like an apple falling off a tree and hitting you on the head, suddenly you have an idea about how to make the product land on quickly. The middle way is beyond our imagination. If you only have good product thinking, but lack code implementation ability, you need to find a technician to assist you. Or if you are already comprehensive, you can skip the prototype directly, deduce it in your mind, and then start to roll it up. In fact, I strongly recommend that prototypes be displayed in front of us. After all, they are completely imagined in the brain, and it’s hard to think about them thoroughly. Moreover, The product prototype design is only the first step to start a pit.It’s a great honor for me to meet you here and share something that you probably know or don’t know, and that I know exactly.</p></blockquote><h1 id="0x2-Prototype-Design-Tool"><a href="#0x2-Prototype-Design-Tool" class="headerlink" title="0x2 Prototype Design Tool"></a>0x2 Prototype Design Tool</h1><ul><li>Flinto</li><li>Axure</li></ul><h1 id="0x3-Front-end-technology-selection（Hybrid-App）"><a href="#0x3-Front-end-technology-selection（Hybrid-App）" class="headerlink" title="0x3 Front-end technology selection（Hybrid App）"></a>0x3 Front-end technology selection（Hybrid App）</h1><ul><li>Vue</li><li>Uinapp</li><li>Weex</li><li>ReactNative</li><li>Element-UI | Ant-Design</li></ul><h1 id="0x4-Backstage-Science-and-Technology-Selection"><a href="#0x4-Backstage-Science-and-Technology-Selection" class="headerlink" title="0x4 Backstage Science and Technology Selection"></a>0x4 Backstage Science and Technology Selection</h1><ul><li>Basic framework: Java-SpringCloud | SpringBoot | Dubbo</li><li>Protocol selection : HTTP vs TCP</li><li>Selection of databases : SQL vs NOSQL (Mysql | Redis)</li><li>Auth Tickets: Session | OAuth | JWT</li><li>Message Queue: RocketMq</li><li>GateWay: Nginx | Openresty</li></ul><h1 id="0x5-Deployment-Automation"><a href="#0x5-Deployment-Automation" class="headerlink" title="0x5 Deployment Automation"></a>0x5 Deployment Automation</h1><ul><li>Jenkins | Ansible</li><li>Docker</li><li>Kubernetes</li></ul><h1 id="0x6-Code-Hosting"><a href="#0x6-Code-Hosting" class="headerlink" title="0x6 Code Hosting"></a>0x6 Code Hosting</h1><ul><li>Github</li><li>Gitlab | Gogs</li></ul><h1 id="0x7-Monitoring-amp-Visualization"><a href="#0x7-Monitoring-amp-Visualization" class="headerlink" title="0x7 Monitoring &amp; Visualization"></a>0x7 Monitoring &amp; Visualization</h1><ul><li>Cat</li><li>Prometheus</li><li>Pinpoint</li><li>E（Elasticsearch）L（Logstash）K（Kibana）, ELK</li><li>Grafana | Kibana can be combined with Proetheus to form monitoring data integration</li></ul><h1 id="0x8-Others-All-stack-developers-will-know"><a href="#0x8-Others-All-stack-developers-will-know" class="headerlink" title="0x8 Others . (All stack developers will know)"></a>0x8 Others . (All stack developers will know)</h1><ul><li>JavaScript</li><li>Vuejs</li><li>Python</li><li>Postman</li><li>Whistle</li><li>WireShark</li><li>Tcpdump</li></ul>]]></content>
       
       
       <categories>
           
-          <category> tool </category>
+          <category> think </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> app </tag>
+            <tag> think </tag>
             
         </tags>
       
